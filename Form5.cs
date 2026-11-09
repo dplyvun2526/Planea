@@ -3,92 +3,70 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using static ProyectoDeskstop.Ui;
 
 namespace ProyectoDeskstop
 {
     public partial class Form5 : Form
     {
+        private int[] valoresEstados = new int[4];
+        private readonly Color[] coloresEstados = { Color.FromArgb(15, 39, 71), Color.FromArgb(37, 99, 235), Color.FromArgb(220, 38, 38), Color.FromArgb(147, 197, 253) };
+
         public Form5()
         {
             InitializeComponent();
-            ConstruirUI();
+            CargarDatos();
         }
 
-        private void ConstruirUI()
+        private void CargarDatos()
         {
             CultureInfo es = new CultureInfo("es-ES");
 
-            Controls.Add(Lbl("RENDIMIENTO DEL EQUIPO", 9F, true, 30, 20, Azul));
-            Controls.Add(Lbl("Resumen y estadísticas", 22F, false, 30, 40, Texto));
-            Controls.Add(Lbl("Analiza el avance de los proyectos y el tiempo dedicado.", 10F, false, 30, 85, Gris));
-
             int total = Datos.Tareas.Count;
-            int fin = Datos.Tareas.Count(x => x.Estado == "Finalizada");
-            int enProg = Datos.Tareas.Count(x => x.Estado == "En progreso");
-            int pend = Datos.Tareas.Count(x => x.Estado == "Pendiente");
-            int bloq = Datos.Tareas.Count(x => x.Estado == "Bloqueada");
+            int fin = Datos.Tareas.Count(t => t.Estado == "Finalizada");
+            int enProg = Datos.Tareas.Count(t => t.Estado == "En progreso");
+            int pend = Datos.Tareas.Count(t => t.Estado == "Pendiente");
+            int bloq = Datos.Tareas.Count(t => t.Estado == "Bloqueada");
             int tasa = total == 0 ? 0 : (int)Math.Round(100.0 * fin / total);
 
-            string[] titulos = { "Total de tareas", "Tareas finalizadas", "En progreso", "Tasa de finalización" };
-            string[] valores = { total.ToString(), fin.ToString(), enProg.ToString(), tasa + "%" };
-            for (int i = 0; i < 4; i++)
-            {
-                Panel tarjeta = Tarjeta(30 + i * 235, 125, 225, 85);
-                tarjeta.Controls.Add(Lbl(titulos[i], 8.5F, false, 14, 14, Gris));
-                tarjeta.Controls.Add(Lbl(valores[i], 20F, true, 14, 36, i == 3 ? Azul : Texto));
-                Controls.Add(tarjeta);
-            }
+            lblStatValor1.Text = total.ToString();
+            lblStatValor2.Text = fin.ToString();
+            lblStatValor3.Text = enProg.ToString();
+            lblStatValor4.Text = tasa + "%";
 
             // Estado de las tareas
-            Panel est = Tarjeta(30, 235, 430, 300);
-            est.Controls.Add(Lbl("Estado de las tareas", 11F, true, 15, 14, Texto));
-            est.Controls.Add(Lbl("Distribución por estado", 8.5F, false, 15, 38, Gris));
-            Panel dona = new Panel { Location = new Point(20, 75), Size = new Size(170, 170) };
-            est.Controls.Add(dona);
-            int[] cant = { pend, enProg, bloq, fin };
-            Color[] cols = { Marino, Azul, Rojo, AzulClaro };
-            string[] nombres = { "Pendientes", "En progreso", "Bloqueadas", "Finalizadas" };
-            Dona(dona, cant, cols);
-            for (int j = 0; j < 4; j++)
-            {
-                Leyenda(est, 210, 95 + j * 45, cols[j], nombres[j], cant[j]);
-            }
-            Controls.Add(est);
+            valoresEstados = new[] { pend, enProg, bloq, fin };
+            lblEstadoValor1.Text = pend.ToString();
+            lblEstadoValor2.Text = enProg.ToString();
+            lblEstadoValor3.Text = bloq.ToString();
+            lblEstadoValor4.Text = fin.ToString();
 
-            // Horas por proyecto
-            Panel hp = Tarjeta(480, 235, 480, 300);
-            hp.Controls.Add(Lbl("Horas por proyecto", 11F, true, 15, 14, Texto));
-            hp.Controls.Add(Lbl("Reales frente a estimadas", 8.5F, false, 15, 38, Gris));
-            for (int i = 0; i < Datos.Proyectos.Count; i++)
+            // Horas por proyecto (cuatro proyectos)
+            Label[] nombres = { lblHorasNombre1, lblHorasNombre2, lblHorasNombre3, lblHorasNombre4 };
+            Label[] valores = { lblHorasValor1, lblHorasValor2, lblHorasValor3, lblHorasValor4 };
+            ProgressBar[] barras = { pbHoras1, pbHoras2, pbHoras3, pbHoras4 };
+
+            for (int i = 0; i < 4 && i < Datos.Proyectos.Count; i++)
             {
                 Proyecto p = Datos.Proyectos[i];
-                int y = 75 + i * 55;
-                hp.Controls.Add(Lbl(p.Nombre, 9F, false, 15, y, Texto));
-                hp.Controls.Add(Lbl(p.HorasReales + " h / " + p.HorasEstimadas + " h", 8.5F, false, 300, y, Gris));
-                ProgressBar barra = new ProgressBar
-                {
-                    Maximum = Math.Max(1, p.HorasEstimadas),
-                    Value = Math.Min(p.HorasReales, Math.Max(1, p.HorasEstimadas)),
-                    Location = new Point(15, y + 22),
-                    Size = new Size(450, 10)
-                };
-                hp.Controls.Add(barra);
+                int estimadas = Math.Max(1, p.HorasEstimadas);
+                nombres[i].Text = p.Nombre;
+                valores[i].Text = p.HorasReales + " h / " + p.HorasEstimadas + " h";
+                barras[i].Maximum = estimadas;
+                barras[i].Value = Math.Min(p.HorasReales, estimadas);
             }
-            Controls.Add(hp);
 
             // Resumen de horas
             int uso = (int)Math.Round(100 * Datos.HorasRegistradasTotal / Datos.HorasEstimadasTotal);
-            Panel res = Tarjeta(30, 555, 930, 80);
-            res.Controls.Add(Lbl("Horas estimadas", 8.5F, false, 20, 14, Gris));
-            res.Controls.Add(Lbl(Datos.HorasEstimadasTotal.ToString("0") + " h", 13F, true, 20, 32, Texto));
-            res.Controls.Add(Lbl("Horas registradas", 8.5F, false, 260, 14, Gris));
-            res.Controls.Add(Lbl(Datos.HorasRegistradasTotal.ToString("N1", es) + " h", 13F, true, 260, 32, Texto));
-            res.Controls.Add(Lbl("Uso de horas", 8.5F, false, 560, 14, Gris));
-            res.Controls.Add(Lbl(uso + "%", 13F, true, 840, 10, Azul));
-            ProgressBar usoBarra = new ProgressBar { Maximum = 100, Value = uso, Location = new Point(560, 52), Size = new Size(260, 10) };
-            res.Controls.Add(usoBarra);
-            Controls.Add(res);
+            lblHorasEstValor.Text = Datos.HorasEstimadasTotal.ToString("0") + " h";
+            lblHorasRegValor.Text = Datos.HorasRegistradasTotal.ToString("N1", es) + " h";
+            lblUsoValor.Text = uso + "%";
+            pbUso.Maximum = 100;
+            pbUso.Value = uso;
+        }
+
+        private void panelDonaResumen_Paint(object sender, PaintEventArgs e)
+        {
+            Ui.DibujarDona(e.Graphics, panelDonaResumen.ClientRectangle, valoresEstados, coloresEstados);
         }
     }
 }
