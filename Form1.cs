@@ -16,21 +16,21 @@ namespace ProyectoDeskstop
             MostrarPagina(new Form2(), btnInicio);
         }
 
-        // Muestra una página (Form) dentro del área de contenido y actualiza la cabecera.
+        // Muestra una página dentro del área de contenido y actualiza la cabecera.
         private void MostrarPagina(Form pagina, Button botonActivo)
         {
             foreach (Button b in botonesMenu)
             {
-                b.BackColor = Ui.Marino;
+                b.BackColor = Color.FromArgb(15, 39, 71);
                 b.Font = new Font("Segoe UI", 10F, FontStyle.Regular);
             }
-            botonActivo.BackColor = Ui.MarinoActivo;
+            botonActivo.BackColor = Color.FromArgb(30, 64, 110);
             botonActivo.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
 
-            lblTituloPagina.Text = botonActivo.Text.Trim();
+            lblTituloPagina.Text = botonActivo.Text;
             lblUsuario.Text = Datos.Nombre;
             lblRol.Text = Datos.Rol;
-            picAvatar.Text = Ui.Iniciales(Datos.Nombre);
+            lblAvatar.Text = Ui.Iniciales(Datos.Nombre);
 
             if (paginaActual != null)
             {

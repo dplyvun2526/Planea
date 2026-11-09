@@ -1,115 +1,73 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
-using static ProyectoDeskstop.Ui;
 
 namespace ProyectoDeskstop
 {
     public partial class Form3 : Form
     {
-        private Label lblCantidad;
-        private TextBox txtBuscar;
-        private ComboBox cmbEstado;
-        private FlowLayoutPanel panelCards;
+        private Panel[] tarjetas;
+        private Label[] letras;
+        private Label[] estados;
+        private Label[] nombres;
+        private Label[] descripciones;
+        private Label[] responsables;
+        private Label[] detalles;
+        private ProgressBar[] progresos;
 
         public Form3()
         {
             InitializeComponent();
-            ConstruirUI();
+
+            tarjetas = new[] { panelProyecto1, panelProyecto2, panelProyecto3, panelProyecto4 };
+            letras = new[] { lblInicial1, lblInicial2, lblInicial3, lblInicial4 };
+            estados = new[] { lblEstado1, lblEstado2, lblEstado3, lblEstado4 };
+            nombres = new[] { lblNombre1, lblNombre2, lblNombre3, lblNombre4 };
+            descripciones = new[] { lblDesc1, lblDesc2, lblDesc3, lblDesc4 };
+            responsables = new[] { lblResp1, lblResp2, lblResp3, lblResp4 };
+            detalles = new[] { lblDetalle1, lblDetalle2, lblDetalle3, lblDetalle4 };
+            progresos = new[] { pbProgreso1, pbProgreso2, pbProgreso3, pbProgreso4 };
+
+            CargarProyectos();
+            FiltrarProyectos(this, EventArgs.Empty);
         }
 
-        private void ConstruirUI()
+        private void CargarProyectos()
         {
-            Controls.Add(Lbl("ESPACIO DE TRABAJO", 9F, true, 30, 20, Azul));
-            Controls.Add(Lbl("Proyectos", 22F, false, 30, 40, Texto));
-            Controls.Add(Lbl("Consulta y realiza el seguimiento de todos los proyectos.", 10F, false, 30, 85, Gris));
-
-            Button crear = Boton("+ Crear proyecto", 760, 40, 170, 36, true);
-            crear.Click += (s, e) => CrearProyecto();
-            Controls.Add(crear);
-
-            txtBuscar = new TextBox { Location = new Point(30, 135), Size = new Size(250, 23) };
-            cmbEstado = new ComboBox { Location = new Point(295, 134), Size = new Size(160, 23), DropDownStyle = ComboBoxStyle.DropDownList };
-            cmbEstado.Items.AddRange(new object[] { "Todos", "En progreso", "En revisión", "Planificado" });
-            cmbEstado.SelectedIndex = 0;
-            lblCantidad = Lbl("", 9F, false, 800, 138, Gris);
-            panelCards = new FlowLayoutPanel
+            for (int i = 0; i < tarjetas.Length && i < Datos.Proyectos.Count; i++)
             {
-                Location = new Point(30, 175),
-                Size = new Size(930, 540),
-                AutoScroll = true,
-                BackColor = Fondo
-            };
-
-            Controls.Add(txtBuscar);
-            Controls.Add(cmbEstado);
-            Controls.Add(lblCantidad);
-            Controls.Add(panelCards);
-
-            txtBuscar.TextChanged += (s, e) => RenderizarProyectos();
-            cmbEstado.SelectedIndexChanged += (s, e) => RenderizarProyectos();
-            RenderizarProyectos();
+                Proyecto p = Datos.Proyectos[i];
+                letras[i].Text = p.Inicial;
+                estados[i].Text = p.Estado;
+                estados[i].BackColor = Ui.ColorEstado(p.Estado);
+                nombres[i].Text = p.Nombre;
+                descripciones[i].Text = p.Descripcion;
+                responsables[i].Text = "Responsable: " + p.Responsable;
+                detalles[i].Text = "Tareas: " + p.Completadas + "/" + p.Total + "   ·   Entrega: " + p.Entrega;
+                progresos[i].Maximum = 100;
+                progresos[i].Value = p.Progreso;
+            }
         }
 
-        private void RenderizarProyectos()
+        // Muestra solo las tarjetas que cumplen el buscador y el filtro de estado.
+        private void FiltrarProyectos(object sender, EventArgs e)
         {
-            panelCards.Controls.Clear();
+            if (tarjetas == null) return;
 
-            string filtro = txtBuscar.Text.Trim().ToLower();
-            string estadoSel = cmbEstado.SelectedItem == null ? "Todos" : cmbEstado.SelectedItem.ToString();
+            string filtro = txtBuscarProyecto.Text.Trim().ToLower();
+            string estadoSel = cmbEstadoProyecto.SelectedItem == null ? "Todos" : cmbEstadoProyecto.SelectedItem.ToString();
             int mostrados = 0;
 
-            foreach (Proyecto p in Datos.Proyectos)
+            for (int i = 0; i < tarjetas.Length && i < Datos.Proyectos.Count; i++)
             {
+                Proyecto p = Datos.Proyectos[i];
                 bool coincideEstado = estadoSel == "Todos" || p.Estado == estadoSel;
                 bool coincideNombre = filtro == "" || p.Nombre.ToLower().Contains(filtro);
-                if (coincideEstado && coincideNombre)
-                {
-                    panelCards.Controls.Add(CrearTarjeta(p));
-                    mostrados++;
-                }
+                tarjetas[i].Visible = coincideEstado && coincideNombre;
+                if (tarjetas[i].Visible) mostrados++;
             }
 
-            lblCantidad.Text = mostrados + (mostrados == 1 ? " proyecto" : " proyectos");
-        }
-
-        private Panel CrearTarjeta(Proyecto p)
-        {
-            Panel c = Tarjeta(0, 0, 430, 170);
-            c.Margin = new Padding(0, 0, 20, 20);
-            c.Controls.Add(Caja(p.Inicial, 15, 15, 40));
-            c.Controls.Add(Chip(p.Estado, 300, 18));
-            c.Controls.Add(Lbl(p.Nombre, 11F, true, 15, 68, Texto));
-            c.Controls.Add(Lbl(p.Descripcion, 8.5F, false, 15, 92, Gris));
-            c.Controls.Add(Lbl("Responsable: " + p.Responsable, 9F, false, 15, 115, Texto));
-            c.Controls.Add(Lbl("Tareas: " + p.Completadas + "/" + p.Total + "   ·   Entrega: " + p.Entrega, 8.5F, false, 15, 137, Gris));
-            ProgressBar barra = new ProgressBar { Maximum = 100, Value = p.Progreso, Location = new Point(15, 157), Size = new Size(400, 6) };
-            c.Controls.Add(barra);
-            return c;
-        }
-
-        private void CrearProyecto()
-        {
-            string nombre = Microsoft.VisualBasic.Interaction.InputBox("Nombre del proyecto:", "Crear proyecto", "").Trim();
-            if (nombre == "")
-            {
-                return;
-            }
-
-            Datos.Proyectos.Add(new Proyecto
-            {
-                Nombre = nombre,
-                Descripcion = "Proyecto nuevo.",
-                Responsable = Datos.Nombre,
-                Inicial = nombre.Substring(0, 1).ToUpper(),
-                Estado = "Planificado",
-                Entrega = "—",
-                Completadas = 0,
-                Total = 0,
-                HorasReales = 0,
-                HorasEstimadas = 0
-            });
-            RenderizarProyectos();
+            lblCantidadProyectos.Text = mostrados + (mostrados == 1 ? " proyecto" : " proyectos");
         }
     }
 }
