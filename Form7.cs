@@ -1,6 +1,7 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using static ProyectoDeskstop.Idiomas;
 
 namespace ProyectoDeskstop
 {
@@ -11,7 +12,23 @@ namespace ProyectoDeskstop
         public Form7()
         {
             InitializeComponent();
+            Traducir();
             SeleccionarRol("Usuario");
+        }
+
+        private void Traducir()
+        {
+            Text = T("Planea - Iniciar sesión");
+            lblBienvenida.Text = T("Bienvenido a Planea");
+            lblSubtituloLogin.Text = T("Inicia sesión para continuar");
+            lblEntrarComo.Text = T("Entrar como");
+            btnRolUsuario.Text = T("Usuario");
+            btnRolAdministrador.Text = T("Administrador");
+            lblEmail.Text = T("Correo electrónico");
+            lblPassword.Text = T("Contraseña");
+            btnIniciarSesion.Text = T("Iniciar sesión");
+            lblSinCuenta.Text = T("¿No tienes cuenta?");
+            btnCrearCuenta.Text = T("Crear cuenta");
         }
 
         private void btnRolUsuario_Click(object sender, EventArgs e)
@@ -47,8 +64,8 @@ namespace ProyectoDeskstop
 
         private void btnCrearCuenta_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("El registro de cuentas estará disponible cuando se conecte la base de datos.",
-                "Próximamente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show(T("El registro de cuentas estará disponible cuando se conecte la base de datos."),
+                T("Próximamente"), MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

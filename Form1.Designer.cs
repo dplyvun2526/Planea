@@ -21,6 +21,10 @@ namespace ProyectoDeskstop
         private System.Windows.Forms.Label lblAvatar;
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Label lblRol;
+        private System.Windows.Forms.Panel panelUsuarioMenu;
+        private System.Windows.Forms.Label lblAvatarMenu;
+        private System.Windows.Forms.Label lblUsuarioMenu;
+        private System.Windows.Forms.Label lblRolMenu;
 
         protected override void Dispose(bool disposing)
         {
@@ -270,6 +274,68 @@ namespace ProyectoDeskstop
             this.lblRol.Name = "lblRol";
             this.lblRol.Text = "Usuario";
             // 
+            this.panelUsuarioMenu = new System.Windows.Forms.Panel();
+            this.lblAvatarMenu = new System.Windows.Forms.Label();
+            this.lblUsuarioMenu = new System.Windows.Forms.Label();
+            this.lblRolMenu = new System.Windows.Forms.Label();
+            // 
+            // panelUsuarioMenu
+            // 
+            this.panelUsuarioMenu.BackColor = System.Drawing.Color.FromArgb(15, 39, 71);
+            this.panelUsuarioMenu.Controls.Add(this.lblAvatarMenu);
+            this.panelUsuarioMenu.Controls.Add(this.lblUsuarioMenu);
+            this.panelUsuarioMenu.Controls.Add(this.lblRolMenu);
+            this.panelUsuarioMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.panelUsuarioMenu.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelUsuarioMenu.Location = new System.Drawing.Point(0, 644);
+            this.panelUsuarioMenu.Name = "panelUsuarioMenu";
+            this.panelUsuarioMenu.Size = new System.Drawing.Size(240, 64);
+            this.panelUsuarioMenu.Click += new System.EventHandler(this.AbrirAjustes);
+            this.panelMenu.Controls.Add(this.panelUsuarioMenu);
+            // 
+            // lblAvatarMenu
+            // 
+            this.lblAvatarMenu.BackColor = System.Drawing.Color.FromArgb(226, 232, 240);
+            this.lblAvatarMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblAvatarMenu.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblAvatarMenu.ForeColor = System.Drawing.Color.FromArgb(15, 39, 71);
+            this.lblAvatarMenu.Location = new System.Drawing.Point(14, 14);
+            this.lblAvatarMenu.Name = "lblAvatarMenu";
+            this.lblAvatarMenu.Size = new System.Drawing.Size(36, 36);
+            this.lblAvatarMenu.Text = "AS";
+            this.lblAvatarMenu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblAvatarMenu.Click += new System.EventHandler(this.AbrirAjustes);
+            // 
+            // lblUsuarioMenu
+            // 
+            this.lblUsuarioMenu.AutoSize = true;
+            this.lblUsuarioMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblUsuarioMenu.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblUsuarioMenu.ForeColor = System.Drawing.Color.White;
+            this.lblUsuarioMenu.Location = new System.Drawing.Point(60, 14);
+            this.lblUsuarioMenu.Name = "lblUsuarioMenu";
+            this.lblUsuarioMenu.Text = "Alex Serra";
+            this.lblUsuarioMenu.Click += new System.EventHandler(this.AbrirAjustes);
+            // 
+            // lblRolMenu
+            // 
+            this.lblRolMenu.AutoSize = true;
+            this.lblRolMenu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblRolMenu.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lblRolMenu.ForeColor = System.Drawing.Color.FromArgb(148, 163, 184);
+            this.lblRolMenu.Location = new System.Drawing.Point(60, 34);
+            this.lblRolMenu.Name = "lblRolMenu";
+            this.lblRolMenu.Text = "Usuario";
+            this.lblRolMenu.Click += new System.EventHandler(this.AbrirAjustes);
+            // 
+            // Clic en el bloque de usuario de la cabecera
+            // 
+            this.lblAvatar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblAvatar.Click += new System.EventHandler(this.AbrirAjustes);
+            this.lblUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblUsuario.Click += new System.EventHandler(this.AbrirAjustes);
+            this.lblRol.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblRol.Click += new System.EventHandler(this.AbrirAjustes);
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);

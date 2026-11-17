@@ -1,11 +1,13 @@
 using System;
 using System.Drawing;
 using System.Windows.Forms;
+using static ProyectoDeskstop.Idiomas;
 
 namespace ProyectoDeskstop
 {
     public partial class Form3 : Form
     {
+        private readonly string[] claves = { "Todos", "En progreso", "En revisión", "Planificado" };
         private Panel[] tarjetas;
         private Label[] letras;
         private Label[] estados;
@@ -28,8 +30,24 @@ namespace ProyectoDeskstop
             detalles = new[] { lblDetalle1, lblDetalle2, lblDetalle3, lblDetalle4 };
             progresos = new[] { pbProgreso1, pbProgreso2, pbProgreso3, pbProgreso4 };
 
+            Traducir();
             CargarProyectos();
             FiltrarProyectos(this, EventArgs.Empty);
+        }
+
+        private void Traducir()
+        {
+            lblProyEtiqueta.Text = T("ESPACIO DE TRABAJO");
+            lblProyTitulo.Text = T("Proyectos");
+            lblProySub.Text = T("Consulta y realiza el seguimiento de todos los proyectos.");
+
+            int seleccion = cmbEstadoProyecto.SelectedIndex < 0 ? 0 : cmbEstadoProyecto.SelectedIndex;
+            cmbEstadoProyecto.Items.Clear();
+            foreach (string clave in claves)
+            {
+                cmbEstadoProyecto.Items.Add(T(clave));
+            }
+            cmbEstadoProyecto.SelectedIndex = seleccion;
         }
 
         private void CargarProyectos()
@@ -38,12 +56,12 @@ namespace ProyectoDeskstop
             {
                 Proyecto p = Datos.Proyectos[i];
                 letras[i].Text = p.Inicial;
-                estados[i].Text = p.Estado;
-                estados[i].BackColor = Ui.ColorEstado(p.Estado);
+                estados[i].Text = T(p.Estado);
+                estados[i].BackColor = Diseno.ColorEstado(p.Estado);
                 nombres[i].Text = p.Nombre;
                 descripciones[i].Text = p.Descripcion;
-                responsables[i].Text = "Responsable: " + p.Responsable;
-                detalles[i].Text = "Tareas: " + p.Completadas + "/" + p.Total + "   ·   Entrega: " + p.Entrega;
+                responsables[i].Text = T("Responsable: {0}", p.Responsable);
+                detalles[i].Text = T("Tareas: {0}/{1}   ·   Entrega: {2}", p.Completadas, p.Total, p.Entrega);
                 progresos[i].Maximum = 100;
                 progresos[i].Value = p.Progreso;
             }
@@ -55,7 +73,8 @@ namespace ProyectoDeskstop
             if (tarjetas == null) return;
 
             string filtro = txtBuscarProyecto.Text.Trim().ToLower();
-            string estadoSel = cmbEstadoProyecto.SelectedItem == null ? "Todos" : cmbEstadoProyecto.SelectedItem.ToString();
+            int indice = cmbEstadoProyecto.SelectedIndex;
+            string estadoSel = indice >= 0 && indice < claves.Length ? claves[indice] : "Todos";
             int mostrados = 0;
 
             for (int i = 0; i < tarjetas.Length && i < Datos.Proyectos.Count; i++)
@@ -67,7 +86,7 @@ namespace ProyectoDeskstop
                 if (tarjetas[i].Visible) mostrados++;
             }
 
-            lblCantidadProyectos.Text = mostrados + (mostrados == 1 ? " proyecto" : " proyectos");
+            lblCantidadProyectos.Text = mostrados == 1 ? T("{0} proyecto", mostrados) : T("{0} proyectos", mostrados);
         }
     }
 }

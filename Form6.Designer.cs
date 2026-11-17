@@ -10,8 +10,10 @@ namespace ProyectoDeskstop
         private System.Windows.Forms.Button btnSecPerfil;
         private System.Windows.Forms.Button btnSecIdioma;
         private System.Windows.Forms.Button btnSecNotificaciones;
-        private System.Windows.Forms.Button btnSecPreferencias;
         private System.Windows.Forms.Panel panelSeccion;
+        private System.Windows.Forms.Button btnCerrarSesion;
+
+        // Sección Perfil
         private System.Windows.Forms.Panel panelPerfil;
         private System.Windows.Forms.Label lblPerfilTitulo;
         private System.Windows.Forms.Label lblPerfilSub;
@@ -26,9 +28,44 @@ namespace ProyectoDeskstop
         private System.Windows.Forms.Label lblRolTitulo;
         private System.Windows.Forms.RadioButton rbUsuario;
         private System.Windows.Forms.RadioButton rbAdministrador;
-        private System.Windows.Forms.Button btnCerrarSesion;
-        private System.Windows.Forms.Panel panelOtraSeccion;
-        private System.Windows.Forms.Label lblOtraSeccion;
+
+        // Sección Idioma
+        private System.Windows.Forms.Panel panelIdioma;
+        private System.Windows.Forms.Label lblIdiomaTitulo;
+        private System.Windows.Forms.Label lblIdiomaSub;
+        private System.Windows.Forms.Panel panelIdiomaCat;
+        private System.Windows.Forms.Label lblIdiomaCatNombre;
+        private System.Windows.Forms.Label lblIdiomaCatDetalle;
+        private System.Windows.Forms.Panel panelIdiomaCas;
+        private System.Windows.Forms.Label lblIdiomaCasNombre;
+        private System.Windows.Forms.Label lblIdiomaCasDetalle;
+        private System.Windows.Forms.Panel panelIdiomaEng;
+        private System.Windows.Forms.Label lblIdiomaEngNombre;
+        private System.Windows.Forms.Label lblIdiomaEngDetalle;
+        private System.Windows.Forms.RadioButton rbIdiomaCatala;
+        private System.Windows.Forms.RadioButton rbIdiomaCastellano;
+        private System.Windows.Forms.RadioButton rbIdiomaEnglish;
+        private System.Windows.Forms.Panel panelIdiomaInfo;
+        private System.Windows.Forms.Label lblIdiomaCheck;
+        private System.Windows.Forms.Label lblIdiomaInfoTitulo;
+        private System.Windows.Forms.Label lblIdiomaInfoTexto;
+
+        // Sección Notificaciones
+        private System.Windows.Forms.Panel panelNotificaciones;
+        private System.Windows.Forms.Label lblNotifTitulo;
+        private System.Windows.Forms.Label lblNotifSub;
+        private System.Windows.Forms.Label lblNotif1Titulo;
+        private System.Windows.Forms.Label lblNotif1Desc;
+        private System.Windows.Forms.CheckBox chkNotif1;
+        private System.Windows.Forms.Panel panelNotifSep1;
+        private System.Windows.Forms.Label lblNotif2Titulo;
+        private System.Windows.Forms.Label lblNotif2Desc;
+        private System.Windows.Forms.CheckBox chkNotif2;
+        private System.Windows.Forms.Panel panelNotifSep2;
+        private System.Windows.Forms.Label lblNotif3Titulo;
+        private System.Windows.Forms.Label lblNotif3Desc;
+        private System.Windows.Forms.CheckBox chkNotif3;
+
 
         protected override void Dispose(bool disposing)
         {
@@ -49,8 +86,8 @@ namespace ProyectoDeskstop
             this.btnSecPerfil = new System.Windows.Forms.Button();
             this.btnSecIdioma = new System.Windows.Forms.Button();
             this.btnSecNotificaciones = new System.Windows.Forms.Button();
-            this.btnSecPreferencias = new System.Windows.Forms.Button();
             this.panelSeccion = new System.Windows.Forms.Panel();
+            this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.panelPerfil = new System.Windows.Forms.Panel();
             this.lblPerfilTitulo = new System.Windows.Forms.Label();
             this.lblPerfilSub = new System.Windows.Forms.Label();
@@ -65,12 +102,47 @@ namespace ProyectoDeskstop
             this.lblRolTitulo = new System.Windows.Forms.Label();
             this.rbUsuario = new System.Windows.Forms.RadioButton();
             this.rbAdministrador = new System.Windows.Forms.RadioButton();
-            this.btnCerrarSesion = new System.Windows.Forms.Button();
-            this.panelOtraSeccion = new System.Windows.Forms.Panel();
-            this.lblOtraSeccion = new System.Windows.Forms.Label();
+            this.panelIdioma = new System.Windows.Forms.Panel();
+            this.lblIdiomaTitulo = new System.Windows.Forms.Label();
+            this.lblIdiomaSub = new System.Windows.Forms.Label();
+            this.panelIdiomaCat = new System.Windows.Forms.Panel();
+            this.lblIdiomaCatNombre = new System.Windows.Forms.Label();
+            this.lblIdiomaCatDetalle = new System.Windows.Forms.Label();
+            this.panelIdiomaCas = new System.Windows.Forms.Panel();
+            this.lblIdiomaCasNombre = new System.Windows.Forms.Label();
+            this.lblIdiomaCasDetalle = new System.Windows.Forms.Label();
+            this.panelIdiomaEng = new System.Windows.Forms.Panel();
+            this.lblIdiomaEngNombre = new System.Windows.Forms.Label();
+            this.lblIdiomaEngDetalle = new System.Windows.Forms.Label();
+            this.rbIdiomaCatala = new System.Windows.Forms.RadioButton();
+            this.rbIdiomaCastellano = new System.Windows.Forms.RadioButton();
+            this.rbIdiomaEnglish = new System.Windows.Forms.RadioButton();
+            this.panelIdiomaInfo = new System.Windows.Forms.Panel();
+            this.lblIdiomaCheck = new System.Windows.Forms.Label();
+            this.lblIdiomaInfoTitulo = new System.Windows.Forms.Label();
+            this.lblIdiomaInfoTexto = new System.Windows.Forms.Label();
+            this.panelNotificaciones = new System.Windows.Forms.Panel();
+            this.lblNotifTitulo = new System.Windows.Forms.Label();
+            this.lblNotifSub = new System.Windows.Forms.Label();
+            this.lblNotif1Titulo = new System.Windows.Forms.Label();
+            this.lblNotif1Desc = new System.Windows.Forms.Label();
+            this.chkNotif1 = new System.Windows.Forms.CheckBox();
+            this.panelNotifSep1 = new System.Windows.Forms.Panel();
+            this.lblNotif2Titulo = new System.Windows.Forms.Label();
+            this.lblNotif2Desc = new System.Windows.Forms.Label();
+            this.chkNotif2 = new System.Windows.Forms.CheckBox();
+            this.panelNotifSep2 = new System.Windows.Forms.Panel();
+            this.lblNotif3Titulo = new System.Windows.Forms.Label();
+            this.lblNotif3Desc = new System.Windows.Forms.Label();
+            this.chkNotif3 = new System.Windows.Forms.CheckBox();
             this.panelSeccion.SuspendLayout();
             this.panelPerfil.SuspendLayout();
-            this.panelOtraSeccion.SuspendLayout();
+            this.panelIdioma.SuspendLayout();
+            this.panelIdiomaCat.SuspendLayout();
+            this.panelIdiomaCas.SuspendLayout();
+            this.panelIdiomaEng.SuspendLayout();
+            this.panelIdiomaInfo.SuspendLayout();
+            this.panelNotificaciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblAjustesEtiqueta
@@ -148,31 +220,32 @@ namespace ProyectoDeskstop
             this.btnSecNotificaciones.UseVisualStyleBackColor = false;
             this.btnSecNotificaciones.Click += new System.EventHandler(this.btnSeccion_Click);
             // 
-            // btnSecPreferencias
             // 
-            this.btnSecPreferencias.BackColor = System.Drawing.Color.White;
-            this.btnSecPreferencias.FlatAppearance.BorderSize = 0;
-            this.btnSecPreferencias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSecPreferencias.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.btnSecPreferencias.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.btnSecPreferencias.Location = new System.Drawing.Point(30, 265);
-            this.btnSecPreferencias.Name = "btnSecPreferencias";
-            this.btnSecPreferencias.Size = new System.Drawing.Size(200, 36);
-            this.btnSecPreferencias.Tag = "Preferencias";
-            this.btnSecPreferencias.Text = "Preferencias";
-            this.btnSecPreferencias.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSecPreferencias.UseVisualStyleBackColor = false;
-            this.btnSecPreferencias.Click += new System.EventHandler(this.btnSeccion_Click);
             // 
             // panelSeccion
             // 
             this.panelSeccion.BackColor = System.Drawing.Color.White;
             this.panelSeccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelSeccion.Controls.Add(this.panelPerfil);
-            this.panelSeccion.Controls.Add(this.panelOtraSeccion);
+            this.panelSeccion.Controls.Add(this.panelIdioma);
+            this.panelSeccion.Controls.Add(this.panelNotificaciones);
             this.panelSeccion.Location = new System.Drawing.Point(250, 130);
             this.panelSeccion.Name = "panelSeccion";
             this.panelSeccion.Size = new System.Drawing.Size(710, 400);
+            // 
+            // btnCerrarSesion
+            // 
+            this.btnCerrarSesion.BackColor = System.Drawing.Color.White;
+            this.btnCerrarSesion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(203, 213, 225);
+            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.btnCerrarSesion.ForeColor = System.Drawing.Color.FromArgb(220, 38, 38);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(250, 545);
+            this.btnCerrarSesion.Name = "btnCerrarSesion";
+            this.btnCerrarSesion.Size = new System.Drawing.Size(150, 30);
+            this.btnCerrarSesion.Text = "Cerrar sesión";
+            this.btnCerrarSesion.UseVisualStyleBackColor = false;
+            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
             // panelPerfil
             // 
@@ -190,7 +263,6 @@ namespace ProyectoDeskstop
             this.panelPerfil.Controls.Add(this.lblRolTitulo);
             this.panelPerfil.Controls.Add(this.rbUsuario);
             this.panelPerfil.Controls.Add(this.rbAdministrador);
-            this.panelPerfil.Controls.Add(this.btnCerrarSesion);
             this.panelPerfil.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPerfil.Location = new System.Drawing.Point(0, 0);
             this.panelPerfil.Name = "panelPerfil";
@@ -321,38 +393,362 @@ namespace ProyectoDeskstop
             this.rbAdministrador.UseVisualStyleBackColor = true;
             this.rbAdministrador.CheckedChanged += new System.EventHandler(this.rbAdministrador_CheckedChanged);
             // 
-            // btnCerrarSesion
+            // panelIdioma
             // 
-            this.btnCerrarSesion.BackColor = System.Drawing.Color.White;
-            this.btnCerrarSesion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(203, 213, 225);
-            this.btnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCerrarSesion.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.btnCerrarSesion.ForeColor = System.Drawing.Color.FromArgb(220, 38, 38);
-            this.btnCerrarSesion.Location = new System.Drawing.Point(20, 350);
-            this.btnCerrarSesion.Name = "btnCerrarSesion";
-            this.btnCerrarSesion.Size = new System.Drawing.Size(150, 30);
-            this.btnCerrarSesion.Text = "Cerrar sesión";
-            this.btnCerrarSesion.UseVisualStyleBackColor = false;
-            this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
+            this.panelIdioma.BackColor = System.Drawing.Color.White;
+            this.panelIdioma.Controls.Add(this.lblIdiomaTitulo);
+            this.panelIdioma.Controls.Add(this.lblIdiomaSub);
+            this.panelIdioma.Controls.Add(this.panelIdiomaCat);
+            this.panelIdioma.Controls.Add(this.panelIdiomaCas);
+            this.panelIdioma.Controls.Add(this.panelIdiomaEng);
+            this.panelIdioma.Controls.Add(this.rbIdiomaCatala);
+            this.panelIdioma.Controls.Add(this.rbIdiomaCastellano);
+            this.panelIdioma.Controls.Add(this.rbIdiomaEnglish);
+            this.panelIdioma.Controls.Add(this.panelIdiomaInfo);
+            this.panelIdioma.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelIdioma.Location = new System.Drawing.Point(0, 0);
+            this.panelIdioma.Name = "panelIdioma";
+            this.panelIdioma.Size = new System.Drawing.Size(708, 398);
+            this.panelIdioma.Visible = false;
             // 
-            // panelOtraSeccion
+            // lblIdiomaTitulo
             // 
-            this.panelOtraSeccion.BackColor = System.Drawing.Color.White;
-            this.panelOtraSeccion.Controls.Add(this.lblOtraSeccion);
-            this.panelOtraSeccion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelOtraSeccion.Location = new System.Drawing.Point(0, 0);
-            this.panelOtraSeccion.Name = "panelOtraSeccion";
-            this.panelOtraSeccion.Size = new System.Drawing.Size(708, 398);
-            this.panelOtraSeccion.Visible = false;
+            this.lblIdiomaTitulo.AutoSize = true;
+            this.lblIdiomaTitulo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblIdiomaTitulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblIdiomaTitulo.Location = new System.Drawing.Point(20, 18);
+            this.lblIdiomaTitulo.Name = "lblIdiomaTitulo";
+            this.lblIdiomaTitulo.Text = "Idioma";
             // 
-            // lblOtraSeccion
+            // lblIdiomaSub
             // 
-            this.lblOtraSeccion.AutoSize = true;
-            this.lblOtraSeccion.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lblOtraSeccion.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblOtraSeccion.Location = new System.Drawing.Point(20, 20);
-            this.lblOtraSeccion.Name = "lblOtraSeccion";
-            this.lblOtraSeccion.Text = "Esta sección todavía está en desarrollo.";
+            this.lblIdiomaSub.AutoSize = true;
+            this.lblIdiomaSub.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblIdiomaSub.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblIdiomaSub.Location = new System.Drawing.Point(20, 42);
+            this.lblIdiomaSub.Name = "lblIdiomaSub";
+            this.lblIdiomaSub.Text = "Planea usa por defecto el idioma de tu dispositivo";
+            // 
+            // panelIdiomaCat
+            // 
+            this.panelIdiomaCat.BackColor = System.Drawing.Color.White;
+            this.panelIdiomaCat.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelIdiomaCat.Controls.Add(this.lblIdiomaCatNombre);
+            this.panelIdiomaCat.Controls.Add(this.lblIdiomaCatDetalle);
+            this.panelIdiomaCat.Location = new System.Drawing.Point(20, 80);
+            this.panelIdiomaCat.Name = "panelIdiomaCat";
+            this.panelIdiomaCat.Size = new System.Drawing.Size(215, 60);
+            // 
+            // lblIdiomaCatNombre
+            // 
+            this.lblIdiomaCatNombre.AutoSize = true;
+            this.lblIdiomaCatNombre.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblIdiomaCatNombre.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblIdiomaCatNombre.Location = new System.Drawing.Point(12, 10);
+            this.lblIdiomaCatNombre.Name = "lblIdiomaCatNombre";
+            this.lblIdiomaCatNombre.Text = "Català";
+            // 
+            // lblIdiomaCatDetalle
+            // 
+            this.lblIdiomaCatDetalle.AutoSize = true;
+            this.lblIdiomaCatDetalle.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lblIdiomaCatDetalle.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblIdiomaCatDetalle.Location = new System.Drawing.Point(12, 32);
+            this.lblIdiomaCatDetalle.Name = "lblIdiomaCatDetalle";
+            this.lblIdiomaCatDetalle.Text = "Català";
+            // 
+            // panelIdiomaCas
+            // 
+            this.panelIdiomaCas.BackColor = System.Drawing.Color.FromArgb(239, 246, 255);
+            this.panelIdiomaCas.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelIdiomaCas.Controls.Add(this.lblIdiomaCasNombre);
+            this.panelIdiomaCas.Controls.Add(this.lblIdiomaCasDetalle);
+            this.panelIdiomaCas.Location = new System.Drawing.Point(245, 80);
+            this.panelIdiomaCas.Name = "panelIdiomaCas";
+            this.panelIdiomaCas.Size = new System.Drawing.Size(215, 60);
+            // 
+            // lblIdiomaCasNombre
+            // 
+            this.lblIdiomaCasNombre.AutoSize = true;
+            this.lblIdiomaCasNombre.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblIdiomaCasNombre.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblIdiomaCasNombre.Location = new System.Drawing.Point(12, 10);
+            this.lblIdiomaCasNombre.Name = "lblIdiomaCasNombre";
+            this.lblIdiomaCasNombre.Text = "Castellano";
+            // 
+            // lblIdiomaCasDetalle
+            // 
+            this.lblIdiomaCasDetalle.AutoSize = true;
+            this.lblIdiomaCasDetalle.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lblIdiomaCasDetalle.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblIdiomaCasDetalle.Location = new System.Drawing.Point(12, 32);
+            this.lblIdiomaCasDetalle.Name = "lblIdiomaCasDetalle";
+            this.lblIdiomaCasDetalle.Text = "Español";
+            // 
+            // panelIdiomaEng
+            // 
+            this.panelIdiomaEng.BackColor = System.Drawing.Color.White;
+            this.panelIdiomaEng.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelIdiomaEng.Controls.Add(this.lblIdiomaEngNombre);
+            this.panelIdiomaEng.Controls.Add(this.lblIdiomaEngDetalle);
+            this.panelIdiomaEng.Location = new System.Drawing.Point(470, 80);
+            this.panelIdiomaEng.Name = "panelIdiomaEng";
+            this.panelIdiomaEng.Size = new System.Drawing.Size(215, 60);
+            // 
+            // lblIdiomaEngNombre
+            // 
+            this.lblIdiomaEngNombre.AutoSize = true;
+            this.lblIdiomaEngNombre.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblIdiomaEngNombre.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblIdiomaEngNombre.Location = new System.Drawing.Point(12, 10);
+            this.lblIdiomaEngNombre.Name = "lblIdiomaEngNombre";
+            this.lblIdiomaEngNombre.Text = "English";
+            // 
+            // lblIdiomaEngDetalle
+            // 
+            this.lblIdiomaEngDetalle.AutoSize = true;
+            this.lblIdiomaEngDetalle.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lblIdiomaEngDetalle.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblIdiomaEngDetalle.Location = new System.Drawing.Point(12, 32);
+            this.lblIdiomaEngDetalle.Name = "lblIdiomaEngDetalle";
+            this.lblIdiomaEngDetalle.Text = "English";
+            // 
+            // rbIdiomaCatala
+            // 
+            this.rbIdiomaCatala.Location = new System.Drawing.Point(205, 102);
+            this.rbIdiomaCatala.Name = "rbIdiomaCatala";
+            this.rbIdiomaCatala.Size = new System.Drawing.Size(20, 20);
+            this.rbIdiomaCatala.Tag = "Català";
+            this.rbIdiomaCatala.UseVisualStyleBackColor = true;
+            this.rbIdiomaCatala.CheckedChanged += new System.EventHandler(this.rbIdioma_CheckedChanged);
+            // 
+            // rbIdiomaCastellano
+            // 
+            this.rbIdiomaCastellano.Checked = true;
+            this.rbIdiomaCastellano.Location = new System.Drawing.Point(430, 102);
+            this.rbIdiomaCastellano.Name = "rbIdiomaCastellano";
+            this.rbIdiomaCastellano.Size = new System.Drawing.Size(20, 20);
+            this.rbIdiomaCastellano.Tag = "Castellano";
+            this.rbIdiomaCastellano.UseVisualStyleBackColor = true;
+            this.rbIdiomaCastellano.CheckedChanged += new System.EventHandler(this.rbIdioma_CheckedChanged);
+            // 
+            // rbIdiomaEnglish
+            // 
+            this.rbIdiomaEnglish.Location = new System.Drawing.Point(655, 102);
+            this.rbIdiomaEnglish.Name = "rbIdiomaEnglish";
+            this.rbIdiomaEnglish.Size = new System.Drawing.Size(20, 20);
+            this.rbIdiomaEnglish.Tag = "English";
+            this.rbIdiomaEnglish.UseVisualStyleBackColor = true;
+            this.rbIdiomaEnglish.CheckedChanged += new System.EventHandler(this.rbIdioma_CheckedChanged);
+            // 
+            // panelIdiomaInfo
+            // 
+            this.panelIdiomaInfo.BackColor = System.Drawing.Color.FromArgb(239, 246, 255);
+            this.panelIdiomaInfo.Controls.Add(this.lblIdiomaCheck);
+            this.panelIdiomaInfo.Controls.Add(this.lblIdiomaInfoTitulo);
+            this.panelIdiomaInfo.Controls.Add(this.lblIdiomaInfoTexto);
+            this.panelIdiomaInfo.Location = new System.Drawing.Point(20, 165);
+            this.panelIdiomaInfo.Name = "panelIdiomaInfo";
+            this.panelIdiomaInfo.Size = new System.Drawing.Size(670, 55);
+            // 
+            // lblIdiomaCheck
+            // 
+            this.lblIdiomaCheck.AutoSize = true;
+            this.lblIdiomaCheck.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblIdiomaCheck.ForeColor = System.Drawing.Color.FromArgb(37, 99, 235);
+            this.lblIdiomaCheck.Location = new System.Drawing.Point(12, 14);
+            this.lblIdiomaCheck.Name = "lblIdiomaCheck";
+            this.lblIdiomaCheck.Text = "✓";
+            // 
+            // lblIdiomaInfoTitulo
+            // 
+            this.lblIdiomaInfoTitulo.AutoSize = true;
+            this.lblIdiomaInfoTitulo.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblIdiomaInfoTitulo.ForeColor = System.Drawing.Color.FromArgb(37, 99, 235);
+            this.lblIdiomaInfoTitulo.Location = new System.Drawing.Point(40, 8);
+            this.lblIdiomaInfoTitulo.Name = "lblIdiomaInfoTitulo";
+            this.lblIdiomaInfoTitulo.Text = "Castellano";
+            // 
+            // lblIdiomaInfoTexto
+            // 
+            this.lblIdiomaInfoTexto.AutoSize = true;
+            this.lblIdiomaInfoTexto.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lblIdiomaInfoTexto.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblIdiomaInfoTexto.Location = new System.Drawing.Point(40, 28);
+            this.lblIdiomaInfoTexto.Name = "lblIdiomaInfoTexto";
+            this.lblIdiomaInfoTexto.Text = "El idioma de navegación se ha actualizado.";
+            // 
+            // panelNotificaciones
+            // 
+            this.panelNotificaciones.BackColor = System.Drawing.Color.White;
+            this.panelNotificaciones.Controls.Add(this.lblNotifTitulo);
+            this.panelNotificaciones.Controls.Add(this.lblNotifSub);
+            this.panelNotificaciones.Controls.Add(this.lblNotif1Titulo);
+            this.panelNotificaciones.Controls.Add(this.lblNotif1Desc);
+            this.panelNotificaciones.Controls.Add(this.chkNotif1);
+            this.panelNotificaciones.Controls.Add(this.panelNotifSep1);
+            this.panelNotificaciones.Controls.Add(this.lblNotif2Titulo);
+            this.panelNotificaciones.Controls.Add(this.lblNotif2Desc);
+            this.panelNotificaciones.Controls.Add(this.chkNotif2);
+            this.panelNotificaciones.Controls.Add(this.panelNotifSep2);
+            this.panelNotificaciones.Controls.Add(this.lblNotif3Titulo);
+            this.panelNotificaciones.Controls.Add(this.lblNotif3Desc);
+            this.panelNotificaciones.Controls.Add(this.chkNotif3);
+            this.panelNotificaciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelNotificaciones.Location = new System.Drawing.Point(0, 0);
+            this.panelNotificaciones.Name = "panelNotificaciones";
+            this.panelNotificaciones.Size = new System.Drawing.Size(708, 398);
+            this.panelNotificaciones.Visible = false;
+            // 
+            // lblNotifTitulo
+            // 
+            this.lblNotifTitulo.AutoSize = true;
+            this.lblNotifTitulo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.lblNotifTitulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblNotifTitulo.Location = new System.Drawing.Point(20, 18);
+            this.lblNotifTitulo.Name = "lblNotifTitulo";
+            this.lblNotifTitulo.Text = "Notificaciones";
+            // 
+            // lblNotifSub
+            // 
+            this.lblNotifSub.AutoSize = true;
+            this.lblNotifSub.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblNotifSub.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblNotifSub.Location = new System.Drawing.Point(20, 42);
+            this.lblNotifSub.Name = "lblNotifSub";
+            this.lblNotifSub.Text = "Elige qué actualizaciones quieres recibir";
+            // 
+            // lblNotif1Titulo
+            // 
+            this.lblNotif1Titulo.AutoSize = true;
+            this.lblNotif1Titulo.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblNotif1Titulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblNotif1Titulo.Location = new System.Drawing.Point(20, 85);
+            this.lblNotif1Titulo.Name = "lblNotif1Titulo";
+            this.lblNotif1Titulo.Text = "Tareas asignadas";
+            // 
+            // lblNotif1Desc
+            // 
+            this.lblNotif1Desc.AutoSize = true;
+            this.lblNotif1Desc.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lblNotif1Desc.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblNotif1Desc.Location = new System.Drawing.Point(20, 106);
+            this.lblNotif1Desc.Name = "lblNotif1Desc";
+            this.lblNotif1Desc.Text = "Cuando alguien te asigne una nueva tarea";
+            // 
+            // chkNotif1
+            // 
+            this.chkNotif1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkNotif1.Checked = true;
+            this.chkNotif1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkNotif1.Location = new System.Drawing.Point(630, 90);
+            this.chkNotif1.Name = "chkNotif1";
+            this.chkNotif1.Size = new System.Drawing.Size(60, 26);
+            this.chkNotif1.Text = "Activo";
+            this.chkNotif1.UseVisualStyleBackColor = true;
+            this.chkNotif1.CheckedChanged += new System.EventHandler(this.chkNotif_CheckedChanged);
+            // 
+            // panelNotifSep1
+            // 
+            this.panelNotifSep1.BackColor = System.Drawing.Color.FromArgb(226, 232, 240);
+            this.panelNotifSep1.Location = new System.Drawing.Point(20, 140);
+            this.panelNotifSep1.Name = "panelNotifSep1";
+            this.panelNotifSep1.Size = new System.Drawing.Size(670, 1);
+            // 
+            // lblNotif2Titulo
+            // 
+            this.lblNotif2Titulo.AutoSize = true;
+            this.lblNotif2Titulo.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblNotif2Titulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblNotif2Titulo.Location = new System.Drawing.Point(20, 155);
+            this.lblNotif2Titulo.Name = "lblNotif2Titulo";
+            this.lblNotif2Titulo.Text = "Fechas límite";
+            // 
+            // lblNotif2Desc
+            // 
+            this.lblNotif2Desc.AutoSize = true;
+            this.lblNotif2Desc.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lblNotif2Desc.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblNotif2Desc.Location = new System.Drawing.Point(20, 176);
+            this.lblNotif2Desc.Name = "lblNotif2Desc";
+            this.lblNotif2Desc.Text = "Recordatorios de tareas próximas a vencer";
+            // 
+            // chkNotif2
+            // 
+            this.chkNotif2.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkNotif2.Checked = true;
+            this.chkNotif2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkNotif2.Location = new System.Drawing.Point(630, 160);
+            this.chkNotif2.Name = "chkNotif2";
+            this.chkNotif2.Size = new System.Drawing.Size(60, 26);
+            this.chkNotif2.Text = "Activo";
+            this.chkNotif2.UseVisualStyleBackColor = true;
+            this.chkNotif2.CheckedChanged += new System.EventHandler(this.chkNotif_CheckedChanged);
+            // 
+            // panelNotifSep2
+            // 
+            this.panelNotifSep2.BackColor = System.Drawing.Color.FromArgb(226, 232, 240);
+            this.panelNotifSep2.Location = new System.Drawing.Point(20, 210);
+            this.panelNotifSep2.Name = "panelNotifSep2";
+            this.panelNotifSep2.Size = new System.Drawing.Size(670, 1);
+            // 
+            // lblNotif3Titulo
+            // 
+            this.lblNotif3Titulo.AutoSize = true;
+            this.lblNotif3Titulo.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            this.lblNotif3Titulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblNotif3Titulo.Location = new System.Drawing.Point(20, 225);
+            this.lblNotif3Titulo.Name = "lblNotif3Titulo";
+            this.lblNotif3Titulo.Text = "Actualizaciones de proyecto";
+            // 
+            // lblNotif3Desc
+            // 
+            this.lblNotif3Desc.AutoSize = true;
+            this.lblNotif3Desc.Font = new System.Drawing.Font("Segoe UI", 8F);
+            this.lblNotif3Desc.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblNotif3Desc.Location = new System.Drawing.Point(20, 246);
+            this.lblNotif3Desc.Name = "lblNotif3Desc";
+            this.lblNotif3Desc.Text = "Cambios importantes en tus proyectos";
+            // 
+            // chkNotif3
+            // 
+            this.chkNotif3.Appearance = System.Windows.Forms.Appearance.Button;
+            this.chkNotif3.Location = new System.Drawing.Point(630, 230);
+            this.chkNotif3.Name = "chkNotif3";
+            this.chkNotif3.Size = new System.Drawing.Size(60, 26);
+            this.chkNotif3.Text = "Inactivo";
+            this.chkNotif3.UseVisualStyleBackColor = true;
+            this.chkNotif3.CheckedChanged += new System.EventHandler(this.chkNotif_CheckedChanged);
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
+            // 
             // 
             // Form6
             // 
@@ -367,15 +763,25 @@ namespace ProyectoDeskstop
             this.Controls.Add(this.btnSecPerfil);
             this.Controls.Add(this.btnSecIdioma);
             this.Controls.Add(this.btnSecNotificaciones);
-            this.Controls.Add(this.btnSecPreferencias);
             this.Controls.Add(this.panelSeccion);
+            this.Controls.Add(this.btnCerrarSesion);
             this.Name = "Form6";
             this.Text = "Ajustes";
             this.panelSeccion.ResumeLayout(false);
             this.panelPerfil.ResumeLayout(false);
             this.panelPerfil.PerformLayout();
-            this.panelOtraSeccion.ResumeLayout(false);
-            this.panelOtraSeccion.PerformLayout();
+            this.panelIdioma.ResumeLayout(false);
+            this.panelIdioma.PerformLayout();
+            this.panelIdiomaCat.ResumeLayout(false);
+            this.panelIdiomaCat.PerformLayout();
+            this.panelIdiomaCas.ResumeLayout(false);
+            this.panelIdiomaCas.PerformLayout();
+            this.panelIdiomaEng.ResumeLayout(false);
+            this.panelIdiomaEng.PerformLayout();
+            this.panelIdiomaInfo.ResumeLayout(false);
+            this.panelIdiomaInfo.PerformLayout();
+            this.panelNotificaciones.ResumeLayout(false);
+            this.panelNotificaciones.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
         }

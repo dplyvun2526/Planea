@@ -39,6 +39,22 @@ namespace ProyectoDeskstop
         public static string Nombre = "Alex Serra";
         public static string Email = "alex.serra@planea.es";
         public static string Rol = "Usuario";
+        public static string Idioma = "Castellano";
+        public static bool NotifTareas = true;
+        public static bool NotifFechas = true;
+        public static bool NotifProyectos = false;
+
+        // Se avisa a la ventana principal para volver a traducir toda la aplicación.
+        public static event Action IdiomaCambiado;
+
+        public static void CambiarIdioma(string idioma)
+        {
+            Idioma = idioma;
+            if (IdiomaCambiado != null)
+            {
+                IdiomaCambiado();
+            }
+        }
 
         public const double HorasEstimadasTotal = 624;
         public const double HorasRegistradasTotal = 486.5;

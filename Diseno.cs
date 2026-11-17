@@ -4,7 +4,7 @@ using System.Drawing.Drawing2D;
 
 namespace ProyectoDeskstop
 {
-    public static class Ui
+    public static class Diseno
     {
         public static readonly Color Marino = Color.FromArgb(15, 39, 71);
         public static readonly Color Azul = Color.FromArgb(37, 99, 235);

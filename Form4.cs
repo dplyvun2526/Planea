@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using static ProyectoDeskstop.Idiomas;
 
 namespace ProyectoDeskstop
 {
@@ -11,6 +12,7 @@ namespace ProyectoDeskstop
         private string pestanaActiva = "Todas";
         private List<Tarea> mostradas = new List<Tarea>();
         private Button[] botonesPestana;
+        private readonly string[] nombresPestana = { "Todas", "Pendientes", "En progreso", "Bloqueadas", "Finalizadas" };
 
         public Form4()
         {
@@ -18,14 +20,34 @@ namespace ProyectoDeskstop
 
             botonesPestana = new[] { btnTodas, btnPendientes, btnEnProgreso, btnBloqueadas, btnFinalizadas };
 
-            cmbProyectoTarea.Items.Add("Todos los proyectos");
+            Traducir();
+            FiltrarTareas(this, EventArgs.Empty);
+        }
+
+        private void Traducir()
+        {
+            lblOrganizacion.Text = T("ORGANIZACIÓN DEL TRABAJO");
+            lblTituloTareas.Text = T("Tareas");
+            lblSubTareas.Text = T("Consulta, filtra y actualiza las tareas asignadas.");
+            btnCrearTarea.Text = T("+ Crear tarea");
+            btnEliminarTarea.Text = T("Eliminar seleccionada");
+
+            colTarea.HeaderText = T("Tarea");
+            colProyecto.HeaderText = T("Proyecto");
+            colResponsable.HeaderText = T("Responsable");
+            colEstado.HeaderText = T("Estado");
+            colPrioridad.HeaderText = T("Prioridad");
+            colHoras.HeaderText = T("Horas");
+            colFecha.HeaderText = T("Fecha límite");
+
+            int seleccion = cmbProyectoTarea.SelectedIndex < 0 ? 0 : cmbProyectoTarea.SelectedIndex;
+            cmbProyectoTarea.Items.Clear();
+            cmbProyectoTarea.Items.Add(T("Todos los proyectos"));
             foreach (Proyecto p in Datos.Proyectos)
             {
                 cmbProyectoTarea.Items.Add(p.Nombre);
             }
-            cmbProyectoTarea.SelectedIndex = 0;
-
-            FiltrarTareas(this, EventArgs.Empty);
+            cmbProyectoTarea.SelectedIndex = seleccion;
         }
 
         private static bool CumplePestana(Tarea t, string pestana)
@@ -40,7 +62,7 @@ namespace ProyectoDeskstop
             }
         }
 
-        // Botones de pestaña: el nombre de cada pestaña está en su propiedad Tag.
+        // Botones de pestaña: el nombre (en castellano) está en su propiedad Tag.
         private void Pestana_Click(object sender, EventArgs e)
         {
             pestanaActiva = (string)((Button)sender).Tag;
@@ -64,26 +86,34 @@ namespace ProyectoDeskstop
                 if (CumplePestana(t, pestanaActiva) && coincideProyecto && coincideNombre)
                 {
                     mostradas.Add(t);
-                    dgvTareas.Rows.Add(t.Titulo, t.Proyecto, t.Responsable, t.Estado, t.Prioridad, t.Horas, t.Fecha);
+                    dgvTareas.Rows.Add(
+                        t.Titulo,
+                        t.Proyecto,
+                        t.Responsable,
+                        T(t.Estado),
+                        T(t.Prioridad),
+                        t.Horas,
+                        t.Fecha == "Hoy" ? T("Hoy") : t.Fecha);
                 }
             }
 
-            foreach (Button b in botonesPestana)
+            for (int i = 0; i < botonesPestana.Length; i++)
             {
-                string nombre = (string)b.Tag;
+                Button b = botonesPestana[i];
+                string nombre = nombresPestana[i];
                 int cuenta = Datos.Tareas.Count(t => CumplePestana(t, nombre));
                 bool activa = nombre == pestanaActiva;
-                b.Text = nombre + " (" + cuenta + ")";
-                b.BackColor = activa ? Ui.Azul : Color.White;
-                b.ForeColor = activa ? Color.White : Ui.Texto;
+                b.Text = T(nombre) + " (" + cuenta + ")";
+                b.BackColor = activa ? Diseno.Azul : Color.White;
+                b.ForeColor = activa ? Color.White : Diseno.Texto;
             }
 
-            lblResultadosTarea.Text = mostradas.Count + (mostradas.Count == 1 ? " resultado" : " resultados");
+            lblResultadosTarea.Text = mostradas.Count == 1 ? T("{0} resultado", mostradas.Count) : T("{0} resultados", mostradas.Count);
         }
 
         private void btnCrearTarea_Click(object sender, EventArgs e)
         {
-            string titulo = Microsoft.VisualBasic.Interaction.InputBox("Título de la tarea:", "Crear tarea", "").Trim();
+            string titulo = Microsoft.VisualBasic.Interaction.InputBox(T("Título de la tarea:"), T("Crear tarea"), "").Trim();
             if (titulo == "")
             {
                 return;
@@ -106,12 +136,12 @@ namespace ProyectoDeskstop
         {
             if (dgvTareas.CurrentRow == null || dgvTareas.CurrentRow.Index < 0 || dgvTareas.CurrentRow.Index >= mostradas.Count)
             {
-                MessageBox.Show("Selecciona una tarea de la lista.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(T("Selecciona una tarea de la lista."), T("Aviso"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             Tarea t = mostradas[dgvTareas.CurrentRow.Index];
-            DialogResult r = MessageBox.Show("¿Eliminar la tarea \"" + t.Titulo + "\"?", "Confirmar",
+            DialogResult r = MessageBox.Show(T("¿Eliminar la tarea \"{0}\"?", t.Titulo), T("Confirmar"),
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (r == DialogResult.Yes)
             {
