@@ -14,6 +14,10 @@ namespace ProyectoDeskstop
             InitializeComponent();
             Traducir();
             SeleccionarRol("Usuario");
+            // El rol sale de la base de datos: no se elige al entrar.
+            lblEntrarComo.Visible = false;
+            btnRolUsuario.Visible = false;
+            btnRolAdministrador.Visible = false;
         }
 
         private void Traducir()
@@ -57,15 +61,63 @@ namespace ProyectoDeskstop
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            // Sin validación de momento: la comprobación se conectará a la API y a la base de datos.
-            Datos.Rol = rolSeleccionado;
+            // LOGIN PROVISIONAL: solo comprueba que el correo exista en la API (no valida la contraseña todavía).
+            if (txtEmail.Text.Trim() == "")
+            {
+                MessageBox.Show(T("Introduce tu correo electrónico."), T("Aviso"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            try
+            {
+                if (!Servicio.IniciarSesion(txtEmail.Text))
+                {
+                    MessageBox.Show(T("No existe ningún usuario con ese correo."), T("Aviso"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                Servicio.Cargar();
+            }
+            catch (ApiException ex)
+            {
+                MessageBox.Show(ex.Message, "Planea", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             DialogResult = DialogResult.OK;
         }
 
         private void btnCrearCuenta_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(T("El registro de cuentas estará disponible cuando se conecte la base de datos."),
-                T("Próximamente"), MessageBoxButtons.OK, MessageBoxIcon.Information);
+            using (FormularioSimple f = new FormularioSimple(T("Crear cuenta")))
+            {
+                TextBox nombre = f.Texto(T("Nombre"));
+                TextBox apellidos = f.Texto(T("Apellidos"));
+                TextBox correo = f.Texto(T("Correo electrónico"));
+                TextBox clave = f.Texto(T("Contraseña"), true);
+                TextBox clave2 = f.Texto(T("Repite la contraseña"), true);
+                f.Final(T("Crear cuenta"));
+                if (f.ShowDialog(this) != DialogResult.OK) return;
+
+                if (nombre.Text.Trim() == "" || apellidos.Text.Trim() == "" || !correo.Text.Contains("@") || clave.Text == "")
+                {
+                    MessageBox.Show(T("Rellena todos los campos con un correo válido."), T("Aviso"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                if (clave.Text != clave2.Text)
+                {
+                    MessageBox.Show(T("Las contraseñas no coinciden."), T("Aviso"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+                try
+                {
+                    Servicio.Registrar(nombre.Text.Trim(), apellidos.Text.Trim(), correo.Text.Trim(), clave.Text);
+                }
+                catch (ApiException ex)
+                {
+                    MessageBox.Show(ex.Message, "Planea", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                txtEmail.Text = correo.Text.Trim();
+                MessageBox.Show(T("Cuenta creada. Ya puedes iniciar sesión."), "Planea", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

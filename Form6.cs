@@ -16,7 +16,11 @@ namespace ProyectoDeskstop
         {
             InitializeComponent();
 
-            paneles = new[] { panelPerfil, panelIdioma, panelNotificaciones };
+            // El rol lo asigna la base de datos: aquí solo se muestra.
+            rbUsuario.Enabled = false;
+            rbAdministrador.Enabled = false;
+
+            paneles =new[] { panelPerfil, panelIdioma, panelNotificaciones };
             botones = new[] { btnSecPerfil, btnSecIdioma, btnSecNotificaciones };
             nombres = new[] { "Perfil", "Idioma", "Notificaciones" };
 
