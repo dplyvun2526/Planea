@@ -144,6 +144,12 @@ namespace ProyectoDeskstop
             List<ApiProyectoUsuarioRol> pur = Api.Lista<ApiProyectoUsuarioRol>("api/ProjectUserRoles");
             List<ApiRol> roles = Api.Lista<ApiRol>("api/Roles");
 
+            // Cada usuario solo ve los proyectos en los que está en el equipo, con todas sus tareas.
+            HashSet<int> misProyectos = new HashSet<int>(pur.Where(r => r.IdUsers == IdUsuario).Select(r => r.IdProject));
+            proyectos = proyectos.Where(p => misProyectos.Contains(p.IdProject)).ToList();
+            tareas = tareas.Where(t => misProyectos.Contains(t.IdProject)).ToList();
+            horas = horas.Where(h => tareas.Any(t => t.IdTask == h.IdTask)).ToList();
+
             Usuarios = usuarios;
             IdEstado = new Dictionary<string, int>();
             Dictionary<int, string> nombreEstado = new Dictionary<int, string>();

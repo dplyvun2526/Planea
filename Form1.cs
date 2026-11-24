@@ -76,6 +76,8 @@ namespace ProyectoDeskstop
         {
             BeginInvoke(new Action(() =>
             {
+                // Se recargan los datos para que las fechas salgan en el idioma nuevo.
+                try { Servicio.Cargar(); } catch (ApiException) { }
                 Traducir();
                 MostrarPagina(CrearPagina(botonActivo), botonActivo);
             }));

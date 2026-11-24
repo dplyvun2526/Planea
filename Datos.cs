@@ -43,7 +43,22 @@ namespace ProyectoDeskstop
         public static string Nombre = "Alex Serra";
         public static string Email = "alex.serra@planea.es";
         public static string Rol = "Usuario";
-        public static string Idioma = "Castellano";
+        // El idioma elegido se recuerda entre ejecuciones (así el inicio de sesión ya sale en tu idioma).
+        private static readonly string ArchivoIdioma = System.IO.Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Planea", "idioma.txt");
+
+        public static string Idioma = LeerIdioma();
+
+        private static string LeerIdioma()
+        {
+            try
+            {
+                string guardado = System.IO.File.Exists(ArchivoIdioma) ? System.IO.File.ReadAllText(ArchivoIdioma).Trim() : "";
+                if (guardado == "Català" || guardado == "English") return guardado;
+            }
+            catch (Exception) { }
+            return "Castellano";
+        }
         public static bool NotifTareas = true;
         public static bool NotifFechas = true;
         public static bool NotifProyectos = false;
@@ -54,6 +69,12 @@ namespace ProyectoDeskstop
         public static void CambiarIdioma(string idioma)
         {
             Idioma = idioma;
+            try
+            {
+                System.IO.Directory.CreateDirectory(System.IO.Path.GetDirectoryName(ArchivoIdioma));
+                System.IO.File.WriteAllText(ArchivoIdioma, idioma);
+            }
+            catch (Exception) { }
             if (IdiomaCambiado != null)
             {
                 IdiomaCambiado();
