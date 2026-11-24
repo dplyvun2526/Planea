@@ -21,7 +21,7 @@ namespace ProyectoDeskstop
 
     public class ApiException : Exception
     {
-        public ApiException(string mensaje) : base(mensaje) { }
+        public ApiException(string mensaje) : base(Idiomas.T(mensaje)) { }
     }
 
     // Cliente HTTP de Planea_Api. La URL base se puede cambiar con la variable de entorno PLANEA_API_URL.
@@ -62,7 +62,7 @@ namespace ProyectoDeskstop
             }
             catch (HttpRequestException)
             {
-                throw new ApiException("No se puede conectar con la API (" + http.BaseAddress + "). ¿Está arrancada?");
+                throw new ApiException(Idiomas.T("No se puede conectar con la API ({0}). ¿Está arrancada?", http.BaseAddress));
             }
             catch (TaskCanceledException)
             {
@@ -83,14 +83,23 @@ namespace ProyectoDeskstop
 
         public static int Crear(string ruta, object cuerpo)
         {
-            // La API devuelve { id_xxx, mensaje }: se lee el primer entero.
-            using (JsonDocument doc = JsonDocument.Parse(Enviar(HttpMethod.Post, ruta, cuerpo)))
+            // Al crear, la API devuelve { id_xxx, mensaje }: se lee el primer entero.
+            // En las tablas de relación (asignaciones, roles de proyecto) devuelve solo un texto: se devuelve 0.
+            string respuesta = Enviar(HttpMethod.Post, ruta, cuerpo);
+            try
             {
-                foreach (JsonProperty p in doc.RootElement.EnumerateObject())
+                using (JsonDocument doc = JsonDocument.Parse(respuesta))
                 {
-                    if (p.Value.ValueKind == JsonValueKind.Number) return p.Value.GetInt32();
+                    if (doc.RootElement.ValueKind == JsonValueKind.Object)
+                    {
+                        foreach (JsonProperty p in doc.RootElement.EnumerateObject())
+                        {
+                            if (p.Value.ValueKind == JsonValueKind.Number) return p.Value.GetInt32();
+                        }
+                    }
                 }
             }
+            catch (JsonException) { }
             return 0;
         }
 
@@ -220,6 +229,7 @@ namespace ProyectoDeskstop
             Datos.Proyectos = listaProyectos;
             Datos.Tareas = listaTareas;
             Datos.HorasRegistradasTotal = horas.Sum(x => x.Hours);
+            Datos.HorasMes = horas.Where(x => x.Date.Year == DateTime.Today.Year && x.Date.Month == DateTime.Today.Month).Sum(x => x.Hours);
             Datos.HorasEstimadasTotal = 0;
         }
 
@@ -274,7 +284,7 @@ namespace ProyectoDeskstop
             int idEstado;
             if (!IdEstado.TryGetValue(estado, out idEstado))
             {
-                throw new ApiException("No existe el estado '" + estado + "' en la base de datos.");
+                throw new ApiException(Idiomas.T("No existe el estado '{0}' en la base de datos.", estado));
             }
             ApiTarea o = t.Original;
             o.IdState = idEstado;

@@ -46,7 +46,7 @@ namespace ProyectoDeskstop
             lblPerfilSub.Text = T("Información visible para el resto del equipo");
             lblNombreTitulo.Text = T("Nombre a mostrar:");
             btnGuardarNombre.Text = T("Guardar");
-            lblRolTitulo.Text = T("Vista del rol (para comprobar las acciones disponibles):");
+            lblRolTitulo.Text = T("Tu rol en Planea (lo asigna un administrador):");
             rbUsuario.Text = T("Usuario");
             rbAdministrador.Text = T("Administrador");
 
@@ -72,6 +72,7 @@ namespace ProyectoDeskstop
         {
             txtNombre.Text = Datos.Nombre;
             lblPerfilNombre.Text = Datos.Nombre;
+            lblPerfilEmail.Text = Datos.Email;
             lblAvatarPerfil.Text = Diseno.Iniciales(Datos.Nombre);
             lblPerfilRol.Text = T(Datos.Rol);
             rbUsuario.Checked = Datos.Rol == "Usuario";

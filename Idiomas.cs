@@ -168,6 +168,16 @@ namespace ProyectoDeskstop
             { "Repite la contraseña", new[] { "Repite la contraseña", "Repeteix la contrasenya", "Repeat password" } },
             { "Rol", new[] { "Rol", "Rol", "Role" } },
             { "mostrando {0}", new[] { "mostrando {0}", "mostrant {0}", "showing {0}" } },
+            { "No se puede conectar con la API ({0}). ¿Está arrancada?", new[] { "No se puede conectar con la API ({0}). ¿Está arrancada?", "No es pot connectar amb l'API ({0}). Està en marxa?", "Cannot connect to the API ({0}). Is it running?" } },
+            { "La API no responde (tiempo de espera agotado).", new[] { "La API no responde (tiempo de espera agotado).", "L'API no respon (temps d'espera esgotat).", "The API is not responding (timed out)." } },
+            { "Ya existe un usuario con ese correo.", new[] { "Ya existe un usuario con ese correo.", "Ja existeix un usuari amb aquest correu.", "A user with that email already exists." } },
+            { "Solo los administradores pueden crear proyectos.", new[] { "Solo los administradores pueden crear proyectos.", "Només els administradors poden crear projectes.", "Only administrators can create projects." } },
+            { "No existe el estado '{0}' en la base de datos.", new[] { "No existe el estado '{0}' en la base de datos.", "No existeix l'estat '{0}' a la base de dades.", "The status '{0}' does not exist in the database." } },
+            { "No existe un estado 'Pendiente' en la base de datos.", new[] { "No existe un estado 'Pendiente' en la base de datos.", "No existeix un estat 'Pendent' a la base de dades.", "There is no 'Pending' status in the database." } },
+            { "No se puede eliminar la tarea porque tiene registros o asignaciones asociados.", new[] { "No se puede eliminar la tarea porque tiene registros o asignaciones asociados.", "No es pot eliminar la tasca perquè té registres o assignacions associats.", "The task cannot be deleted because it has hour entries or assignments." } },
+            { "No se pudo crear la tarea. Comprueba que el proyecto y el estado existen.", new[] { "No se pudo crear la tarea. Comprueba que el proyecto y el estado existen.", "No s'ha pogut crear la tasca. Comprova que el projecte i l'estat existeixen.", "The task could not be created. Check that the project and status exist." } },
+            { "Comprueba que el proyecto y el estado existen.", new[] { "Comprueba que el proyecto y el estado existen.", "Comprova que el projecte i l'estat existeixen.", "Check that the project and status exist." } },
+            { "Tu rol en Planea (lo asigna un administrador):", new[] { "Tu rol en Planea (lo asigna un administrador):", "El teu rol a Planea (l'assigna un administrador):", "Your role in Planea (assigned by an administrator):" } },
         };
 
         private static int Indice()

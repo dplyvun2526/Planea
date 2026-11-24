@@ -18,6 +18,23 @@ namespace ProyectoDeskstop
             lblEntrarComo.Visible = false;
             btnRolUsuario.Visible = false;
             btnRolAdministrador.Visible = false;
+
+            // Se sube el formulario para no dejar el hueco de los botones de rol.
+            int hueco = lblEmail.Top - lblEntrarComo.Top;
+            foreach (Control c in panelTarjeta.Controls)
+            {
+                if (c.Top >= lblEmail.Top) c.Top -= hueco;
+            }
+            panelTarjeta.Height -= hueco;
+            ClientSize = new Size(ClientSize.Width, ClientSize.Height - hueco);
+
+            // El botón "Crear cuenta" se ajusta al texto (en catalán es más largo y se cortaba).
+            btnCrearCuenta.AutoSize = true;
+            btnCrearCuenta.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            lblSinCuenta.AutoSize = true;
+            int total = lblSinCuenta.Width + btnCrearCuenta.Width + 4;
+            lblSinCuenta.Left = (panelTarjeta.Width - total) / 2;
+            btnCrearCuenta.Left = lblSinCuenta.Right + 4;
         }
 
         private void Traducir()
