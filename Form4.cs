@@ -169,7 +169,7 @@ namespace ProyectoDeskstop
             }
 
             Tarea t = mostradas[dgvTareas.CurrentRow.Index];
-            string[] estados = { "Pendiente", "En progreso", "Bloqueada", "Finalizada" };
+            string[] estados = { "Pendiente", "En progreso", "Finalizada" }; // la BD solo tiene Pendiente, En progreso y Completada
             using (FormularioSimple f = new FormularioSimple(T("Cambiar estado")))
             {
                 ComboBox combo = f.Lista(t.Titulo, System.Linq.Enumerable.Select(estados, s => T(s)));

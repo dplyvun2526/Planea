@@ -61,17 +61,16 @@ namespace ProyectoDeskstop
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            // LOGIN PROVISIONAL: solo comprueba que el correo exista en la API (no valida la contraseña todavía).
-            if (txtEmail.Text.Trim() == "")
+            if (txtEmail.Text.Trim() == "" || txtPassword.Text == "")
             {
-                MessageBox.Show(T("Introduce tu correo electrónico."), T("Aviso"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show(T("Introduce tu correo y tu contraseña."), T("Aviso"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
             try
             {
-                if (!Servicio.IniciarSesion(txtEmail.Text))
+                if (!Servicio.IniciarSesion(txtEmail.Text, txtPassword.Text))
                 {
-                    MessageBox.Show(T("No existe ningún usuario con ese correo."), T("Aviso"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(T("Correo o contraseña incorrectos."), T("Aviso"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 Servicio.Cargar();

@@ -75,6 +75,12 @@ namespace ProyectoDeskstop
             return JsonSerializer.Deserialize<List<T>>(Enviar(HttpMethod.Get, ruta), json) ?? new List<T>();
         }
 
+        // POST que devuelve un objeto (p. ej. el usuario del login).
+        public static T Enviar<T>(string ruta, object cuerpo)
+        {
+            return JsonSerializer.Deserialize<T>(Enviar(HttpMethod.Post, ruta, cuerpo), json);
+        }
+
         public static int Crear(string ruta, object cuerpo)
         {
             // La API devuelve { id_xxx, mensaje }: se lee el primer entero.
@@ -219,12 +225,11 @@ namespace ProyectoDeskstop
             return n.Contains("admin") || n.Contains("jefe") || n.Contains("respons") || n.Contains("manager") || n.Contains("lider") || n.Contains("líder");
         }
 
-        // LOGIN PROVISIONAL: solo busca el correo en la API. No valida la contraseña porque
-        // la API aún no tiene endpoint de login (pendiente: POST api/Auth/login con hash).
-        public static bool IniciarSesion(string email)
+        // Login: la API (POST api/Users/login) comprueba el correo y la contraseña y devuelve el usuario con su rol.
+        // Lanza ApiException con "Correo o contraseña incorrectos." si no coinciden.
+        public static bool IniciarSesion(string email, string contrasena)
         {
-            ApiUsuario u = Api.Lista<ApiUsuario>("api/Users")
-                .FirstOrDefault(x => string.Equals(x.MailUser, email.Trim(), StringComparison.OrdinalIgnoreCase));
+            ApiUsuario u = Api.Enviar<ApiUsuario>("api/Users/login", new { MailUser = email.Trim(), PasswordUser = contrasena });
             if (u == null) return false;
             IdUsuario = u.IdUser;
             Datos.Nombre = (u.NameUser + " " + u.LastnameUser).Trim();
@@ -239,7 +244,7 @@ namespace ProyectoDeskstop
             {
                 throw new ApiException("Ya existe un usuario con ese correo.");
             }
-            // OJO: la contraseña se guarda en texto plano porque la API aún no la cifra (pendiente 0490).
+            // La API guarda solo el hash de la contraseña.
             Api.Crear("api/Users", new { NameUser = nombre, LastnameUser = apellidos, MailUser = email, PasswordUser = contrasena });
         }
 
