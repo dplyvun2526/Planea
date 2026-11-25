@@ -36,7 +36,7 @@ Se abre el login. Si la API está en otra dirección, define antes `$env:PLANEA_
 5. **Inicio y Resumen:** las cifras cambian con lo creado.
 6. **Usuario normal:** "Crear cuenta" → entra con él: no ve "+ Crear proyecto" ni proyectos ajenos. Con el admin, añádelo a un proyecto y vuelve a entrar con él: ve el proyecto y todas sus tareas.
 7. **Idiomas:** Ajustes → Idioma (Castellano, Català, English). Se recuerda al reabrir.
-8. **Ajustes:** el rol se muestra pero no se puede cambiar.
+8. **Ajustes:** el perfil muestra nombre, correo y rol, solo para consultar.
 
 ## Notas
 - Lo que crees se guarda en la base de datos **compartida**: usa nombres tipo "PRUEBA …".

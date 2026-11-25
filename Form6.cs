@@ -10,7 +10,6 @@ namespace ProyectoDeskstop
         private Panel[] paneles;
         private Button[] botones;
         private string[] nombres;
-        private bool cargando = true;
 
         // Sección abierta: al cambiar de idioma la página se vuelve a crear y se sigue en la misma.
         private static string seccionAbierta = "Perfil";
@@ -18,10 +17,6 @@ namespace ProyectoDeskstop
         public Form6()
         {
             InitializeComponent();
-
-            // El rol lo asigna la base de datos: aquí solo se muestra.
-            rbUsuario.Enabled = false;
-            rbAdministrador.Enabled = false;
 
             paneles = new[] { panelPerfil, panelIdioma };
             botones = new[] { btnSecPerfil, btnSecIdioma };
@@ -31,7 +26,6 @@ namespace ProyectoDeskstop
             CargarPerfil();
             CargarIdioma();
             PrepararSelectorIdioma();
-            cargando = false;
 
             btnSeccion_Click(botones[Array.IndexOf(nombres, seccionAbierta)], EventArgs.Empty);
         }
@@ -48,11 +42,6 @@ namespace ProyectoDeskstop
             // Perfil
             lblPerfilTitulo.Text = T("Perfil");
             lblPerfilSub.Text = T("Información visible para el resto del equipo");
-            lblNombreTitulo.Text = T("Nombre a mostrar:");
-            btnGuardarNombre.Text = T("Guardar");
-            lblRolTitulo.Text = T("Tu rol en Planea (lo asigna un administrador):");
-            rbUsuario.Text = T("Usuario");
-            rbAdministrador.Text = T("Administrador");
 
             // Idioma
             lblIdiomaTitulo.Text = T("Idioma");
@@ -64,48 +53,10 @@ namespace ProyectoDeskstop
         // ---------- Perfil ----------
         private void CargarPerfil()
         {
-            txtNombre.Text = Datos.Nombre;
             lblPerfilNombre.Text = Datos.Nombre;
             lblPerfilEmail.Text = Datos.Email;
             lblAvatarPerfil.Text = Diseno.Iniciales(Datos.Nombre);
             lblPerfilRol.Text = T(Datos.Rol);
-            rbUsuario.Checked = Datos.Rol == "Usuario";
-            rbAdministrador.Checked = Datos.Rol == "Administrador";
-        }
-
-        private void btnGuardarNombre_Click(object sender, EventArgs e)
-        {
-            string nombre = txtNombre.Text.Trim();
-            if (nombre == "")
-            {
-                lblGuardado.ForeColor = Diseno.Rojo;
-                lblGuardado.Text = T("El nombre no puede estar vacío.");
-                return;
-            }
-
-            Datos.Nombre = nombre;
-            lblPerfilNombre.Text = nombre;
-            lblAvatarPerfil.Text = Diseno.Iniciales(nombre);
-            lblGuardado.ForeColor = Diseno.Azul;
-            lblGuardado.Text = T("Cambios guardados. El menú se actualiza al cambiar de página.");
-        }
-
-        private void rbUsuario_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbUsuario.Checked && !cargando)
-            {
-                Datos.Rol = "Usuario";
-                lblPerfilRol.Text = T(Datos.Rol);
-            }
-        }
-
-        private void rbAdministrador_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rbAdministrador.Checked && !cargando)
-            {
-                Datos.Rol = "Administrador";
-                lblPerfilRol.Text = T(Datos.Rol);
-            }
         }
 
         // ---------- Idioma ----------

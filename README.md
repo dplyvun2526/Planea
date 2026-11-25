@@ -25,4 +25,3 @@ Los pasos completos (descargar, arrancar la API y la app, y qué probar) están 
 ## Pendiente
 - Dependencias entre tareas, costes y facturación.
 - La pantalla de Proyectos muestra como máximo 4 tarjetas (usa el buscador y el filtro para ver el resto).
-- Cambiar el nombre en Ajustes solo afecta a la sesión actual.

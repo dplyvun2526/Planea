@@ -20,13 +20,6 @@ namespace ProyectoDeskstop
         private System.Windows.Forms.Label lblPerfilNombre;
         private System.Windows.Forms.Label lblPerfilEmail;
         private System.Windows.Forms.Label lblPerfilRol;
-        private System.Windows.Forms.Label lblNombreTitulo;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Button btnGuardarNombre;
-        private System.Windows.Forms.Label lblGuardado;
-        private System.Windows.Forms.Label lblRolTitulo;
-        private System.Windows.Forms.RadioButton rbUsuario;
-        private System.Windows.Forms.RadioButton rbAdministrador;
 
         // Sección Idioma
         private System.Windows.Forms.Panel panelIdioma;
@@ -78,13 +71,6 @@ namespace ProyectoDeskstop
             this.lblPerfilNombre = new System.Windows.Forms.Label();
             this.lblPerfilEmail = new System.Windows.Forms.Label();
             this.lblPerfilRol = new System.Windows.Forms.Label();
-            this.lblNombreTitulo = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.btnGuardarNombre = new System.Windows.Forms.Button();
-            this.lblGuardado = new System.Windows.Forms.Label();
-            this.lblRolTitulo = new System.Windows.Forms.Label();
-            this.rbUsuario = new System.Windows.Forms.RadioButton();
-            this.rbAdministrador = new System.Windows.Forms.RadioButton();
             this.panelIdioma = new System.Windows.Forms.Panel();
             this.lblIdiomaTitulo = new System.Windows.Forms.Label();
             this.lblIdiomaSub = new System.Windows.Forms.Label();
@@ -205,13 +191,6 @@ namespace ProyectoDeskstop
             this.panelPerfil.Controls.Add(this.lblPerfilNombre);
             this.panelPerfil.Controls.Add(this.lblPerfilEmail);
             this.panelPerfil.Controls.Add(this.lblPerfilRol);
-            this.panelPerfil.Controls.Add(this.lblNombreTitulo);
-            this.panelPerfil.Controls.Add(this.txtNombre);
-            this.panelPerfil.Controls.Add(this.btnGuardarNombre);
-            this.panelPerfil.Controls.Add(this.lblGuardado);
-            this.panelPerfil.Controls.Add(this.lblRolTitulo);
-            this.panelPerfil.Controls.Add(this.rbUsuario);
-            this.panelPerfil.Controls.Add(this.rbAdministrador);
             this.panelPerfil.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPerfil.Location = new System.Drawing.Point(0, 0);
             this.panelPerfil.Name = "panelPerfil";
@@ -274,73 +253,6 @@ namespace ProyectoDeskstop
             this.lblPerfilRol.Name = "lblPerfilRol";
             this.lblPerfilRol.Padding = new System.Windows.Forms.Padding(6, 2, 6, 2);
             this.lblPerfilRol.Text = "Usuario";
-            // 
-            // lblNombreTitulo
-            // 
-            this.lblNombreTitulo.AutoSize = true;
-            this.lblNombreTitulo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblNombreTitulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.lblNombreTitulo.Location = new System.Drawing.Point(20, 185);
-            this.lblNombreTitulo.Name = "lblNombreTitulo";
-            this.lblNombreTitulo.Text = "Nombre a mostrar:";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtNombre.Location = new System.Drawing.Point(20, 208);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(300, 25);
-            this.txtNombre.Text = "Alex Serra";
-            // 
-            // btnGuardarNombre
-            // 
-            this.btnGuardarNombre.BackColor = System.Drawing.Color.FromArgb(37, 99, 235);
-            this.btnGuardarNombre.FlatAppearance.BorderSize = 0;
-            this.btnGuardarNombre.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarNombre.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.btnGuardarNombre.ForeColor = System.Drawing.Color.White;
-            this.btnGuardarNombre.Location = new System.Drawing.Point(335, 206);
-            this.btnGuardarNombre.Name = "btnGuardarNombre";
-            this.btnGuardarNombre.Size = new System.Drawing.Size(110, 27);
-            this.btnGuardarNombre.Text = "Guardar";
-            this.btnGuardarNombre.UseVisualStyleBackColor = false;
-            this.btnGuardarNombre.Click += new System.EventHandler(this.btnGuardarNombre_Click);
-            // 
-            // lblGuardado
-            // 
-            this.lblGuardado.AutoSize = true;
-            this.lblGuardado.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblGuardado.ForeColor = System.Drawing.Color.FromArgb(37, 99, 235);
-            this.lblGuardado.Location = new System.Drawing.Point(20, 245);
-            this.lblGuardado.Name = "lblGuardado";
-            this.lblGuardado.Text = "";
-            // 
-            // lblRolTitulo
-            // 
-            this.lblRolTitulo.AutoSize = true;
-            this.lblRolTitulo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblRolTitulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.lblRolTitulo.Location = new System.Drawing.Point(20, 285);
-            this.lblRolTitulo.Name = "lblRolTitulo";
-            this.lblRolTitulo.Text = "Vista del rol (para comprobar las acciones disponibles):";
-            // 
-            // rbUsuario
-            // 
-            this.rbUsuario.AutoSize = true;
-            this.rbUsuario.Location = new System.Drawing.Point(20, 310);
-            this.rbUsuario.Name = "rbUsuario";
-            this.rbUsuario.Text = "Usuario";
-            this.rbUsuario.UseVisualStyleBackColor = true;
-            this.rbUsuario.CheckedChanged += new System.EventHandler(this.rbUsuario_CheckedChanged);
-            // 
-            // rbAdministrador
-            // 
-            this.rbAdministrador.AutoSize = true;
-            this.rbAdministrador.Location = new System.Drawing.Point(120, 310);
-            this.rbAdministrador.Name = "rbAdministrador";
-            this.rbAdministrador.Text = "Administrador";
-            this.rbAdministrador.UseVisualStyleBackColor = true;
-            this.rbAdministrador.CheckedChanged += new System.EventHandler(this.rbAdministrador_CheckedChanged);
             // 
             // panelIdioma
             // 
