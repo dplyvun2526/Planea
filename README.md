@@ -1,17 +1,28 @@
-# ProyectoDeskstop - Planea
+# Planea — aplicación de escritorio
 
-Aplicación de escritorio en C# con Windows Forms (.NET 8).
+Aplicación de gestión de proyectos y tareas en C# con Windows Forms (.NET 8). Trabaja contra la API [Planea_Api](https://github.com/seda-123/Planea_Api), que guarda los datos en la base de datos SQL Server del equipo.
+
+## Ponerla en marcha
+Los pasos completos (descargar, arrancar la API y la app, y qué probar) están en [PROBAR.md](PROBAR.md).
+
+## Qué hace
+- Inicio de sesión y registro de cuentas.
+- Roles: solo los administradores crean proyectos y gestionan sus equipos.
+- Cada usuario ve únicamente los proyectos en los que está, con todas sus tareas.
+- Tareas: crear (con responsable), cambiar estado y eliminar.
+- Inicio y Resumen con estadísticas.
+- Idiomas: castellano, catalán e inglés (se recuerda el elegido).
 
 ## Estructura
-- `Form1`: ventana principal con el menú lateral. Muestra cada página dentro del área de contenido.
-- `Form2` Inicio: resumen con estadísticas, proyectos recientes, estado de tareas y próximas tareas.
-- `Form3` Proyectos: buscador, filtro por estado, tarjetas y creación de proyectos.
-- `Form4` Tareas: pestañas por estado, filtro por proyecto, tabla, creación y eliminación de tareas.
-- `Form5` Resumen: estadísticas, estado de tareas y horas por proyecto.
-- `Form6` Ajustes: perfil (cambiar nombre y rol). Las demás secciones están en desarrollo.
-- `Ui.cs`: colores y controles comunes.
-- `Datos.cs`: datos de ejemplo y estado compartido, en memoria (no se guardan al cerrar).
+- `Form1`: ventana principal con el menú lateral.
+- `Form2` Inicio · `Form3` Proyectos · `Form4` Tareas · `Form5` Resumen · `Form6` Ajustes · `Form7` inicio de sesión.
+- `ApiService.cs`: llamadas HTTP a la API y conversión de sus datos a los de la interfaz.
+- `Datos.cs`: datos cargados en memoria y preferencias.
+- `FormularioSimple.cs`, `NuevaTareaDialog.cs`, `EquipoDialog.cs`: diálogos.
+- `Idiomas.cs`: traducciones. `Diseno.cs`: colores y dibujo.
+- `datos-iniciales.sql`: cómo crear el primer administrador.
 
-## Ejecutar
-Al iniciar aparece el inicio de sesión (solo visual, sin base de datos todavía). Elige "Usuario" o "Administrador" y pulsa "Iniciar sesión".
-También puedes ejecutar `dotnet run` en la carpeta del proyecto.
+## Pendiente
+- Horas estimadas, costes y dependencias entre tareas (la base de datos aún no tiene dónde guardarlas).
+- La pantalla de Proyectos muestra como máximo 4 tarjetas (usa el buscador y el filtro para ver el resto).
+- Cambiar el nombre en Ajustes solo afecta a la sesión actual.

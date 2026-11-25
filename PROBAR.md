@@ -6,19 +6,12 @@ La app de escritorio habla con la **API**, y la API con la **base de datos** del
 - Windows con **.NET 10 SDK** (para la API) y **.NET 8 Desktop Runtime** (para la app). Comprueba con `dotnet --list-sdks` y `dotnet --list-runtimes`.
 - La contraseña de la base de datos (la tiene el equipo). **No la escribas nunca en archivos del repo.**
 
-## 1. Descargar las dos ramas
+## 1. Descargar los dos repositorios
 ```powershell
 git clone https://github.com/seda-123/Planea_Api.git
-cd Planea_Api
-git checkout feature/user-roles
-cd ..
-
 git clone https://github.com/dplyvun2526/Planea.git
-cd Planea
-git checkout feature/api-integration
-cd ..
 ```
-(Si ya los tenías: `git fetch` y luego `git checkout` en cada rama.)
+Si ya los tenías, actualízalos: en `Planea_Api` ejecuta `git checkout master` y `git pull`; en `Planea`, `git checkout main` y `git pull`.
 
 ## 2. Arrancar la API (ventana de PowerShell nº 1; déjala abierta)
 ```powershell
