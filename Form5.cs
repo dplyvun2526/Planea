@@ -74,11 +74,12 @@ namespace ProyectoDeskstop
                 nombres[i].Visible = valores[i].Visible = barras[i].Visible = hay;
                 if (!hay) continue;
                 Proyecto p = Datos.Proyectos[i];
-                int estimadas = Math.Max(1, p.HorasEstimadas);
+                // La barra compara cada proyecto con el que más horas lleva.
+                decimal maximo = Math.Max(1m, Datos.Proyectos.Max(x => x.HorasReales));
                 nombres[i].Text = p.Nombre;
-                valores[i].Text = T("{0} h / {1} h", p.HorasReales, p.HorasEstimadas);
-                barras[i].Maximum = estimadas;
-                barras[i].Value = Math.Min(p.HorasReales, estimadas);
+                valores[i].Text = p.HorasReales.ToString("0.##", cultura) + " h";
+                barras[i].Maximum = 1000;
+                barras[i].Value = (int)(1000 * p.HorasReales / maximo);
             }
 
             // Resumen de horas

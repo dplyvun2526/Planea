@@ -35,6 +35,7 @@ namespace ProyectoDeskstop
             progresos = new[] { pbProgreso1, pbProgreso2, pbProgreso3, pbProgreso4 };
 
             Traducir();
+            txtBuscarProyecto.PlaceholderText = T("Buscar proyecto por nombre...");
             CrearBotonCrear();
             ActivarClicEnTarjetas();
             FiltrarProyectos(this, EventArgs.Empty);

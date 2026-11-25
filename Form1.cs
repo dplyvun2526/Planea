@@ -27,7 +27,6 @@ namespace ProyectoDeskstop
             btnTareas.Text = T("Tareas");
             btnResumen.Text = T("Resumen");
             btnAjustes.Text = T("Ajustes");
-            txtBuscar.Text = T("Buscar en Planea...");
         }
 
         // Muestra una página dentro del área de contenido y actualiza la cabecera y el bloque de usuario.

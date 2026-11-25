@@ -15,7 +15,6 @@ namespace ProyectoDeskstop
         private System.Windows.Forms.Panel panelLogo;
         private System.Windows.Forms.Label lblLogo;
         private System.Windows.Forms.Label lblTituloPagina;
-        private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Panel panelSeparador;
         private System.Windows.Forms.Label lblAvatar;
         private System.Windows.Forms.Label lblUsuario;
@@ -49,7 +48,6 @@ namespace ProyectoDeskstop
             this.panelLogo = new System.Windows.Forms.Panel();
             this.lblLogo = new System.Windows.Forms.Label();
             this.lblTituloPagina = new System.Windows.Forms.Label();
-            this.txtBuscar = new System.Windows.Forms.TextBox();
             this.panelSeparador = new System.Windows.Forms.Panel();
             this.lblAvatar = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -170,7 +168,6 @@ namespace ProyectoDeskstop
             this.panelCabecera.BackColor = System.Drawing.Color.White;
             this.panelCabecera.Controls.Add(this.panelLogo);
             this.panelCabecera.Controls.Add(this.lblTituloPagina);
-            this.panelCabecera.Controls.Add(this.txtBuscar);
             this.panelCabecera.Controls.Add(this.panelSeparador);
             this.panelCabecera.Controls.Add(this.lblAvatar);
             this.panelCabecera.Controls.Add(this.lblUsuario);
@@ -206,16 +203,6 @@ namespace ProyectoDeskstop
             this.lblTituloPagina.Location = new System.Drawing.Point(264, 24);
             this.lblTituloPagina.Name = "lblTituloPagina";
             this.lblTituloPagina.Text = "Inicio";
-            // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.txtBuscar.Location = new System.Drawing.Point(716, 20);
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(260, 30);
-            this.txtBuscar.Text = "Buscar en Planea...";
             // 
             // panelSeparador
             // 

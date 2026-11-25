@@ -14,7 +14,7 @@ namespace ProyectoDeskstop
         public string Entrega;
         public int Completadas;
         public int Total;
-        public int HorasReales;
+        public decimal HorasReales;
         public int HorasEstimadas;
 
         public int Progreso
@@ -33,6 +33,7 @@ namespace ProyectoDeskstop
         public string Responsable;
         public string Estado;
         public string Prioridad;
+        public decimal HorasTotales;
         public string Horas;
         public string Fecha;
     }

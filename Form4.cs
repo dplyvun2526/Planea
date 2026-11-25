@@ -22,6 +22,7 @@ namespace ProyectoDeskstop
             CrearBotonEstado();
 
             Traducir();
+            txtBuscarTarea.PlaceholderText = T("Buscar tarea por título...");
             FiltrarTareas(this, EventArgs.Empty);
         }
 
@@ -147,7 +148,7 @@ namespace ProyectoDeskstop
         {
             Button b = new Button
             {
-                Text = T("Cambiar estado"),
+                Text = T("Estado y horas"),
                 Location = new Point(630, 167),
                 Size = new Size(120, 28),
                 BackColor = Color.White,
@@ -170,15 +171,17 @@ namespace ProyectoDeskstop
 
             Tarea t = mostradas[dgvTareas.CurrentRow.Index];
             string[] estados = { "Pendiente", "En progreso", "Finalizada" }; // la BD solo tiene Pendiente, En progreso y Completada
-            using (FormularioSimple f = new FormularioSimple(T("Cambiar estado")))
+            using (FormularioSimple f = new FormularioSimple(T("Estado y horas")))
             {
                 ComboBox combo = f.Lista(t.Titulo, System.Linq.Enumerable.Select(estados, s => T(s)));
                 combo.SelectedIndex = Math.Max(0, Array.IndexOf(estados, t.Estado));
+                NumericUpDown horas = f.Numero(T("Horas totales trabajadas hasta ahora"), t.HorasTotales);
                 f.Final(T("Guardar"));
                 if (f.ShowDialog(this) != DialogResult.OK) return;
                 try
                 {
                     Servicio.CambiarEstado(t, estados[combo.SelectedIndex]);
+                    if (horas.Value != t.HorasTotales) Servicio.GuardarHoras(t, horas.Value);
                     Servicio.Cargar();
                 }
                 catch (ApiException ex)

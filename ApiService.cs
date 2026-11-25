@@ -17,7 +17,7 @@ namespace ProyectoDeskstop
     public class ApiRol { public int IdRoles { get; set; } public string NameRoles { get; set; } }
     public class ApiAsignacion { public int IdUser { get; set; } public int IdTask { get; set; } }
     public class ApiProyectoUsuarioRol { public int IdRoles { get; set; } public int IdUsers { get; set; } public int IdProject { get; set; } }
-    public class ApiHoras { public DateTime Date { get; set; } public int IdUser { get; set; } public int IdTask { get; set; } public string Descriptions { get; set; } public int Hours { get; set; } }
+    public class ApiHoras { public DateTime Date { get; set; } public int IdUser { get; set; } public int IdTask { get; set; } public string Descriptions { get; set; } public decimal Hours { get; set; } }
 
     public class ApiException : Exception
     {
@@ -177,7 +177,7 @@ namespace ProyectoDeskstop
             {
                 ApiProyecto p = proyectos.FirstOrDefault(x => x.IdProject == t.IdProject);
                 ApiAsignacion a = asignaciones.FirstOrDefault(x => x.IdTask == t.IdTask);
-                int h = horas.Where(x => x.IdTask == t.IdTask).Sum(x => x.Hours);
+                decimal h = horas.Where(x => x.IdTask == t.IdTask).Sum(x => x.Hours);
                 listaTareas.Add(new Tarea
                 {
                     Id = t.IdTask,
@@ -188,7 +188,8 @@ namespace ProyectoDeskstop
                     Responsable = a != null ? usuario(a.IdUser) : "—",
                     Estado = nombreEstado.ContainsKey(t.IdState) ? nombreEstado[t.IdState] : "Pendiente",
                     Prioridad = PrioridadTexto(t.Priority),
-                    Horas = h > 0 ? h + " h" : "—",
+                    HorasTotales = h,
+                    Horas = h > 0 ? h.ToString("0.##", Idiomas.Cultura()) + " h" : "—",
                     Fecha = Fecha(t.DueDate)
                 });
             }
@@ -200,7 +201,7 @@ namespace ProyectoDeskstop
                 int total = deP.Count;
                 int fin = deP.Count(t => t.Estado == "Finalizada");
                 int enProg = deP.Count(t => t.Estado == "En progreso");
-                int horasReales = horas.Where(x => deP.Any(t => t.Id == x.IdTask)).Sum(x => x.Hours);
+                decimal horasReales = horas.Where(x => deP.Any(t => t.Id == x.IdTask)).Sum(x => x.Hours);
 
                 // Responsable: usuario con un rol de dirección en el proyecto; si no, el primero asignado.
                 ApiProyectoUsuarioRol resp = pur.FirstOrDefault(r => r.IdProject == p.IdProject && EsRolDireccion(roles, r.IdRoles))
@@ -228,8 +229,8 @@ namespace ProyectoDeskstop
 
             Datos.Proyectos = listaProyectos;
             Datos.Tareas = listaTareas;
-            Datos.HorasRegistradasTotal = horas.Sum(x => x.Hours);
-            Datos.HorasMes = horas.Where(x => x.Date.Year == DateTime.Today.Year && x.Date.Month == DateTime.Today.Month).Sum(x => x.Hours);
+            Datos.HorasRegistradasTotal = (double)horas.Sum(x => x.Hours);
+            Datos.HorasMes = (double)horas.Where(x => x.Date.Year == DateTime.Today.Year && x.Date.Month == DateTime.Today.Month).Sum(x => x.Hours);
             Datos.HorasEstimadasTotal = 0;
         }
 
@@ -292,6 +293,52 @@ namespace ProyectoDeskstop
             Api.Actualizar("api/Tasks/" + t.Id, o);
         }
 
+        // Deja las horas totales de una tarea en la cifra indicada. La base de datos guarda un registro
+        // por día, usuario y tarea: si suben, la diferencia se apunta hoy; si bajan, se descuenta de los más recientes.
+        public static void GuardarHoras(Tarea t, decimal total)
+        {
+            List<ApiHoras> registros = Api.Lista<ApiHoras>("api/HourEntries").Where(x => x.IdTask == t.Id).ToList();
+            decimal diferencia = total - registros.Sum(x => x.Hours);
+
+            if (diferencia > 0)
+            {
+                ApiHoras hoy = registros.FirstOrDefault(x => x.Date.Date == DateTime.Today && x.IdUser == IdUsuario);
+                if (hoy != null)
+                {
+                    hoy.Hours += diferencia;
+                    Api.Actualizar(RutaHoras(hoy), hoy);
+                    return;
+                }
+                // La fecha tiene que existir en la tabla DATE; si ya existe, la API lo rechaza y no pasa nada.
+                try { Api.Crear("api/Dates", new { Date = DateTime.Today }); }
+                catch (ApiException) { }
+                Api.Crear("api/HourEntries", new ApiHoras { Date = DateTime.Today, IdUser = IdUsuario, IdTask = t.Id, Descriptions = "", Hours = diferencia });
+                return;
+            }
+
+            decimal sobrante = -diferencia;
+            foreach (ApiHoras r in registros.OrderByDescending(x => x.Date))
+            {
+                if (sobrante <= 0) break;
+                if (r.Hours <= sobrante)
+                {
+                    sobrante -= r.Hours;
+                    Api.Borrar(RutaHoras(r));
+                }
+                else
+                {
+                    r.Hours -= sobrante;
+                    sobrante = 0;
+                    Api.Actualizar(RutaHoras(r), r);
+                }
+            }
+        }
+
+        private static string RutaHoras(ApiHoras r)
+        {
+            return "api/HourEntries/" + r.Date.ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture) + "/" + r.IdUser + "/" + r.IdTask;
+        }
+
         public static void CrearTarea(string titulo, int idProyecto, string prioridad, DateTime limite, int idResponsable)
         {
             int idEstado;
@@ -317,6 +364,7 @@ namespace ProyectoDeskstop
 
         public static void EliminarTarea(Tarea t)
         {
+            GuardarHoras(t, 0); // se borran sus horas registradas
             // Primero se quitan las asignaciones; si tiene horas registradas la API responde con un conflicto.
             foreach (ApiAsignacion a in Api.Lista<ApiAsignacion>("api/TaskAssignments").Where(x => x.IdTask == t.Id))
             {
