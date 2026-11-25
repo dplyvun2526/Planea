@@ -22,7 +22,7 @@ namespace ProyectoDeskstop
         {
             lblRendimiento.Text = T("RENDIMIENTO DEL EQUIPO");
             lblTituloResumen.Text = T("Resumen y estadísticas");
-            lblSubResumen.Text = T("Analiza el avance de los proyectos y el tiempo dedicado.");
+            lblSubResumen.Text = T("Analiza el avance de los proyectos y sus tareas.");
             lblStatTitulo1.Text = T("Total de tareas");
             lblStatTitulo2.Text = T("Tareas finalizadas");
             lblStatTitulo3.Text = T("En progreso");
@@ -33,11 +33,6 @@ namespace ProyectoDeskstop
             lblEstadoNombre2.Text = T("En progreso");
             lblEstadoNombre3.Text = T("Bloqueadas");
             lblEstadoNombre4.Text = T("Finalizadas");
-            lblHorasProyTitulo.Text = T("Horas por proyecto");
-            lblHorasProySub.Text = T("Reales frente a estimadas");
-            lblHorasEstTitulo.Text = T("Horas estimadas");
-            lblHorasRegTitulo.Text = T("Horas registradas");
-            lblUsoTitulo.Text = T("Uso de horas");
         }
 
         private void CargarDatos()
@@ -62,33 +57,6 @@ namespace ProyectoDeskstop
             lblEstadoValor2.Text = enProg.ToString();
             lblEstadoValor3.Text = bloq.ToString();
             lblEstadoValor4.Text = fin.ToString();
-
-            // Horas por proyecto (cuatro proyectos)
-            Label[] nombres = { lblHorasNombre1, lblHorasNombre2, lblHorasNombre3, lblHorasNombre4 };
-            Label[] valores = { lblHorasValor1, lblHorasValor2, lblHorasValor3, lblHorasValor4 };
-            ProgressBar[] barras = { pbHoras1, pbHoras2, pbHoras3, pbHoras4 };
-
-            for (int i = 0; i < 4; i++)
-            {
-                bool hay = i < Datos.Proyectos.Count;
-                nombres[i].Visible = valores[i].Visible = barras[i].Visible = hay;
-                if (!hay) continue;
-                Proyecto p = Datos.Proyectos[i];
-                // La barra compara cada proyecto con el que más horas lleva.
-                decimal maximo = Math.Max(1m, Datos.Proyectos.Max(x => x.HorasReales));
-                nombres[i].Text = p.Nombre;
-                valores[i].Text = p.HorasReales.ToString("0.##", cultura) + " h";
-                barras[i].Maximum = 1000;
-                barras[i].Value = (int)(1000 * p.HorasReales / maximo);
-            }
-
-            // Resumen de horas
-            int uso = Datos.HorasEstimadasTotal <= 0 ? 0 : (int)Math.Min(100, Math.Round(100 * Datos.HorasRegistradasTotal / Datos.HorasEstimadasTotal));
-            lblHorasEstValor.Text = Datos.HorasEstimadasTotal.ToString("0", cultura) + " h";
-            lblHorasRegValor.Text = Datos.HorasRegistradasTotal.ToString("N1", cultura) + " h";
-            lblUsoValor.Text = uso + "%";
-            pbUso.Maximum = 100;
-            pbUso.Value = uso;
         }
 
         private void panelDonaResumen_Paint(object sender, PaintEventArgs e)

@@ -22,8 +22,6 @@ namespace ProyectoDeskstop
         private void Traducir()
         {
             lblSubtitulo.Text = T("Aquí tienes una visión general del trabajo de tu equipo.");
-            lblHorasTitulo.Text = T("Horas este mes");
-            lblHorasValor.Text = Datos.HorasMes.ToString("0.#", Cultura()) + " h";
             lblStat1Titulo.Text = T("Proyectos activos");
             lblStat2Titulo.Text = T("Tareas pendientes");
             lblStat3Titulo.Text = T("En progreso");

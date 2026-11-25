@@ -57,12 +57,6 @@ namespace ProyectoDeskstop
             return Campo(new DateTimePicker { Value = valor, Format = DateTimePickerFormat.Short });
         }
 
-        public NumericUpDown Numero(string etiqueta, decimal valor)
-        {
-            Etiqueta(etiqueta);
-            return Campo(new NumericUpDown { Minimum = 0, Maximum = 9999, DecimalPlaces = 2, Increment = 0.5m, Value = Math.Min(9999m, Math.Max(0m, valor)) });
-        }
-
         public void Final(string textoOk)
         {
             Button ok = new Button { Text = textoOk, Location = new Point(150, y + 5), Size = new Size(95, 30), DialogResult = DialogResult.OK };

@@ -14,8 +14,6 @@ namespace ProyectoDeskstop
         public string Entrega;
         public int Completadas;
         public int Total;
-        public decimal HorasReales;
-        public int HorasEstimadas;
 
         public int Progreso
         {
@@ -33,8 +31,6 @@ namespace ProyectoDeskstop
         public string Responsable;
         public string Estado;
         public string Prioridad;
-        public decimal HorasTotales;
-        public string Horas;
         public string Fecha;
     }
 
@@ -78,10 +74,6 @@ namespace ProyectoDeskstop
                 IdiomaCambiado();
             }
         }
-
-        public static double HorasEstimadasTotal = 0;
-        public static double HorasRegistradasTotal = 0;
-        public static double HorasMes = 0;
 
         public static List<Proyecto> Proyectos = new List<Proyecto>();
 

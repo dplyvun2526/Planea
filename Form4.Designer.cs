@@ -23,7 +23,6 @@ namespace ProyectoDeskstop
         private System.Windows.Forms.DataGridViewTextBoxColumn colResponsable;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrioridad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colHoras;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
 
         protected override void Dispose(bool disposing)
@@ -59,7 +58,6 @@ namespace ProyectoDeskstop
             this.colResponsable = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colPrioridad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHoras = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).BeginInit();
             this.SuspendLayout();
@@ -224,7 +222,6 @@ namespace ProyectoDeskstop
             this.colResponsable,
             this.colEstado,
             this.colPrioridad,
-            this.colHoras,
             this.colFecha});
             this.dgvTareas.Location = new System.Drawing.Point(30, 205);
             this.dgvTareas.MultiSelect = false;
@@ -263,12 +260,6 @@ namespace ProyectoDeskstop
             this.colPrioridad.HeaderText = "Prioridad";
             this.colPrioridad.Name = "colPrioridad";
             this.colPrioridad.ReadOnly = true;
-            // 
-            // colHoras
-            // 
-            this.colHoras.HeaderText = "Horas";
-            this.colHoras.Name = "colHoras";
-            this.colHoras.ReadOnly = true;
             // 
             // colFecha
             // 

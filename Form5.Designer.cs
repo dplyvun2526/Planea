@@ -35,29 +35,6 @@ namespace ProyectoDeskstop
         private System.Windows.Forms.Panel panelEstadoPunto4;
         private System.Windows.Forms.Label lblEstadoNombre4;
         private System.Windows.Forms.Label lblEstadoValor4;
-        private System.Windows.Forms.Panel panelHorasProy;
-        private System.Windows.Forms.Label lblHorasProyTitulo;
-        private System.Windows.Forms.Label lblHorasProySub;
-        private System.Windows.Forms.Label lblHorasNombre1;
-        private System.Windows.Forms.Label lblHorasValor1;
-        private System.Windows.Forms.ProgressBar pbHoras1;
-        private System.Windows.Forms.Label lblHorasNombre2;
-        private System.Windows.Forms.Label lblHorasValor2;
-        private System.Windows.Forms.ProgressBar pbHoras2;
-        private System.Windows.Forms.Label lblHorasNombre3;
-        private System.Windows.Forms.Label lblHorasValor3;
-        private System.Windows.Forms.ProgressBar pbHoras3;
-        private System.Windows.Forms.Label lblHorasNombre4;
-        private System.Windows.Forms.Label lblHorasValor4;
-        private System.Windows.Forms.ProgressBar pbHoras4;
-        private System.Windows.Forms.Panel panelResumenHoras;
-        private System.Windows.Forms.Label lblHorasEstTitulo;
-        private System.Windows.Forms.Label lblHorasEstValor;
-        private System.Windows.Forms.Label lblHorasRegTitulo;
-        private System.Windows.Forms.Label lblHorasRegValor;
-        private System.Windows.Forms.Label lblUsoTitulo;
-        private System.Windows.Forms.Label lblUsoValor;
-        private System.Windows.Forms.ProgressBar pbUso;
 
         protected override void Dispose(bool disposing)
         {
@@ -103,36 +80,11 @@ namespace ProyectoDeskstop
             this.panelEstadoPunto4 = new System.Windows.Forms.Panel();
             this.lblEstadoNombre4 = new System.Windows.Forms.Label();
             this.lblEstadoValor4 = new System.Windows.Forms.Label();
-            this.panelHorasProy = new System.Windows.Forms.Panel();
-            this.lblHorasProyTitulo = new System.Windows.Forms.Label();
-            this.lblHorasProySub = new System.Windows.Forms.Label();
-            this.lblHorasNombre1 = new System.Windows.Forms.Label();
-            this.lblHorasValor1 = new System.Windows.Forms.Label();
-            this.pbHoras1 = new System.Windows.Forms.ProgressBar();
-            this.lblHorasNombre2 = new System.Windows.Forms.Label();
-            this.lblHorasValor2 = new System.Windows.Forms.Label();
-            this.pbHoras2 = new System.Windows.Forms.ProgressBar();
-            this.lblHorasNombre3 = new System.Windows.Forms.Label();
-            this.lblHorasValor3 = new System.Windows.Forms.Label();
-            this.pbHoras3 = new System.Windows.Forms.ProgressBar();
-            this.lblHorasNombre4 = new System.Windows.Forms.Label();
-            this.lblHorasValor4 = new System.Windows.Forms.Label();
-            this.pbHoras4 = new System.Windows.Forms.ProgressBar();
-            this.panelResumenHoras = new System.Windows.Forms.Panel();
-            this.lblHorasEstTitulo = new System.Windows.Forms.Label();
-            this.lblHorasEstValor = new System.Windows.Forms.Label();
-            this.lblHorasRegTitulo = new System.Windows.Forms.Label();
-            this.lblHorasRegValor = new System.Windows.Forms.Label();
-            this.lblUsoTitulo = new System.Windows.Forms.Label();
-            this.lblUsoValor = new System.Windows.Forms.Label();
-            this.pbUso = new System.Windows.Forms.ProgressBar();
             this.panelStat1.SuspendLayout();
             this.panelStat2.SuspendLayout();
             this.panelStat3.SuspendLayout();
             this.panelStat4.SuspendLayout();
             this.panelEstadoResumen.SuspendLayout();
-            this.panelHorasProy.SuspendLayout();
-            this.panelResumenHoras.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblRendimiento
@@ -295,7 +247,7 @@ namespace ProyectoDeskstop
             this.panelEstadoResumen.Controls.Add(this.lblEstadoValor4);
             this.panelEstadoResumen.Location = new System.Drawing.Point(30, 235);
             this.panelEstadoResumen.Name = "panelEstadoResumen";
-            this.panelEstadoResumen.Size = new System.Drawing.Size(430, 300);
+            this.panelEstadoResumen.Size = new System.Drawing.Size(930, 300);
             // 
             // lblEstadoResTitulo
             // 
@@ -422,217 +374,6 @@ namespace ProyectoDeskstop
             this.lblEstadoValor4.Name = "lblEstadoValor4";
             this.lblEstadoValor4.Text = "0";
             // 
-            // panelHorasProy
-            // 
-            this.panelHorasProy.BackColor = System.Drawing.Color.White;
-            this.panelHorasProy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelHorasProy.Controls.Add(this.lblHorasProyTitulo);
-            this.panelHorasProy.Controls.Add(this.lblHorasProySub);
-            this.panelHorasProy.Controls.Add(this.lblHorasNombre1);
-            this.panelHorasProy.Controls.Add(this.lblHorasValor1);
-            this.panelHorasProy.Controls.Add(this.pbHoras1);
-            this.panelHorasProy.Controls.Add(this.lblHorasNombre2);
-            this.panelHorasProy.Controls.Add(this.lblHorasValor2);
-            this.panelHorasProy.Controls.Add(this.pbHoras2);
-            this.panelHorasProy.Controls.Add(this.lblHorasNombre3);
-            this.panelHorasProy.Controls.Add(this.lblHorasValor3);
-            this.panelHorasProy.Controls.Add(this.pbHoras3);
-            this.panelHorasProy.Controls.Add(this.lblHorasNombre4);
-            this.panelHorasProy.Controls.Add(this.lblHorasValor4);
-            this.panelHorasProy.Controls.Add(this.pbHoras4);
-            this.panelHorasProy.Location = new System.Drawing.Point(480, 235);
-            this.panelHorasProy.Name = "panelHorasProy";
-            this.panelHorasProy.Size = new System.Drawing.Size(480, 300);
-            // 
-            // lblHorasProyTitulo
-            // 
-            this.lblHorasProyTitulo.AutoSize = true;
-            this.lblHorasProyTitulo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.lblHorasProyTitulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.lblHorasProyTitulo.Location = new System.Drawing.Point(15, 14);
-            this.lblHorasProyTitulo.Name = "lblHorasProyTitulo";
-            this.lblHorasProyTitulo.Text = "Horas por proyecto";
-            // 
-            // lblHorasProySub
-            // 
-            this.lblHorasProySub.AutoSize = true;
-            this.lblHorasProySub.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.lblHorasProySub.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblHorasProySub.Location = new System.Drawing.Point(15, 38);
-            this.lblHorasProySub.Name = "lblHorasProySub";
-            this.lblHorasProySub.Text = "Reales frente a estimadas";
-            // 
-            // lblHorasNombre1
-            // 
-            this.lblHorasNombre1.AutoSize = true;
-            this.lblHorasNombre1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblHorasNombre1.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.lblHorasNombre1.Location = new System.Drawing.Point(15, 75);
-            this.lblHorasNombre1.Name = "lblHorasNombre1";
-            this.lblHorasNombre1.Text = "Proyecto 1";
-            // 
-            // lblHorasValor1
-            // 
-            this.lblHorasValor1.AutoSize = true;
-            this.lblHorasValor1.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.lblHorasValor1.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblHorasValor1.Location = new System.Drawing.Point(300, 75);
-            this.lblHorasValor1.Name = "lblHorasValor1";
-            this.lblHorasValor1.Text = "0 h / 0 h";
-            // 
-            // pbHoras1
-            // 
-            this.pbHoras1.Location = new System.Drawing.Point(15, 97);
-            this.pbHoras1.Name = "pbHoras1";
-            this.pbHoras1.Size = new System.Drawing.Size(450, 10);
-            // 
-            // lblHorasNombre2
-            // 
-            this.lblHorasNombre2.AutoSize = true;
-            this.lblHorasNombre2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblHorasNombre2.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.lblHorasNombre2.Location = new System.Drawing.Point(15, 130);
-            this.lblHorasNombre2.Name = "lblHorasNombre2";
-            this.lblHorasNombre2.Text = "Proyecto 2";
-            // 
-            // lblHorasValor2
-            // 
-            this.lblHorasValor2.AutoSize = true;
-            this.lblHorasValor2.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.lblHorasValor2.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblHorasValor2.Location = new System.Drawing.Point(300, 130);
-            this.lblHorasValor2.Name = "lblHorasValor2";
-            this.lblHorasValor2.Text = "0 h / 0 h";
-            // 
-            // pbHoras2
-            // 
-            this.pbHoras2.Location = new System.Drawing.Point(15, 152);
-            this.pbHoras2.Name = "pbHoras2";
-            this.pbHoras2.Size = new System.Drawing.Size(450, 10);
-            // 
-            // lblHorasNombre3
-            // 
-            this.lblHorasNombre3.AutoSize = true;
-            this.lblHorasNombre3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblHorasNombre3.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.lblHorasNombre3.Location = new System.Drawing.Point(15, 185);
-            this.lblHorasNombre3.Name = "lblHorasNombre3";
-            this.lblHorasNombre3.Text = "Proyecto 3";
-            // 
-            // lblHorasValor3
-            // 
-            this.lblHorasValor3.AutoSize = true;
-            this.lblHorasValor3.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.lblHorasValor3.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblHorasValor3.Location = new System.Drawing.Point(300, 185);
-            this.lblHorasValor3.Name = "lblHorasValor3";
-            this.lblHorasValor3.Text = "0 h / 0 h";
-            // 
-            // pbHoras3
-            // 
-            this.pbHoras3.Location = new System.Drawing.Point(15, 207);
-            this.pbHoras3.Name = "pbHoras3";
-            this.pbHoras3.Size = new System.Drawing.Size(450, 10);
-            // 
-            // lblHorasNombre4
-            // 
-            this.lblHorasNombre4.AutoSize = true;
-            this.lblHorasNombre4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lblHorasNombre4.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.lblHorasNombre4.Location = new System.Drawing.Point(15, 240);
-            this.lblHorasNombre4.Name = "lblHorasNombre4";
-            this.lblHorasNombre4.Text = "Proyecto 4";
-            // 
-            // lblHorasValor4
-            // 
-            this.lblHorasValor4.AutoSize = true;
-            this.lblHorasValor4.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.lblHorasValor4.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblHorasValor4.Location = new System.Drawing.Point(300, 240);
-            this.lblHorasValor4.Name = "lblHorasValor4";
-            this.lblHorasValor4.Text = "0 h / 0 h";
-            // 
-            // pbHoras4
-            // 
-            this.pbHoras4.Location = new System.Drawing.Point(15, 262);
-            this.pbHoras4.Name = "pbHoras4";
-            this.pbHoras4.Size = new System.Drawing.Size(450, 10);
-            // 
-            // panelResumenHoras
-            // 
-            this.panelResumenHoras.BackColor = System.Drawing.Color.White;
-            this.panelResumenHoras.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelResumenHoras.Controls.Add(this.lblHorasEstTitulo);
-            this.panelResumenHoras.Controls.Add(this.lblHorasEstValor);
-            this.panelResumenHoras.Controls.Add(this.lblHorasRegTitulo);
-            this.panelResumenHoras.Controls.Add(this.lblHorasRegValor);
-            this.panelResumenHoras.Controls.Add(this.lblUsoTitulo);
-            this.panelResumenHoras.Controls.Add(this.lblUsoValor);
-            this.panelResumenHoras.Controls.Add(this.pbUso);
-            this.panelResumenHoras.Location = new System.Drawing.Point(30, 555);
-            this.panelResumenHoras.Name = "panelResumenHoras";
-            this.panelResumenHoras.Size = new System.Drawing.Size(930, 80);
-            // 
-            // lblHorasEstTitulo
-            // 
-            this.lblHorasEstTitulo.AutoSize = true;
-            this.lblHorasEstTitulo.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.lblHorasEstTitulo.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblHorasEstTitulo.Location = new System.Drawing.Point(20, 14);
-            this.lblHorasEstTitulo.Name = "lblHorasEstTitulo";
-            this.lblHorasEstTitulo.Text = "Horas estimadas";
-            // 
-            // lblHorasEstValor
-            // 
-            this.lblHorasEstValor.AutoSize = true;
-            this.lblHorasEstValor.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.lblHorasEstValor.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.lblHorasEstValor.Location = new System.Drawing.Point(20, 32);
-            this.lblHorasEstValor.Name = "lblHorasEstValor";
-            this.lblHorasEstValor.Text = "624 h";
-            // 
-            // lblHorasRegTitulo
-            // 
-            this.lblHorasRegTitulo.AutoSize = true;
-            this.lblHorasRegTitulo.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.lblHorasRegTitulo.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblHorasRegTitulo.Location = new System.Drawing.Point(260, 14);
-            this.lblHorasRegTitulo.Name = "lblHorasRegTitulo";
-            this.lblHorasRegTitulo.Text = "Horas registradas";
-            // 
-            // lblHorasRegValor
-            // 
-            this.lblHorasRegValor.AutoSize = true;
-            this.lblHorasRegValor.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.lblHorasRegValor.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.lblHorasRegValor.Location = new System.Drawing.Point(260, 32);
-            this.lblHorasRegValor.Name = "lblHorasRegValor";
-            this.lblHorasRegValor.Text = "486,5 h";
-            // 
-            // lblUsoTitulo
-            // 
-            this.lblUsoTitulo.AutoSize = true;
-            this.lblUsoTitulo.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.lblUsoTitulo.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblUsoTitulo.Location = new System.Drawing.Point(560, 14);
-            this.lblUsoTitulo.Name = "lblUsoTitulo";
-            this.lblUsoTitulo.Text = "Uso de horas";
-            // 
-            // lblUsoValor
-            // 
-            this.lblUsoValor.AutoSize = true;
-            this.lblUsoValor.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            this.lblUsoValor.ForeColor = System.Drawing.Color.FromArgb(37, 99, 235);
-            this.lblUsoValor.Location = new System.Drawing.Point(840, 10);
-            this.lblUsoValor.Name = "lblUsoValor";
-            this.lblUsoValor.Text = "0%";
-            // 
-            // pbUso
-            // 
-            this.pbUso.Location = new System.Drawing.Point(560, 52);
-            this.pbUso.Name = "pbUso";
-            this.pbUso.Size = new System.Drawing.Size(260, 10);
-            // 
             // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -648,8 +389,6 @@ namespace ProyectoDeskstop
             this.Controls.Add(this.panelStat3);
             this.Controls.Add(this.panelStat4);
             this.Controls.Add(this.panelEstadoResumen);
-            this.Controls.Add(this.panelHorasProy);
-            this.Controls.Add(this.panelResumenHoras);
             this.Name = "Form5";
             this.Text = "Resumen";
             this.panelStat1.ResumeLayout(false);
@@ -662,10 +401,6 @@ namespace ProyectoDeskstop
             this.panelStat4.PerformLayout();
             this.panelEstadoResumen.ResumeLayout(false);
             this.panelEstadoResumen.PerformLayout();
-            this.panelHorasProy.ResumeLayout(false);
-            this.panelHorasProy.PerformLayout();
-            this.panelResumenHoras.ResumeLayout(false);
-            this.panelResumenHoras.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
         }

@@ -7,9 +7,6 @@ namespace ProyectoDeskstop
         private System.Windows.Forms.Label lblFecha;
         private System.Windows.Forms.Label lblSaludo;
         private System.Windows.Forms.Label lblSubtitulo;
-        private System.Windows.Forms.Panel panelHoras;
-        private System.Windows.Forms.Label lblHorasTitulo;
-        private System.Windows.Forms.Label lblHorasValor;
         private System.Windows.Forms.Panel panelStat1;
         private System.Windows.Forms.Label lblStat1Titulo;
         private System.Windows.Forms.Label lblStat1Valor;
@@ -91,9 +88,6 @@ namespace ProyectoDeskstop
             this.lblFecha = new System.Windows.Forms.Label();
             this.lblSaludo = new System.Windows.Forms.Label();
             this.lblSubtitulo = new System.Windows.Forms.Label();
-            this.panelHoras = new System.Windows.Forms.Panel();
-            this.lblHorasTitulo = new System.Windows.Forms.Label();
-            this.lblHorasValor = new System.Windows.Forms.Label();
             this.panelStat1 = new System.Windows.Forms.Panel();
             this.lblStat1Titulo = new System.Windows.Forms.Label();
             this.lblStat1Valor = new System.Windows.Forms.Label();
@@ -158,7 +152,6 @@ namespace ProyectoDeskstop
             this.lblProx3Proyecto = new System.Windows.Forms.Label();
             this.lblProx3Fecha = new System.Windows.Forms.Label();
             this.lblProx3Iniciales = new System.Windows.Forms.Label();
-            this.panelHoras.SuspendLayout();
             this.panelStat1.SuspendLayout();
             this.panelStat2.SuspendLayout();
             this.panelStat3.SuspendLayout();
@@ -197,34 +190,6 @@ namespace ProyectoDeskstop
             this.lblSubtitulo.Location = new System.Drawing.Point(30, 85);
             this.lblSubtitulo.Name = "lblSubtitulo";
             this.lblSubtitulo.Text = "Aquí tienes una visión general del trabajo de tu equipo.";
-            // 
-            // panelHoras
-            // 
-            this.panelHoras.BackColor = System.Drawing.Color.White;
-            this.panelHoras.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelHoras.Controls.Add(this.lblHorasTitulo);
-            this.panelHoras.Controls.Add(this.lblHorasValor);
-            this.panelHoras.Location = new System.Drawing.Point(760, 30);
-            this.panelHoras.Name = "panelHoras";
-            this.panelHoras.Size = new System.Drawing.Size(200, 70);
-            // 
-            // lblHorasTitulo
-            // 
-            this.lblHorasTitulo.AutoSize = true;
-            this.lblHorasTitulo.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.lblHorasTitulo.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblHorasTitulo.Location = new System.Drawing.Point(14, 12);
-            this.lblHorasTitulo.Name = "lblHorasTitulo";
-            this.lblHorasTitulo.Text = "Horas este mes";
-            // 
-            // lblHorasValor
-            // 
-            this.lblHorasValor.AutoSize = true;
-            this.lblHorasValor.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Bold);
-            this.lblHorasValor.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.lblHorasValor.Location = new System.Drawing.Point(14, 32);
-            this.lblHorasValor.Name = "lblHorasValor";
-            this.lblHorasValor.Text = "126,5 h";
             // 
             // panelStat1
             // 
@@ -851,7 +816,6 @@ namespace ProyectoDeskstop
             this.Controls.Add(this.lblFecha);
             this.Controls.Add(this.lblSaludo);
             this.Controls.Add(this.lblSubtitulo);
-            this.Controls.Add(this.panelHoras);
             this.Controls.Add(this.panelStat1);
             this.Controls.Add(this.panelStat2);
             this.Controls.Add(this.panelStat3);
@@ -861,8 +825,6 @@ namespace ProyectoDeskstop
             this.Controls.Add(this.panelProximas);
             this.Name = "Form2";
             this.Text = "Inicio";
-            this.panelHoras.ResumeLayout(false);
-            this.panelHoras.PerformLayout();
             this.panelStat1.ResumeLayout(false);
             this.panelStat1.PerformLayout();
             this.panelStat2.ResumeLayout(false);

@@ -23,6 +23,6 @@ Los pasos completos (descargar, arrancar la API y la app, y qué probar) están 
 - `datos-iniciales.sql`: cómo crear el primer administrador.
 
 ## Pendiente
-- Horas estimadas, costes y dependencias entre tareas (la base de datos aún no tiene dónde guardarlas).
+- Dependencias entre tareas, costes y facturación.
 - La pantalla de Proyectos muestra como máximo 4 tarjetas (usa el buscador y el filtro para ver el resto).
 - Cambiar el nombre en Ajustes solo afecta a la sesión actual.
