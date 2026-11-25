@@ -16,7 +16,6 @@ namespace ProyectoDeskstop
         private System.Windows.Forms.Label lblLogo;
         private System.Windows.Forms.Label lblTituloPagina;
         private System.Windows.Forms.TextBox txtBuscar;
-        private System.Windows.Forms.Button btnNotificaciones;
         private System.Windows.Forms.Panel panelSeparador;
         private System.Windows.Forms.Label lblAvatar;
         private System.Windows.Forms.Label lblUsuario;
@@ -51,7 +50,6 @@ namespace ProyectoDeskstop
             this.lblLogo = new System.Windows.Forms.Label();
             this.lblTituloPagina = new System.Windows.Forms.Label();
             this.txtBuscar = new System.Windows.Forms.TextBox();
-            this.btnNotificaciones = new System.Windows.Forms.Button();
             this.panelSeparador = new System.Windows.Forms.Panel();
             this.lblAvatar = new System.Windows.Forms.Label();
             this.lblUsuario = new System.Windows.Forms.Label();
@@ -173,7 +171,6 @@ namespace ProyectoDeskstop
             this.panelCabecera.Controls.Add(this.panelLogo);
             this.panelCabecera.Controls.Add(this.lblTituloPagina);
             this.panelCabecera.Controls.Add(this.txtBuscar);
-            this.panelCabecera.Controls.Add(this.btnNotificaciones);
             this.panelCabecera.Controls.Add(this.panelSeparador);
             this.panelCabecera.Controls.Add(this.lblAvatar);
             this.panelCabecera.Controls.Add(this.lblUsuario);
@@ -215,24 +212,10 @@ namespace ProyectoDeskstop
             this.txtBuscar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             this.txtBuscar.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txtBuscar.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.txtBuscar.Location = new System.Drawing.Point(640, 20);
+            this.txtBuscar.Location = new System.Drawing.Point(716, 20);
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(260, 30);
             this.txtBuscar.Text = "Buscar en Planea...";
-            // 
-            // btnNotificaciones
-            // 
-            this.btnNotificaciones.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            this.btnNotificaciones.BackColor = System.Drawing.Color.White;
-            this.btnNotificaciones.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNotificaciones.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(203, 213, 225);
-            this.btnNotificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNotificaciones.Font = new System.Drawing.Font("Segoe UI Emoji", 10F);
-            this.btnNotificaciones.Location = new System.Drawing.Point(940, 20);
-            this.btnNotificaciones.Name = "btnNotificaciones";
-            this.btnNotificaciones.Size = new System.Drawing.Size(36, 30);
-            this.btnNotificaciones.Text = "🔔";
-            this.btnNotificaciones.UseVisualStyleBackColor = false;
             // 
             // panelSeparador
             // 

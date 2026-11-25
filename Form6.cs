@@ -12,6 +12,9 @@ namespace ProyectoDeskstop
         private string[] nombres;
         private bool cargando = true;
 
+        // Sección abierta: al cambiar de idioma la página se vuelve a crear y se sigue en la misma.
+        private static string seccionAbierta = "Perfil";
+
         public Form6()
         {
             InitializeComponent();
@@ -20,15 +23,17 @@ namespace ProyectoDeskstop
             rbUsuario.Enabled = false;
             rbAdministrador.Enabled = false;
 
-            paneles =new[] { panelPerfil, panelIdioma, panelNotificaciones };
-            botones = new[] { btnSecPerfil, btnSecIdioma, btnSecNotificaciones };
-            nombres = new[] { "Perfil", "Idioma", "Notificaciones" };
+            paneles = new[] { panelPerfil, panelIdioma };
+            botones = new[] { btnSecPerfil, btnSecIdioma };
+            nombres = new[] { "Perfil", "Idioma" };
 
             Traducir();
             CargarPerfil();
             CargarIdioma();
-            CargarNotificaciones();
+            PrepararSelectorIdioma();
             cargando = false;
+
+            btnSeccion_Click(botones[Array.IndexOf(nombres, seccionAbierta)], EventArgs.Empty);
         }
 
         private void Traducir()
@@ -38,7 +43,6 @@ namespace ProyectoDeskstop
             lblAjustesSub.Text = T("Configura tu perfil y las opciones de Planea.");
             btnSecPerfil.Text = T("Perfil");
             btnSecIdioma.Text = T("Idioma");
-            btnSecNotificaciones.Text = T("Notificaciones");
             btnCerrarSesion.Text = T("Cerrar sesión");
 
             // Perfil
@@ -55,16 +59,6 @@ namespace ProyectoDeskstop
             lblIdiomaSub.Text = T("Planea usa por defecto el idioma de tu dispositivo");
             lblIdiomaCasDetalle.Text = T("Español");
             lblIdiomaInfoTexto.Text = T("El idioma de navegación se ha actualizado.");
-
-            // Notificaciones
-            lblNotifTitulo.Text = T("Notificaciones");
-            lblNotifSub.Text = T("Elige qué actualizaciones quieres recibir");
-            lblNotif1Titulo.Text = T("Tareas asignadas");
-            lblNotif1Desc.Text = T("Cuando alguien te asigne una nueva tarea");
-            lblNotif2Titulo.Text = T("Fechas límite");
-            lblNotif2Desc.Text = T("Recordatorios de tareas próximas a vencer");
-            lblNotif3Titulo.Text = T("Actualizaciones de proyecto");
-            lblNotif3Desc.Text = T("Cambios importantes en tus proyectos");
         }
 
         // ---------- Perfil ----------
@@ -123,6 +117,24 @@ namespace ProyectoDeskstop
             ActualizarIdioma();
         }
 
+        // Los botones de opción quedaban tapados por sus recuadros: se traen al frente
+        // y además se puede hacer clic en cualquier parte del recuadro.
+        private void PrepararSelectorIdioma()
+        {
+            Panel[] recuadros = { panelIdiomaCat, panelIdiomaCas, panelIdiomaEng };
+            RadioButton[] opciones = { rbIdiomaCatala, rbIdiomaCastellano, rbIdiomaEnglish };
+            for (int i = 0; i < recuadros.Length; i++)
+            {
+                RadioButton opcion = opciones[i];
+                EventHandler elegir = (s, e) => opcion.Checked = true;
+                recuadros[i].Cursor = Cursors.Hand;
+                recuadros[i].Click += elegir;
+                foreach (Control c in recuadros[i].Controls) c.Click += elegir;
+                opcion.BringToFront();
+                opcion.BackColor = recuadros[i].BackColor;
+            }
+        }
+
         private void rbIdioma_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton elegido = (RadioButton)sender;
@@ -142,33 +154,6 @@ namespace ProyectoDeskstop
             lblIdiomaInfoTitulo.Text = Datos.Idioma;
         }
 
-        // ---------- Notificaciones ----------
-        private void CargarNotificaciones()
-        {
-            chkNotif1.Checked = Datos.NotifTareas;
-            chkNotif2.Checked = Datos.NotifFechas;
-            chkNotif3.Checked = Datos.NotifProyectos;
-            ActualizarTextoCasillas(chkNotif1);
-            ActualizarTextoCasillas(chkNotif2);
-            ActualizarTextoCasillas(chkNotif3);
-        }
-
-        private void chkNotif_CheckedChanged(object sender, EventArgs e)
-        {
-            CheckBox casilla = (CheckBox)sender;
-            if (casilla == chkNotif1) Datos.NotifTareas = casilla.Checked;
-            if (casilla == chkNotif2) Datos.NotifFechas = casilla.Checked;
-            if (casilla == chkNotif3) Datos.NotifProyectos = casilla.Checked;
-            ActualizarTextoCasillas(casilla);
-        }
-
-        private static void ActualizarTextoCasillas(CheckBox casilla)
-        {
-            casilla.Text = casilla.Checked ? T("Activo") : T("Inactivo");
-            casilla.BackColor = casilla.Checked ? Color.FromArgb(37, 99, 235) : Color.FromArgb(226, 232, 240);
-            casilla.ForeColor = casilla.Checked ? Color.White : Color.FromArgb(17, 24, 39);
-        }
-
         // ---------- Menú de secciones ----------
         private void btnSeccion_Click(object sender, EventArgs e)
         {
@@ -183,6 +168,7 @@ namespace ProyectoDeskstop
                 botones[i].Font = new Font("Segoe UI", 9.5F, activa ? FontStyle.Bold : FontStyle.Regular);
                 paneles[i].Visible = nombres[i] == seccion;
             }
+            seccionAbierta = seccion;
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)

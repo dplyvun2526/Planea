@@ -9,7 +9,6 @@ namespace ProyectoDeskstop
         private System.Windows.Forms.Label lblAjustesSub;
         private System.Windows.Forms.Button btnSecPerfil;
         private System.Windows.Forms.Button btnSecIdioma;
-        private System.Windows.Forms.Button btnSecNotificaciones;
         private System.Windows.Forms.Panel panelSeccion;
         private System.Windows.Forms.Button btnCerrarSesion;
 
@@ -50,21 +49,6 @@ namespace ProyectoDeskstop
         private System.Windows.Forms.Label lblIdiomaInfoTitulo;
         private System.Windows.Forms.Label lblIdiomaInfoTexto;
 
-        // Sección Notificaciones
-        private System.Windows.Forms.Panel panelNotificaciones;
-        private System.Windows.Forms.Label lblNotifTitulo;
-        private System.Windows.Forms.Label lblNotifSub;
-        private System.Windows.Forms.Label lblNotif1Titulo;
-        private System.Windows.Forms.Label lblNotif1Desc;
-        private System.Windows.Forms.CheckBox chkNotif1;
-        private System.Windows.Forms.Panel panelNotifSep1;
-        private System.Windows.Forms.Label lblNotif2Titulo;
-        private System.Windows.Forms.Label lblNotif2Desc;
-        private System.Windows.Forms.CheckBox chkNotif2;
-        private System.Windows.Forms.Panel panelNotifSep2;
-        private System.Windows.Forms.Label lblNotif3Titulo;
-        private System.Windows.Forms.Label lblNotif3Desc;
-        private System.Windows.Forms.CheckBox chkNotif3;
 
 
         protected override void Dispose(bool disposing)
@@ -85,7 +69,6 @@ namespace ProyectoDeskstop
             this.lblAjustesSub = new System.Windows.Forms.Label();
             this.btnSecPerfil = new System.Windows.Forms.Button();
             this.btnSecIdioma = new System.Windows.Forms.Button();
-            this.btnSecNotificaciones = new System.Windows.Forms.Button();
             this.panelSeccion = new System.Windows.Forms.Panel();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
             this.panelPerfil = new System.Windows.Forms.Panel();
@@ -121,20 +104,6 @@ namespace ProyectoDeskstop
             this.lblIdiomaCheck = new System.Windows.Forms.Label();
             this.lblIdiomaInfoTitulo = new System.Windows.Forms.Label();
             this.lblIdiomaInfoTexto = new System.Windows.Forms.Label();
-            this.panelNotificaciones = new System.Windows.Forms.Panel();
-            this.lblNotifTitulo = new System.Windows.Forms.Label();
-            this.lblNotifSub = new System.Windows.Forms.Label();
-            this.lblNotif1Titulo = new System.Windows.Forms.Label();
-            this.lblNotif1Desc = new System.Windows.Forms.Label();
-            this.chkNotif1 = new System.Windows.Forms.CheckBox();
-            this.panelNotifSep1 = new System.Windows.Forms.Panel();
-            this.lblNotif2Titulo = new System.Windows.Forms.Label();
-            this.lblNotif2Desc = new System.Windows.Forms.Label();
-            this.chkNotif2 = new System.Windows.Forms.CheckBox();
-            this.panelNotifSep2 = new System.Windows.Forms.Panel();
-            this.lblNotif3Titulo = new System.Windows.Forms.Label();
-            this.lblNotif3Desc = new System.Windows.Forms.Label();
-            this.chkNotif3 = new System.Windows.Forms.CheckBox();
             this.panelSeccion.SuspendLayout();
             this.panelPerfil.SuspendLayout();
             this.panelIdioma.SuspendLayout();
@@ -142,7 +111,6 @@ namespace ProyectoDeskstop
             this.panelIdiomaCas.SuspendLayout();
             this.panelIdiomaEng.SuspendLayout();
             this.panelIdiomaInfo.SuspendLayout();
-            this.panelNotificaciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblAjustesEtiqueta
@@ -204,31 +172,12 @@ namespace ProyectoDeskstop
             this.btnSecIdioma.UseVisualStyleBackColor = false;
             this.btnSecIdioma.Click += new System.EventHandler(this.btnSeccion_Click);
             // 
-            // btnSecNotificaciones
-            // 
-            this.btnSecNotificaciones.BackColor = System.Drawing.Color.White;
-            this.btnSecNotificaciones.FlatAppearance.BorderSize = 0;
-            this.btnSecNotificaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSecNotificaciones.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.btnSecNotificaciones.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.btnSecNotificaciones.Location = new System.Drawing.Point(30, 220);
-            this.btnSecNotificaciones.Name = "btnSecNotificaciones";
-            this.btnSecNotificaciones.Size = new System.Drawing.Size(200, 36);
-            this.btnSecNotificaciones.Tag = "Notificaciones";
-            this.btnSecNotificaciones.Text = "Notificaciones";
-            this.btnSecNotificaciones.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSecNotificaciones.UseVisualStyleBackColor = false;
-            this.btnSecNotificaciones.Click += new System.EventHandler(this.btnSeccion_Click);
-            // 
-            // 
-            // 
             // panelSeccion
             // 
             this.panelSeccion.BackColor = System.Drawing.Color.White;
             this.panelSeccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelSeccion.Controls.Add(this.panelPerfil);
             this.panelSeccion.Controls.Add(this.panelIdioma);
-            this.panelSeccion.Controls.Add(this.panelNotificaciones);
             this.panelSeccion.Location = new System.Drawing.Point(250, 130);
             this.panelSeccion.Name = "panelSeccion";
             this.panelSeccion.Size = new System.Drawing.Size(710, 400);
@@ -578,178 +527,6 @@ namespace ProyectoDeskstop
             this.lblIdiomaInfoTexto.Name = "lblIdiomaInfoTexto";
             this.lblIdiomaInfoTexto.Text = "El idioma de navegación se ha actualizado.";
             // 
-            // panelNotificaciones
-            // 
-            this.panelNotificaciones.BackColor = System.Drawing.Color.White;
-            this.panelNotificaciones.Controls.Add(this.lblNotifTitulo);
-            this.panelNotificaciones.Controls.Add(this.lblNotifSub);
-            this.panelNotificaciones.Controls.Add(this.lblNotif1Titulo);
-            this.panelNotificaciones.Controls.Add(this.lblNotif1Desc);
-            this.panelNotificaciones.Controls.Add(this.chkNotif1);
-            this.panelNotificaciones.Controls.Add(this.panelNotifSep1);
-            this.panelNotificaciones.Controls.Add(this.lblNotif2Titulo);
-            this.panelNotificaciones.Controls.Add(this.lblNotif2Desc);
-            this.panelNotificaciones.Controls.Add(this.chkNotif2);
-            this.panelNotificaciones.Controls.Add(this.panelNotifSep2);
-            this.panelNotificaciones.Controls.Add(this.lblNotif3Titulo);
-            this.panelNotificaciones.Controls.Add(this.lblNotif3Desc);
-            this.panelNotificaciones.Controls.Add(this.chkNotif3);
-            this.panelNotificaciones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelNotificaciones.Location = new System.Drawing.Point(0, 0);
-            this.panelNotificaciones.Name = "panelNotificaciones";
-            this.panelNotificaciones.Size = new System.Drawing.Size(708, 398);
-            this.panelNotificaciones.Visible = false;
-            // 
-            // lblNotifTitulo
-            // 
-            this.lblNotifTitulo.AutoSize = true;
-            this.lblNotifTitulo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
-            this.lblNotifTitulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.lblNotifTitulo.Location = new System.Drawing.Point(20, 18);
-            this.lblNotifTitulo.Name = "lblNotifTitulo";
-            this.lblNotifTitulo.Text = "Notificaciones";
-            // 
-            // lblNotifSub
-            // 
-            this.lblNotifSub.AutoSize = true;
-            this.lblNotifSub.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            this.lblNotifSub.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblNotifSub.Location = new System.Drawing.Point(20, 42);
-            this.lblNotifSub.Name = "lblNotifSub";
-            this.lblNotifSub.Text = "Elige qué actualizaciones quieres recibir";
-            // 
-            // lblNotif1Titulo
-            // 
-            this.lblNotif1Titulo.AutoSize = true;
-            this.lblNotif1Titulo.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.lblNotif1Titulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.lblNotif1Titulo.Location = new System.Drawing.Point(20, 85);
-            this.lblNotif1Titulo.Name = "lblNotif1Titulo";
-            this.lblNotif1Titulo.Text = "Tareas asignadas";
-            // 
-            // lblNotif1Desc
-            // 
-            this.lblNotif1Desc.AutoSize = true;
-            this.lblNotif1Desc.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.lblNotif1Desc.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblNotif1Desc.Location = new System.Drawing.Point(20, 106);
-            this.lblNotif1Desc.Name = "lblNotif1Desc";
-            this.lblNotif1Desc.Text = "Cuando alguien te asigne una nueva tarea";
-            // 
-            // chkNotif1
-            // 
-            this.chkNotif1.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkNotif1.Checked = true;
-            this.chkNotif1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkNotif1.Location = new System.Drawing.Point(630, 90);
-            this.chkNotif1.Name = "chkNotif1";
-            this.chkNotif1.Size = new System.Drawing.Size(60, 26);
-            this.chkNotif1.Text = "Activo";
-            this.chkNotif1.UseVisualStyleBackColor = true;
-            this.chkNotif1.CheckedChanged += new System.EventHandler(this.chkNotif_CheckedChanged);
-            // 
-            // panelNotifSep1
-            // 
-            this.panelNotifSep1.BackColor = System.Drawing.Color.FromArgb(226, 232, 240);
-            this.panelNotifSep1.Location = new System.Drawing.Point(20, 140);
-            this.panelNotifSep1.Name = "panelNotifSep1";
-            this.panelNotifSep1.Size = new System.Drawing.Size(670, 1);
-            // 
-            // lblNotif2Titulo
-            // 
-            this.lblNotif2Titulo.AutoSize = true;
-            this.lblNotif2Titulo.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.lblNotif2Titulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.lblNotif2Titulo.Location = new System.Drawing.Point(20, 155);
-            this.lblNotif2Titulo.Name = "lblNotif2Titulo";
-            this.lblNotif2Titulo.Text = "Fechas límite";
-            // 
-            // lblNotif2Desc
-            // 
-            this.lblNotif2Desc.AutoSize = true;
-            this.lblNotif2Desc.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.lblNotif2Desc.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblNotif2Desc.Location = new System.Drawing.Point(20, 176);
-            this.lblNotif2Desc.Name = "lblNotif2Desc";
-            this.lblNotif2Desc.Text = "Recordatorios de tareas próximas a vencer";
-            // 
-            // chkNotif2
-            // 
-            this.chkNotif2.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkNotif2.Checked = true;
-            this.chkNotif2.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkNotif2.Location = new System.Drawing.Point(630, 160);
-            this.chkNotif2.Name = "chkNotif2";
-            this.chkNotif2.Size = new System.Drawing.Size(60, 26);
-            this.chkNotif2.Text = "Activo";
-            this.chkNotif2.UseVisualStyleBackColor = true;
-            this.chkNotif2.CheckedChanged += new System.EventHandler(this.chkNotif_CheckedChanged);
-            // 
-            // panelNotifSep2
-            // 
-            this.panelNotifSep2.BackColor = System.Drawing.Color.FromArgb(226, 232, 240);
-            this.panelNotifSep2.Location = new System.Drawing.Point(20, 210);
-            this.panelNotifSep2.Name = "panelNotifSep2";
-            this.panelNotifSep2.Size = new System.Drawing.Size(670, 1);
-            // 
-            // lblNotif3Titulo
-            // 
-            this.lblNotif3Titulo.AutoSize = true;
-            this.lblNotif3Titulo.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            this.lblNotif3Titulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.lblNotif3Titulo.Location = new System.Drawing.Point(20, 225);
-            this.lblNotif3Titulo.Name = "lblNotif3Titulo";
-            this.lblNotif3Titulo.Text = "Actualizaciones de proyecto";
-            // 
-            // lblNotif3Desc
-            // 
-            this.lblNotif3Desc.AutoSize = true;
-            this.lblNotif3Desc.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.lblNotif3Desc.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblNotif3Desc.Location = new System.Drawing.Point(20, 246);
-            this.lblNotif3Desc.Name = "lblNotif3Desc";
-            this.lblNotif3Desc.Text = "Cambios importantes en tus proyectos";
-            // 
-            // chkNotif3
-            // 
-            this.chkNotif3.Appearance = System.Windows.Forms.Appearance.Button;
-            this.chkNotif3.Location = new System.Drawing.Point(630, 230);
-            this.chkNotif3.Name = "chkNotif3";
-            this.chkNotif3.Size = new System.Drawing.Size(60, 26);
-            this.chkNotif3.Text = "Inactivo";
-            this.chkNotif3.UseVisualStyleBackColor = true;
-            this.chkNotif3.CheckedChanged += new System.EventHandler(this.chkNotif_CheckedChanged);
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
-            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -762,7 +539,6 @@ namespace ProyectoDeskstop
             this.Controls.Add(this.lblAjustesSub);
             this.Controls.Add(this.btnSecPerfil);
             this.Controls.Add(this.btnSecIdioma);
-            this.Controls.Add(this.btnSecNotificaciones);
             this.Controls.Add(this.panelSeccion);
             this.Controls.Add(this.btnCerrarSesion);
             this.Name = "Form6";
@@ -780,8 +556,6 @@ namespace ProyectoDeskstop
             this.panelIdiomaEng.PerformLayout();
             this.panelIdiomaInfo.ResumeLayout(false);
             this.panelIdiomaInfo.PerformLayout();
-            this.panelNotificaciones.ResumeLayout(false);
-            this.panelNotificaciones.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
         }

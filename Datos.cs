@@ -59,9 +59,6 @@ namespace ProyectoDeskstop
             catch (Exception) { }
             return "Castellano";
         }
-        public static bool NotifTareas = true;
-        public static bool NotifFechas = true;
-        public static bool NotifProyectos = false;
 
         // Se avisa a la ventana principal para volver a traducir toda la aplicación.
         public static event Action IdiomaCambiado;
