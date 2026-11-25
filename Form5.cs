@@ -1,8 +1,8 @@
 using System;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using static ProyectoDeskstop.Idiomas;
 
 namespace ProyectoDeskstop
 {
@@ -14,12 +14,35 @@ namespace ProyectoDeskstop
         public Form5()
         {
             InitializeComponent();
+            Traducir();
             CargarDatos();
+        }
+
+        private void Traducir()
+        {
+            lblRendimiento.Text = T("RENDIMIENTO DEL EQUIPO");
+            lblTituloResumen.Text = T("Resumen y estadísticas");
+            lblSubResumen.Text = T("Analiza el avance de los proyectos y el tiempo dedicado.");
+            lblStatTitulo1.Text = T("Total de tareas");
+            lblStatTitulo2.Text = T("Tareas finalizadas");
+            lblStatTitulo3.Text = T("En progreso");
+            lblStatTitulo4.Text = T("Tasa de finalización");
+            lblEstadoResTitulo.Text = T("Estado de las tareas");
+            lblEstadoResSub.Text = T("Distribución por estado");
+            lblEstadoNombre1.Text = T("Pendientes");
+            lblEstadoNombre2.Text = T("En progreso");
+            lblEstadoNombre3.Text = T("Bloqueadas");
+            lblEstadoNombre4.Text = T("Finalizadas");
+            lblHorasProyTitulo.Text = T("Horas por proyecto");
+            lblHorasProySub.Text = T("Reales frente a estimadas");
+            lblHorasEstTitulo.Text = T("Horas estimadas");
+            lblHorasRegTitulo.Text = T("Horas registradas");
+            lblUsoTitulo.Text = T("Uso de horas");
         }
 
         private void CargarDatos()
         {
-            CultureInfo es = new CultureInfo("es-ES");
+            var cultura = Cultura();
 
             int total = Datos.Tareas.Count;
             int fin = Datos.Tareas.Count(t => t.Estado == "Finalizada");
@@ -45,20 +68,23 @@ namespace ProyectoDeskstop
             Label[] valores = { lblHorasValor1, lblHorasValor2, lblHorasValor3, lblHorasValor4 };
             ProgressBar[] barras = { pbHoras1, pbHoras2, pbHoras3, pbHoras4 };
 
-            for (int i = 0; i < 4 && i < Datos.Proyectos.Count; i++)
+            for (int i = 0; i < 4; i++)
             {
+                bool hay = i < Datos.Proyectos.Count;
+                nombres[i].Visible = valores[i].Visible = barras[i].Visible = hay;
+                if (!hay) continue;
                 Proyecto p = Datos.Proyectos[i];
                 int estimadas = Math.Max(1, p.HorasEstimadas);
                 nombres[i].Text = p.Nombre;
-                valores[i].Text = p.HorasReales + " h / " + p.HorasEstimadas + " h";
+                valores[i].Text = T("{0} h / {1} h", p.HorasReales, p.HorasEstimadas);
                 barras[i].Maximum = estimadas;
                 barras[i].Value = Math.Min(p.HorasReales, estimadas);
             }
 
             // Resumen de horas
-            int uso = (int)Math.Round(100 * Datos.HorasRegistradasTotal / Datos.HorasEstimadasTotal);
-            lblHorasEstValor.Text = Datos.HorasEstimadasTotal.ToString("0") + " h";
-            lblHorasRegValor.Text = Datos.HorasRegistradasTotal.ToString("N1", es) + " h";
+            int uso = Datos.HorasEstimadasTotal <= 0 ? 0 : (int)Math.Min(100, Math.Round(100 * Datos.HorasRegistradasTotal / Datos.HorasEstimadasTotal));
+            lblHorasEstValor.Text = Datos.HorasEstimadasTotal.ToString("0", cultura) + " h";
+            lblHorasRegValor.Text = Datos.HorasRegistradasTotal.ToString("N1", cultura) + " h";
             lblUsoValor.Text = uso + "%";
             pbUso.Maximum = 100;
             pbUso.Value = uso;
@@ -66,7 +92,7 @@ namespace ProyectoDeskstop
 
         private void panelDonaResumen_Paint(object sender, PaintEventArgs e)
         {
-            Ui.DibujarDona(e.Graphics, panelDonaResumen.ClientRectangle, valoresEstados, coloresEstados);
+            Diseno.DibujarDona(e.Graphics, panelDonaResumen.ClientRectangle, valoresEstados, coloresEstados);
         }
     }
 }

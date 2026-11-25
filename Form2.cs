@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using static ProyectoDeskstop.Idiomas;
 
 namespace ProyectoDeskstop
 {
@@ -14,16 +15,38 @@ namespace ProyectoDeskstop
         public Form2()
         {
             InitializeComponent();
+            Traducir();
             CargarDatos();
+        }
+
+        private void Traducir()
+        {
+            lblSubtitulo.Text = T("Aquí tienes una visión general del trabajo de tu equipo.");
+            lblHorasTitulo.Text = T("Horas este mes");
+            lblHorasValor.Text = Datos.HorasMes.ToString("0.#", Cultura()) + " h";
+            lblStat1Titulo.Text = T("Proyectos activos");
+            lblStat2Titulo.Text = T("Tareas pendientes");
+            lblStat3Titulo.Text = T("En progreso");
+            lblStat4Titulo.Text = T("Finalizadas");
+            lblRecientesTitulo.Text = T("Proyectos recientes");
+            lblRecientesSub.Text = T("Progreso de los proyectos en los que participas");
+            lblEstadoTitulo.Text = T("Estado de tareas");
+            lblEstadoSub.Text = T("Distribución total");
+            lblLeyenda1.Text = T("Pendientes");
+            lblLeyenda2.Text = T("En progreso");
+            lblLeyenda3.Text = T("Finalizadas");
+            lblProxTitulo.Text = T("Próximas a finalizar");
+            lblProxSub.Text = T("Tareas con fecha límite en los próximos días");
         }
 
         private void CargarDatos()
         {
-            CultureInfo es = new CultureInfo("es-ES");
-            lblFecha.Text = DateTime.Now.ToString("dddd, d 'de' MMMM", es).ToUpper();
+            CultureInfo cultura = Cultura();
+            string formatoFecha = Datos.Idioma == "English" ? "dddd, MMMM d" : "dddd, d 'de' MMMM";
+            lblFecha.Text = DateTime.Now.ToString(formatoFecha, cultura).ToUpper();
 
             int hora = DateTime.Now.Hour;
-            string saludo = hora < 12 ? "Buenos días" : (hora < 20 ? "Buenas tardes" : "Buenas noches");
+            string saludo = hora < 12 ? T("Buenos días") : (hora < 20 ? T("Buenas tardes") : T("Buenas noches"));
             lblSaludo.Text = saludo + ", " + Datos.Nombre.Split(' ')[0];
 
             int pendientes = Datos.Tareas.Count(t => t.Estado == "Pendiente");
@@ -43,16 +66,19 @@ namespace ProyectoDeskstop
             Label[] estados = { lblProy1Estado, lblProy2Estado, lblProy3Estado };
             Label[] entregas = { lblProy1Entrega, lblProy2Entrega, lblProy3Entrega };
 
-            for (int i = 0; i < 3 && i < Datos.Proyectos.Count; i++)
+            for (int i = 0; i < 3; i++)
             {
+                bool hay = i < Datos.Proyectos.Count;
+                nombres[i].Visible = detalles[i].Visible = barras[i].Visible = porcentajes[i].Visible = estados[i].Visible = entregas[i].Visible = hay;
+                if (!hay) continue;
                 Proyecto p = Datos.Proyectos[i];
                 nombres[i].Text = p.Nombre;
-                detalles[i].Text = p.Completadas + " de " + p.Total + " tareas completadas";
+                detalles[i].Text = T("{0} de {1} tareas completadas", p.Completadas, p.Total);
                 barras[i].Maximum = 100;
                 barras[i].Value = p.Progreso;
                 porcentajes[i].Text = p.Progreso + "%";
-                estados[i].Text = p.Estado;
-                estados[i].BackColor = Ui.ColorEstado(p.Estado);
+                estados[i].Text = T(p.Estado);
+                estados[i].BackColor = Diseno.ColorEstado(p.Estado);
                 entregas[i].Text = p.Entrega;
             }
 
@@ -68,20 +94,25 @@ namespace ProyectoDeskstop
             Label[] fechas = { lblProx1Fecha, lblProx2Fecha, lblProx3Fecha };
             Label[] iniciales = { lblProx1Iniciales, lblProx2Iniciales, lblProx3Iniciales };
 
-            for (int i = 0; i < 3 && i < Datos.Tareas.Count; i++)
+            var proximas = Datos.Tareas.Where(x => x.Estado != "Finalizada").ToList();
+            for (int i = 0; i < 3; i++)
             {
-                Tarea t = Datos.Tareas[i];
+                bool hay = i < proximas.Count;
+                titulos[i].Visible = proyectos[i].Visible = fechas[i].Visible = iniciales[i].Visible = hay;
+                if (!hay) continue;
+                Tarea t = proximas[i];
+                bool hoy = t.Fecha == "Hoy";
                 titulos[i].Text = t.Titulo;
                 proyectos[i].Text = t.Proyecto;
-                fechas[i].Text = t.Fecha;
-                fechas[i].ForeColor = t.Fecha == "Hoy" ? Ui.Rojo : Ui.Gris;
-                iniciales[i].Text = Ui.Iniciales(t.Responsable);
+                fechas[i].Text = hoy ? T("Hoy") : t.Fecha;
+                fechas[i].ForeColor = hoy ? Diseno.Rojo : Diseno.Gris;
+                iniciales[i].Text = Diseno.Iniciales(t.Responsable);
             }
         }
 
         private void panelDonaEstado_Paint(object sender, PaintEventArgs e)
         {
-            Ui.DibujarDona(e.Graphics, panelDonaEstado.ClientRectangle, valoresEstado, coloresEstado);
+            Diseno.DibujarDona(e.Graphics, panelDonaEstado.ClientRectangle, valoresEstado, coloresEstado);
         }
     }
 }

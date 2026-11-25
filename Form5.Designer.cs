@@ -72,693 +72,602 @@ namespace ProyectoDeskstop
 
         private void InitializeComponent()
         {
-            lblRendimiento = new System.Windows.Forms.Label();
-            lblTituloResumen = new System.Windows.Forms.Label();
-            lblSubResumen = new System.Windows.Forms.Label();
-            panelStat1 = new System.Windows.Forms.Panel();
-            lblStatTitulo1 = new System.Windows.Forms.Label();
-            lblStatValor1 = new System.Windows.Forms.Label();
-            panelStat2 = new System.Windows.Forms.Panel();
-            lblStatTitulo2 = new System.Windows.Forms.Label();
-            lblStatValor2 = new System.Windows.Forms.Label();
-            panelStat3 = new System.Windows.Forms.Panel();
-            lblStatTitulo3 = new System.Windows.Forms.Label();
-            lblStatValor3 = new System.Windows.Forms.Label();
-            panelStat4 = new System.Windows.Forms.Panel();
-            lblStatTitulo4 = new System.Windows.Forms.Label();
-            lblStatValor4 = new System.Windows.Forms.Label();
-            panelEstadoResumen = new System.Windows.Forms.Panel();
-            lblEstadoResTitulo = new System.Windows.Forms.Label();
-            lblEstadoResSub = new System.Windows.Forms.Label();
-            panelDonaResumen = new System.Windows.Forms.Panel();
-            panelEstadoPunto1 = new System.Windows.Forms.Panel();
-            lblEstadoNombre1 = new System.Windows.Forms.Label();
-            lblEstadoValor1 = new System.Windows.Forms.Label();
-            panelEstadoPunto2 = new System.Windows.Forms.Panel();
-            lblEstadoNombre2 = new System.Windows.Forms.Label();
-            lblEstadoValor2 = new System.Windows.Forms.Label();
-            panelEstadoPunto3 = new System.Windows.Forms.Panel();
-            lblEstadoNombre3 = new System.Windows.Forms.Label();
-            lblEstadoValor3 = new System.Windows.Forms.Label();
-            panelEstadoPunto4 = new System.Windows.Forms.Panel();
-            lblEstadoNombre4 = new System.Windows.Forms.Label();
-            lblEstadoValor4 = new System.Windows.Forms.Label();
-            panelHorasProy = new System.Windows.Forms.Panel();
-            lblHorasProyTitulo = new System.Windows.Forms.Label();
-            lblHorasProySub = new System.Windows.Forms.Label();
-            lblHorasNombre1 = new System.Windows.Forms.Label();
-            lblHorasValor1 = new System.Windows.Forms.Label();
-            pbHoras1 = new System.Windows.Forms.ProgressBar();
-            lblHorasNombre2 = new System.Windows.Forms.Label();
-            lblHorasValor2 = new System.Windows.Forms.Label();
-            pbHoras2 = new System.Windows.Forms.ProgressBar();
-            lblHorasNombre3 = new System.Windows.Forms.Label();
-            lblHorasValor3 = new System.Windows.Forms.Label();
-            pbHoras3 = new System.Windows.Forms.ProgressBar();
-            lblHorasNombre4 = new System.Windows.Forms.Label();
-            lblHorasValor4 = new System.Windows.Forms.Label();
-            pbHoras4 = new System.Windows.Forms.ProgressBar();
-            panelResumenHoras = new System.Windows.Forms.Panel();
-            lblHorasEstTitulo = new System.Windows.Forms.Label();
-            lblHorasEstValor = new System.Windows.Forms.Label();
-            lblHorasRegTitulo = new System.Windows.Forms.Label();
-            lblHorasRegValor = new System.Windows.Forms.Label();
-            lblUsoTitulo = new System.Windows.Forms.Label();
-            lblUsoValor = new System.Windows.Forms.Label();
-            pbUso = new System.Windows.Forms.ProgressBar();
-            panelStat1.SuspendLayout();
-            panelStat2.SuspendLayout();
-            panelStat3.SuspendLayout();
-            panelStat4.SuspendLayout();
-            panelEstadoResumen.SuspendLayout();
-            panelHorasProy.SuspendLayout();
-            panelResumenHoras.SuspendLayout();
-            SuspendLayout();
+            this.lblRendimiento = new System.Windows.Forms.Label();
+            this.lblTituloResumen = new System.Windows.Forms.Label();
+            this.lblSubResumen = new System.Windows.Forms.Label();
+            this.panelStat1 = new System.Windows.Forms.Panel();
+            this.lblStatTitulo1 = new System.Windows.Forms.Label();
+            this.lblStatValor1 = new System.Windows.Forms.Label();
+            this.panelStat2 = new System.Windows.Forms.Panel();
+            this.lblStatTitulo2 = new System.Windows.Forms.Label();
+            this.lblStatValor2 = new System.Windows.Forms.Label();
+            this.panelStat3 = new System.Windows.Forms.Panel();
+            this.lblStatTitulo3 = new System.Windows.Forms.Label();
+            this.lblStatValor3 = new System.Windows.Forms.Label();
+            this.panelStat4 = new System.Windows.Forms.Panel();
+            this.lblStatTitulo4 = new System.Windows.Forms.Label();
+            this.lblStatValor4 = new System.Windows.Forms.Label();
+            this.panelEstadoResumen = new System.Windows.Forms.Panel();
+            this.lblEstadoResTitulo = new System.Windows.Forms.Label();
+            this.lblEstadoResSub = new System.Windows.Forms.Label();
+            this.panelDonaResumen = new System.Windows.Forms.Panel();
+            this.panelEstadoPunto1 = new System.Windows.Forms.Panel();
+            this.lblEstadoNombre1 = new System.Windows.Forms.Label();
+            this.lblEstadoValor1 = new System.Windows.Forms.Label();
+            this.panelEstadoPunto2 = new System.Windows.Forms.Panel();
+            this.lblEstadoNombre2 = new System.Windows.Forms.Label();
+            this.lblEstadoValor2 = new System.Windows.Forms.Label();
+            this.panelEstadoPunto3 = new System.Windows.Forms.Panel();
+            this.lblEstadoNombre3 = new System.Windows.Forms.Label();
+            this.lblEstadoValor3 = new System.Windows.Forms.Label();
+            this.panelEstadoPunto4 = new System.Windows.Forms.Panel();
+            this.lblEstadoNombre4 = new System.Windows.Forms.Label();
+            this.lblEstadoValor4 = new System.Windows.Forms.Label();
+            this.panelHorasProy = new System.Windows.Forms.Panel();
+            this.lblHorasProyTitulo = new System.Windows.Forms.Label();
+            this.lblHorasProySub = new System.Windows.Forms.Label();
+            this.lblHorasNombre1 = new System.Windows.Forms.Label();
+            this.lblHorasValor1 = new System.Windows.Forms.Label();
+            this.pbHoras1 = new System.Windows.Forms.ProgressBar();
+            this.lblHorasNombre2 = new System.Windows.Forms.Label();
+            this.lblHorasValor2 = new System.Windows.Forms.Label();
+            this.pbHoras2 = new System.Windows.Forms.ProgressBar();
+            this.lblHorasNombre3 = new System.Windows.Forms.Label();
+            this.lblHorasValor3 = new System.Windows.Forms.Label();
+            this.pbHoras3 = new System.Windows.Forms.ProgressBar();
+            this.lblHorasNombre4 = new System.Windows.Forms.Label();
+            this.lblHorasValor4 = new System.Windows.Forms.Label();
+            this.pbHoras4 = new System.Windows.Forms.ProgressBar();
+            this.panelResumenHoras = new System.Windows.Forms.Panel();
+            this.lblHorasEstTitulo = new System.Windows.Forms.Label();
+            this.lblHorasEstValor = new System.Windows.Forms.Label();
+            this.lblHorasRegTitulo = new System.Windows.Forms.Label();
+            this.lblHorasRegValor = new System.Windows.Forms.Label();
+            this.lblUsoTitulo = new System.Windows.Forms.Label();
+            this.lblUsoValor = new System.Windows.Forms.Label();
+            this.pbUso = new System.Windows.Forms.ProgressBar();
+            this.panelStat1.SuspendLayout();
+            this.panelStat2.SuspendLayout();
+            this.panelStat3.SuspendLayout();
+            this.panelStat4.SuspendLayout();
+            this.panelEstadoResumen.SuspendLayout();
+            this.panelHorasProy.SuspendLayout();
+            this.panelResumenHoras.SuspendLayout();
+            this.SuspendLayout();
             // 
             // lblRendimiento
             // 
-            lblRendimiento.AutoSize = true;
-            lblRendimiento.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            lblRendimiento.ForeColor = System.Drawing.Color.FromArgb(37, 99, 235);
-            lblRendimiento.Location = new System.Drawing.Point(30, 20);
-            lblRendimiento.Name = "lblRendimiento";
-            lblRendimiento.Size = new System.Drawing.Size(160, 15);
-            lblRendimiento.TabIndex = 0;
-            lblRendimiento.Text = "RENDIMIENTO DEL EQUIPO";
+            this.lblRendimiento.AutoSize = true;
+            this.lblRendimiento.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblRendimiento.ForeColor = System.Drawing.Color.FromArgb(37, 99, 235);
+            this.lblRendimiento.Location = new System.Drawing.Point(30, 20);
+            this.lblRendimiento.Name = "lblRendimiento";
+            this.lblRendimiento.Text = "RENDIMIENTO DEL EQUIPO";
             // 
             // lblTituloResumen
             // 
-            lblTituloResumen.AutoSize = true;
-            lblTituloResumen.Font = new System.Drawing.Font("Segoe UI", 22F);
-            lblTituloResumen.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblTituloResumen.Location = new System.Drawing.Point(30, 40);
-            lblTituloResumen.Name = "lblTituloResumen";
-            lblTituloResumen.Size = new System.Drawing.Size(322, 41);
-            lblTituloResumen.TabIndex = 1;
-            lblTituloResumen.Text = "Resumen y estadísticas";
+            this.lblTituloResumen.AutoSize = true;
+            this.lblTituloResumen.Font = new System.Drawing.Font("Segoe UI", 22F);
+            this.lblTituloResumen.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblTituloResumen.Location = new System.Drawing.Point(30, 40);
+            this.lblTituloResumen.Name = "lblTituloResumen";
+            this.lblTituloResumen.Text = "Resumen y estadísticas";
             // 
             // lblSubResumen
             // 
-            lblSubResumen.AutoSize = true;
-            lblSubResumen.Font = new System.Drawing.Font("Segoe UI", 10F);
-            lblSubResumen.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            lblSubResumen.Location = new System.Drawing.Point(30, 85);
-            lblSubResumen.Name = "lblSubResumen";
-            lblSubResumen.Size = new System.Drawing.Size(350, 19);
-            lblSubResumen.TabIndex = 2;
-            lblSubResumen.Text = "Analiza el avance de los proyectos y el tiempo dedicado.";
+            this.lblSubResumen.AutoSize = true;
+            this.lblSubResumen.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lblSubResumen.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblSubResumen.Location = new System.Drawing.Point(30, 85);
+            this.lblSubResumen.Name = "lblSubResumen";
+            this.lblSubResumen.Text = "Analiza el avance de los proyectos y el tiempo dedicado.";
             // 
             // panelStat1
             // 
-            panelStat1.BackColor = System.Drawing.Color.White;
-            panelStat1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panelStat1.Controls.Add(lblStatTitulo1);
-            panelStat1.Controls.Add(lblStatValor1);
-            panelStat1.Location = new System.Drawing.Point(30, 125);
-            panelStat1.Name = "panelStat1";
-            panelStat1.Size = new System.Drawing.Size(225, 85);
-            panelStat1.TabIndex = 3;
+            this.panelStat1.BackColor = System.Drawing.Color.White;
+            this.panelStat1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelStat1.Controls.Add(this.lblStatTitulo1);
+            this.panelStat1.Controls.Add(this.lblStatValor1);
+            this.panelStat1.Location = new System.Drawing.Point(30, 125);
+            this.panelStat1.Name = "panelStat1";
+            this.panelStat1.Size = new System.Drawing.Size(225, 85);
             // 
             // lblStatTitulo1
             // 
-            lblStatTitulo1.AutoSize = true;
-            lblStatTitulo1.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            lblStatTitulo1.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            lblStatTitulo1.Location = new System.Drawing.Point(14, 14);
-            lblStatTitulo1.Name = "lblStatTitulo1";
-            lblStatTitulo1.Size = new System.Drawing.Size(83, 15);
-            lblStatTitulo1.TabIndex = 0;
-            lblStatTitulo1.Text = "Total de tareas";
+            this.lblStatTitulo1.AutoSize = true;
+            this.lblStatTitulo1.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblStatTitulo1.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblStatTitulo1.Location = new System.Drawing.Point(14, 14);
+            this.lblStatTitulo1.Name = "lblStatTitulo1";
+            this.lblStatTitulo1.Text = "Total de tareas";
             // 
             // lblStatValor1
             // 
-            lblStatValor1.AutoSize = true;
-            lblStatValor1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            lblStatValor1.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblStatValor1.Location = new System.Drawing.Point(14, 36);
-            lblStatValor1.Name = "lblStatValor1";
-            lblStatValor1.Size = new System.Drawing.Size(33, 37);
-            lblStatValor1.TabIndex = 1;
-            lblStatValor1.Text = "0";
+            this.lblStatValor1.AutoSize = true;
+            this.lblStatValor1.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.lblStatValor1.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblStatValor1.Location = new System.Drawing.Point(14, 36);
+            this.lblStatValor1.Name = "lblStatValor1";
+            this.lblStatValor1.Text = "0";
             // 
             // panelStat2
             // 
-            panelStat2.BackColor = System.Drawing.Color.White;
-            panelStat2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panelStat2.Controls.Add(lblStatTitulo2);
-            panelStat2.Controls.Add(lblStatValor2);
-            panelStat2.Location = new System.Drawing.Point(265, 125);
-            panelStat2.Name = "panelStat2";
-            panelStat2.Size = new System.Drawing.Size(225, 85);
-            panelStat2.TabIndex = 4;
+            this.panelStat2.BackColor = System.Drawing.Color.White;
+            this.panelStat2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelStat2.Controls.Add(this.lblStatTitulo2);
+            this.panelStat2.Controls.Add(this.lblStatValor2);
+            this.panelStat2.Location = new System.Drawing.Point(265, 125);
+            this.panelStat2.Name = "panelStat2";
+            this.panelStat2.Size = new System.Drawing.Size(225, 85);
             // 
             // lblStatTitulo2
             // 
-            lblStatTitulo2.AutoSize = true;
-            lblStatTitulo2.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            lblStatTitulo2.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            lblStatTitulo2.Location = new System.Drawing.Point(14, 14);
-            lblStatTitulo2.Name = "lblStatTitulo2";
-            lblStatTitulo2.Size = new System.Drawing.Size(98, 15);
-            lblStatTitulo2.TabIndex = 0;
-            lblStatTitulo2.Text = "Tareas finalizadas";
+            this.lblStatTitulo2.AutoSize = true;
+            this.lblStatTitulo2.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblStatTitulo2.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblStatTitulo2.Location = new System.Drawing.Point(14, 14);
+            this.lblStatTitulo2.Name = "lblStatTitulo2";
+            this.lblStatTitulo2.Text = "Tareas finalizadas";
             // 
             // lblStatValor2
             // 
-            lblStatValor2.AutoSize = true;
-            lblStatValor2.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            lblStatValor2.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblStatValor2.Location = new System.Drawing.Point(14, 36);
-            lblStatValor2.Name = "lblStatValor2";
-            lblStatValor2.Size = new System.Drawing.Size(33, 37);
-            lblStatValor2.TabIndex = 1;
-            lblStatValor2.Text = "0";
+            this.lblStatValor2.AutoSize = true;
+            this.lblStatValor2.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.lblStatValor2.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblStatValor2.Location = new System.Drawing.Point(14, 36);
+            this.lblStatValor2.Name = "lblStatValor2";
+            this.lblStatValor2.Text = "0";
             // 
             // panelStat3
             // 
-            panelStat3.BackColor = System.Drawing.Color.White;
-            panelStat3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panelStat3.Controls.Add(lblStatTitulo3);
-            panelStat3.Controls.Add(lblStatValor3);
-            panelStat3.Location = new System.Drawing.Point(500, 125);
-            panelStat3.Name = "panelStat3";
-            panelStat3.Size = new System.Drawing.Size(225, 85);
-            panelStat3.TabIndex = 5;
+            this.panelStat3.BackColor = System.Drawing.Color.White;
+            this.panelStat3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelStat3.Controls.Add(this.lblStatTitulo3);
+            this.panelStat3.Controls.Add(this.lblStatValor3);
+            this.panelStat3.Location = new System.Drawing.Point(500, 125);
+            this.panelStat3.Name = "panelStat3";
+            this.panelStat3.Size = new System.Drawing.Size(225, 85);
             // 
             // lblStatTitulo3
             // 
-            lblStatTitulo3.AutoSize = true;
-            lblStatTitulo3.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            lblStatTitulo3.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            lblStatTitulo3.Location = new System.Drawing.Point(14, 14);
-            lblStatTitulo3.Name = "lblStatTitulo3";
-            lblStatTitulo3.Size = new System.Drawing.Size(70, 15);
-            lblStatTitulo3.TabIndex = 0;
-            lblStatTitulo3.Text = "En progreso";
+            this.lblStatTitulo3.AutoSize = true;
+            this.lblStatTitulo3.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblStatTitulo3.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblStatTitulo3.Location = new System.Drawing.Point(14, 14);
+            this.lblStatTitulo3.Name = "lblStatTitulo3";
+            this.lblStatTitulo3.Text = "En progreso";
             // 
             // lblStatValor3
             // 
-            lblStatValor3.AutoSize = true;
-            lblStatValor3.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            lblStatValor3.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblStatValor3.Location = new System.Drawing.Point(14, 36);
-            lblStatValor3.Name = "lblStatValor3";
-            lblStatValor3.Size = new System.Drawing.Size(33, 37);
-            lblStatValor3.TabIndex = 1;
-            lblStatValor3.Text = "0";
+            this.lblStatValor3.AutoSize = true;
+            this.lblStatValor3.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.lblStatValor3.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblStatValor3.Location = new System.Drawing.Point(14, 36);
+            this.lblStatValor3.Name = "lblStatValor3";
+            this.lblStatValor3.Text = "0";
             // 
             // panelStat4
             // 
-            panelStat4.BackColor = System.Drawing.Color.FromArgb(239, 246, 255);
-            panelStat4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panelStat4.Controls.Add(lblStatTitulo4);
-            panelStat4.Controls.Add(lblStatValor4);
-            panelStat4.Location = new System.Drawing.Point(735, 125);
-            panelStat4.Name = "panelStat4";
-            panelStat4.Size = new System.Drawing.Size(225, 85);
-            panelStat4.TabIndex = 6;
+            this.panelStat4.BackColor = System.Drawing.Color.FromArgb(239, 246, 255);
+            this.panelStat4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelStat4.Controls.Add(this.lblStatTitulo4);
+            this.panelStat4.Controls.Add(this.lblStatValor4);
+            this.panelStat4.Location = new System.Drawing.Point(735, 125);
+            this.panelStat4.Name = "panelStat4";
+            this.panelStat4.Size = new System.Drawing.Size(225, 85);
             // 
             // lblStatTitulo4
             // 
-            lblStatTitulo4.AutoSize = true;
-            lblStatTitulo4.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            lblStatTitulo4.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            lblStatTitulo4.Location = new System.Drawing.Point(14, 14);
-            lblStatTitulo4.Name = "lblStatTitulo4";
-            lblStatTitulo4.Size = new System.Drawing.Size(109, 15);
-            lblStatTitulo4.TabIndex = 0;
-            lblStatTitulo4.Text = "Tasa de finalización";
+            this.lblStatTitulo4.AutoSize = true;
+            this.lblStatTitulo4.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblStatTitulo4.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblStatTitulo4.Location = new System.Drawing.Point(14, 14);
+            this.lblStatTitulo4.Name = "lblStatTitulo4";
+            this.lblStatTitulo4.Text = "Tasa de finalización";
             // 
             // lblStatValor4
             // 
-            lblStatValor4.AutoSize = true;
-            lblStatValor4.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            lblStatValor4.ForeColor = System.Drawing.Color.FromArgb(37, 99, 235);
-            lblStatValor4.Location = new System.Drawing.Point(14, 36);
-            lblStatValor4.Name = "lblStatValor4";
-            lblStatValor4.Size = new System.Drawing.Size(56, 37);
-            lblStatValor4.TabIndex = 1;
-            lblStatValor4.Text = "0%";
+            this.lblStatValor4.AutoSize = true;
+            this.lblStatValor4.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
+            this.lblStatValor4.ForeColor = System.Drawing.Color.FromArgb(37, 99, 235);
+            this.lblStatValor4.Location = new System.Drawing.Point(14, 36);
+            this.lblStatValor4.Name = "lblStatValor4";
+            this.lblStatValor4.Text = "0%";
             // 
             // panelEstadoResumen
             // 
-            panelEstadoResumen.BackColor = System.Drawing.Color.White;
-            panelEstadoResumen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panelEstadoResumen.Controls.Add(lblEstadoResTitulo);
-            panelEstadoResumen.Controls.Add(lblEstadoResSub);
-            panelEstadoResumen.Controls.Add(panelDonaResumen);
-            panelEstadoResumen.Controls.Add(panelEstadoPunto1);
-            panelEstadoResumen.Controls.Add(lblEstadoNombre1);
-            panelEstadoResumen.Controls.Add(lblEstadoValor1);
-            panelEstadoResumen.Controls.Add(panelEstadoPunto2);
-            panelEstadoResumen.Controls.Add(lblEstadoNombre2);
-            panelEstadoResumen.Controls.Add(lblEstadoValor2);
-            panelEstadoResumen.Controls.Add(panelEstadoPunto3);
-            panelEstadoResumen.Controls.Add(lblEstadoNombre3);
-            panelEstadoResumen.Controls.Add(lblEstadoValor3);
-            panelEstadoResumen.Controls.Add(panelEstadoPunto4);
-            panelEstadoResumen.Controls.Add(lblEstadoNombre4);
-            panelEstadoResumen.Controls.Add(lblEstadoValor4);
-            panelEstadoResumen.Location = new System.Drawing.Point(30, 235);
-            panelEstadoResumen.Name = "panelEstadoResumen";
-            panelEstadoResumen.Size = new System.Drawing.Size(430, 300);
-            panelEstadoResumen.TabIndex = 7;
+            this.panelEstadoResumen.BackColor = System.Drawing.Color.White;
+            this.panelEstadoResumen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelEstadoResumen.Controls.Add(this.lblEstadoResTitulo);
+            this.panelEstadoResumen.Controls.Add(this.lblEstadoResSub);
+            this.panelEstadoResumen.Controls.Add(this.panelDonaResumen);
+            this.panelEstadoResumen.Controls.Add(this.panelEstadoPunto1);
+            this.panelEstadoResumen.Controls.Add(this.lblEstadoNombre1);
+            this.panelEstadoResumen.Controls.Add(this.lblEstadoValor1);
+            this.panelEstadoResumen.Controls.Add(this.panelEstadoPunto2);
+            this.panelEstadoResumen.Controls.Add(this.lblEstadoNombre2);
+            this.panelEstadoResumen.Controls.Add(this.lblEstadoValor2);
+            this.panelEstadoResumen.Controls.Add(this.panelEstadoPunto3);
+            this.panelEstadoResumen.Controls.Add(this.lblEstadoNombre3);
+            this.panelEstadoResumen.Controls.Add(this.lblEstadoValor3);
+            this.panelEstadoResumen.Controls.Add(this.panelEstadoPunto4);
+            this.panelEstadoResumen.Controls.Add(this.lblEstadoNombre4);
+            this.panelEstadoResumen.Controls.Add(this.lblEstadoValor4);
+            this.panelEstadoResumen.Location = new System.Drawing.Point(30, 235);
+            this.panelEstadoResumen.Name = "panelEstadoResumen";
+            this.panelEstadoResumen.Size = new System.Drawing.Size(430, 300);
             // 
             // lblEstadoResTitulo
             // 
-            lblEstadoResTitulo.AutoSize = true;
-            lblEstadoResTitulo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            lblEstadoResTitulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblEstadoResTitulo.Location = new System.Drawing.Point(15, 14);
-            lblEstadoResTitulo.Name = "lblEstadoResTitulo";
-            lblEstadoResTitulo.Size = new System.Drawing.Size(147, 20);
-            lblEstadoResTitulo.TabIndex = 0;
-            lblEstadoResTitulo.Text = "Estado de las tareas";
+            this.lblEstadoResTitulo.AutoSize = true;
+            this.lblEstadoResTitulo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lblEstadoResTitulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblEstadoResTitulo.Location = new System.Drawing.Point(15, 14);
+            this.lblEstadoResTitulo.Name = "lblEstadoResTitulo";
+            this.lblEstadoResTitulo.Text = "Estado de las tareas";
             // 
             // lblEstadoResSub
             // 
-            lblEstadoResSub.AutoSize = true;
-            lblEstadoResSub.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            lblEstadoResSub.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            lblEstadoResSub.Location = new System.Drawing.Point(15, 38);
-            lblEstadoResSub.Name = "lblEstadoResSub";
-            lblEstadoResSub.Size = new System.Drawing.Size(130, 15);
-            lblEstadoResSub.TabIndex = 1;
-            lblEstadoResSub.Text = "Distribución por estado";
+            this.lblEstadoResSub.AutoSize = true;
+            this.lblEstadoResSub.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblEstadoResSub.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblEstadoResSub.Location = new System.Drawing.Point(15, 38);
+            this.lblEstadoResSub.Name = "lblEstadoResSub";
+            this.lblEstadoResSub.Text = "Distribución por estado";
             // 
             // panelDonaResumen
             // 
-            panelDonaResumen.Location = new System.Drawing.Point(20, 75);
-            panelDonaResumen.Name = "panelDonaResumen";
-            panelDonaResumen.Size = new System.Drawing.Size(170, 170);
-            panelDonaResumen.TabIndex = 2;
-            panelDonaResumen.Paint += panelDonaResumen_Paint;
+            this.panelDonaResumen.Location = new System.Drawing.Point(20, 75);
+            this.panelDonaResumen.Name = "panelDonaResumen";
+            this.panelDonaResumen.Size = new System.Drawing.Size(170, 170);
+            this.panelDonaResumen.Paint += new System.Windows.Forms.PaintEventHandler(this.panelDonaResumen_Paint);
             // 
             // panelEstadoPunto1
             // 
-            panelEstadoPunto1.BackColor = System.Drawing.Color.FromArgb(15, 39, 71);
-            panelEstadoPunto1.Location = new System.Drawing.Point(210, 99);
-            panelEstadoPunto1.Name = "panelEstadoPunto1";
-            panelEstadoPunto1.Size = new System.Drawing.Size(10, 10);
-            panelEstadoPunto1.TabIndex = 3;
+            this.panelEstadoPunto1.BackColor = System.Drawing.Color.FromArgb(15, 39, 71);
+            this.panelEstadoPunto1.Location = new System.Drawing.Point(210, 99);
+            this.panelEstadoPunto1.Name = "panelEstadoPunto1";
+            this.panelEstadoPunto1.Size = new System.Drawing.Size(10, 10);
             // 
             // lblEstadoNombre1
             // 
-            lblEstadoNombre1.AutoSize = true;
-            lblEstadoNombre1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            lblEstadoNombre1.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblEstadoNombre1.Location = new System.Drawing.Point(228, 95);
-            lblEstadoNombre1.Name = "lblEstadoNombre1";
-            lblEstadoNombre1.Size = new System.Drawing.Size(65, 15);
-            lblEstadoNombre1.TabIndex = 4;
-            lblEstadoNombre1.Text = "Pendientes";
+            this.lblEstadoNombre1.AutoSize = true;
+            this.lblEstadoNombre1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblEstadoNombre1.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblEstadoNombre1.Location = new System.Drawing.Point(228, 95);
+            this.lblEstadoNombre1.Name = "lblEstadoNombre1";
+            this.lblEstadoNombre1.Text = "Pendientes";
             // 
             // lblEstadoValor1
             // 
-            lblEstadoValor1.AutoSize = true;
-            lblEstadoValor1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            lblEstadoValor1.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblEstadoValor1.Location = new System.Drawing.Point(340, 95);
-            lblEstadoValor1.Name = "lblEstadoValor1";
-            lblEstadoValor1.Size = new System.Drawing.Size(14, 15);
-            lblEstadoValor1.TabIndex = 5;
-            lblEstadoValor1.Text = "0";
+            this.lblEstadoValor1.AutoSize = true;
+            this.lblEstadoValor1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEstadoValor1.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblEstadoValor1.Location = new System.Drawing.Point(340, 95);
+            this.lblEstadoValor1.Name = "lblEstadoValor1";
+            this.lblEstadoValor1.Text = "0";
             // 
             // panelEstadoPunto2
             // 
-            panelEstadoPunto2.BackColor = System.Drawing.Color.FromArgb(37, 99, 235);
-            panelEstadoPunto2.Location = new System.Drawing.Point(210, 144);
-            panelEstadoPunto2.Name = "panelEstadoPunto2";
-            panelEstadoPunto2.Size = new System.Drawing.Size(10, 10);
-            panelEstadoPunto2.TabIndex = 6;
+            this.panelEstadoPunto2.BackColor = System.Drawing.Color.FromArgb(37, 99, 235);
+            this.panelEstadoPunto2.Location = new System.Drawing.Point(210, 144);
+            this.panelEstadoPunto2.Name = "panelEstadoPunto2";
+            this.panelEstadoPunto2.Size = new System.Drawing.Size(10, 10);
             // 
             // lblEstadoNombre2
             // 
-            lblEstadoNombre2.AutoSize = true;
-            lblEstadoNombre2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            lblEstadoNombre2.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblEstadoNombre2.Location = new System.Drawing.Point(228, 140);
-            lblEstadoNombre2.Name = "lblEstadoNombre2";
-            lblEstadoNombre2.Size = new System.Drawing.Size(70, 15);
-            lblEstadoNombre2.TabIndex = 7;
-            lblEstadoNombre2.Text = "En progreso";
+            this.lblEstadoNombre2.AutoSize = true;
+            this.lblEstadoNombre2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblEstadoNombre2.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblEstadoNombre2.Location = new System.Drawing.Point(228, 140);
+            this.lblEstadoNombre2.Name = "lblEstadoNombre2";
+            this.lblEstadoNombre2.Text = "En progreso";
             // 
             // lblEstadoValor2
             // 
-            lblEstadoValor2.AutoSize = true;
-            lblEstadoValor2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            lblEstadoValor2.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblEstadoValor2.Location = new System.Drawing.Point(340, 140);
-            lblEstadoValor2.Name = "lblEstadoValor2";
-            lblEstadoValor2.Size = new System.Drawing.Size(14, 15);
-            lblEstadoValor2.TabIndex = 8;
-            lblEstadoValor2.Text = "0";
+            this.lblEstadoValor2.AutoSize = true;
+            this.lblEstadoValor2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEstadoValor2.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblEstadoValor2.Location = new System.Drawing.Point(340, 140);
+            this.lblEstadoValor2.Name = "lblEstadoValor2";
+            this.lblEstadoValor2.Text = "0";
             // 
             // panelEstadoPunto3
             // 
-            panelEstadoPunto3.BackColor = System.Drawing.Color.FromArgb(220, 38, 38);
-            panelEstadoPunto3.Location = new System.Drawing.Point(210, 189);
-            panelEstadoPunto3.Name = "panelEstadoPunto3";
-            panelEstadoPunto3.Size = new System.Drawing.Size(10, 10);
-            panelEstadoPunto3.TabIndex = 9;
+            this.panelEstadoPunto3.BackColor = System.Drawing.Color.FromArgb(220, 38, 38);
+            this.panelEstadoPunto3.Location = new System.Drawing.Point(210, 189);
+            this.panelEstadoPunto3.Name = "panelEstadoPunto3";
+            this.panelEstadoPunto3.Size = new System.Drawing.Size(10, 10);
             // 
             // lblEstadoNombre3
             // 
-            lblEstadoNombre3.AutoSize = true;
-            lblEstadoNombre3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            lblEstadoNombre3.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblEstadoNombre3.Location = new System.Drawing.Point(228, 185);
-            lblEstadoNombre3.Name = "lblEstadoNombre3";
-            lblEstadoNombre3.Size = new System.Drawing.Size(68, 15);
-            lblEstadoNombre3.TabIndex = 10;
-            lblEstadoNombre3.Text = "Bloqueadas";
+            this.lblEstadoNombre3.AutoSize = true;
+            this.lblEstadoNombre3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblEstadoNombre3.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblEstadoNombre3.Location = new System.Drawing.Point(228, 185);
+            this.lblEstadoNombre3.Name = "lblEstadoNombre3";
+            this.lblEstadoNombre3.Text = "Bloqueadas";
             // 
             // lblEstadoValor3
             // 
-            lblEstadoValor3.AutoSize = true;
-            lblEstadoValor3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            lblEstadoValor3.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblEstadoValor3.Location = new System.Drawing.Point(340, 185);
-            lblEstadoValor3.Name = "lblEstadoValor3";
-            lblEstadoValor3.Size = new System.Drawing.Size(14, 15);
-            lblEstadoValor3.TabIndex = 11;
-            lblEstadoValor3.Text = "0";
+            this.lblEstadoValor3.AutoSize = true;
+            this.lblEstadoValor3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEstadoValor3.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblEstadoValor3.Location = new System.Drawing.Point(340, 185);
+            this.lblEstadoValor3.Name = "lblEstadoValor3";
+            this.lblEstadoValor3.Text = "0";
             // 
             // panelEstadoPunto4
             // 
-            panelEstadoPunto4.BackColor = System.Drawing.Color.FromArgb(147, 197, 253);
-            panelEstadoPunto4.Location = new System.Drawing.Point(210, 234);
-            panelEstadoPunto4.Name = "panelEstadoPunto4";
-            panelEstadoPunto4.Size = new System.Drawing.Size(10, 10);
-            panelEstadoPunto4.TabIndex = 12;
+            this.panelEstadoPunto4.BackColor = System.Drawing.Color.FromArgb(147, 197, 253);
+            this.panelEstadoPunto4.Location = new System.Drawing.Point(210, 234);
+            this.panelEstadoPunto4.Name = "panelEstadoPunto4";
+            this.panelEstadoPunto4.Size = new System.Drawing.Size(10, 10);
             // 
             // lblEstadoNombre4
             // 
-            lblEstadoNombre4.AutoSize = true;
-            lblEstadoNombre4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            lblEstadoNombre4.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblEstadoNombre4.Location = new System.Drawing.Point(228, 230);
-            lblEstadoNombre4.Name = "lblEstadoNombre4";
-            lblEstadoNombre4.Size = new System.Drawing.Size(64, 15);
-            lblEstadoNombre4.TabIndex = 13;
-            lblEstadoNombre4.Text = "Finalizadas";
+            this.lblEstadoNombre4.AutoSize = true;
+            this.lblEstadoNombre4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblEstadoNombre4.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblEstadoNombre4.Location = new System.Drawing.Point(228, 230);
+            this.lblEstadoNombre4.Name = "lblEstadoNombre4";
+            this.lblEstadoNombre4.Text = "Finalizadas";
             // 
             // lblEstadoValor4
             // 
-            lblEstadoValor4.AutoSize = true;
-            lblEstadoValor4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            lblEstadoValor4.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblEstadoValor4.Location = new System.Drawing.Point(340, 230);
-            lblEstadoValor4.Name = "lblEstadoValor4";
-            lblEstadoValor4.Size = new System.Drawing.Size(14, 15);
-            lblEstadoValor4.TabIndex = 14;
-            lblEstadoValor4.Text = "0";
+            this.lblEstadoValor4.AutoSize = true;
+            this.lblEstadoValor4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.lblEstadoValor4.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblEstadoValor4.Location = new System.Drawing.Point(340, 230);
+            this.lblEstadoValor4.Name = "lblEstadoValor4";
+            this.lblEstadoValor4.Text = "0";
             // 
             // panelHorasProy
             // 
-            panelHorasProy.BackColor = System.Drawing.Color.White;
-            panelHorasProy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panelHorasProy.Controls.Add(lblHorasProyTitulo);
-            panelHorasProy.Controls.Add(lblHorasProySub);
-            panelHorasProy.Controls.Add(lblHorasNombre1);
-            panelHorasProy.Controls.Add(lblHorasValor1);
-            panelHorasProy.Controls.Add(pbHoras1);
-            panelHorasProy.Controls.Add(lblHorasNombre2);
-            panelHorasProy.Controls.Add(lblHorasValor2);
-            panelHorasProy.Controls.Add(pbHoras2);
-            panelHorasProy.Controls.Add(lblHorasNombre3);
-            panelHorasProy.Controls.Add(lblHorasValor3);
-            panelHorasProy.Controls.Add(pbHoras3);
-            panelHorasProy.Controls.Add(lblHorasNombre4);
-            panelHorasProy.Controls.Add(lblHorasValor4);
-            panelHorasProy.Controls.Add(pbHoras4);
-            panelHorasProy.Location = new System.Drawing.Point(480, 235);
-            panelHorasProy.Name = "panelHorasProy";
-            panelHorasProy.Size = new System.Drawing.Size(480, 300);
-            panelHorasProy.TabIndex = 8;
+            this.panelHorasProy.BackColor = System.Drawing.Color.White;
+            this.panelHorasProy.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelHorasProy.Controls.Add(this.lblHorasProyTitulo);
+            this.panelHorasProy.Controls.Add(this.lblHorasProySub);
+            this.panelHorasProy.Controls.Add(this.lblHorasNombre1);
+            this.panelHorasProy.Controls.Add(this.lblHorasValor1);
+            this.panelHorasProy.Controls.Add(this.pbHoras1);
+            this.panelHorasProy.Controls.Add(this.lblHorasNombre2);
+            this.panelHorasProy.Controls.Add(this.lblHorasValor2);
+            this.panelHorasProy.Controls.Add(this.pbHoras2);
+            this.panelHorasProy.Controls.Add(this.lblHorasNombre3);
+            this.panelHorasProy.Controls.Add(this.lblHorasValor3);
+            this.panelHorasProy.Controls.Add(this.pbHoras3);
+            this.panelHorasProy.Controls.Add(this.lblHorasNombre4);
+            this.panelHorasProy.Controls.Add(this.lblHorasValor4);
+            this.panelHorasProy.Controls.Add(this.pbHoras4);
+            this.panelHorasProy.Location = new System.Drawing.Point(480, 235);
+            this.panelHorasProy.Name = "panelHorasProy";
+            this.panelHorasProy.Size = new System.Drawing.Size(480, 300);
             // 
             // lblHorasProyTitulo
             // 
-            lblHorasProyTitulo.AutoSize = true;
-            lblHorasProyTitulo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            lblHorasProyTitulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblHorasProyTitulo.Location = new System.Drawing.Point(15, 14);
-            lblHorasProyTitulo.Name = "lblHorasProyTitulo";
-            lblHorasProyTitulo.Size = new System.Drawing.Size(144, 20);
-            lblHorasProyTitulo.TabIndex = 0;
-            lblHorasProyTitulo.Text = "Horas por proyecto";
+            this.lblHorasProyTitulo.AutoSize = true;
+            this.lblHorasProyTitulo.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lblHorasProyTitulo.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblHorasProyTitulo.Location = new System.Drawing.Point(15, 14);
+            this.lblHorasProyTitulo.Name = "lblHorasProyTitulo";
+            this.lblHorasProyTitulo.Text = "Horas por proyecto";
             // 
             // lblHorasProySub
             // 
-            lblHorasProySub.AutoSize = true;
-            lblHorasProySub.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            lblHorasProySub.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            lblHorasProySub.Location = new System.Drawing.Point(15, 38);
-            lblHorasProySub.Name = "lblHorasProySub";
-            lblHorasProySub.Size = new System.Drawing.Size(139, 15);
-            lblHorasProySub.TabIndex = 1;
-            lblHorasProySub.Text = "Reales frente a estimadas";
+            this.lblHorasProySub.AutoSize = true;
+            this.lblHorasProySub.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblHorasProySub.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblHorasProySub.Location = new System.Drawing.Point(15, 38);
+            this.lblHorasProySub.Name = "lblHorasProySub";
+            this.lblHorasProySub.Text = "Reales frente a estimadas";
             // 
             // lblHorasNombre1
             // 
-            lblHorasNombre1.AutoSize = true;
-            lblHorasNombre1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            lblHorasNombre1.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblHorasNombre1.Location = new System.Drawing.Point(15, 75);
-            lblHorasNombre1.Name = "lblHorasNombre1";
-            lblHorasNombre1.Size = new System.Drawing.Size(63, 15);
-            lblHorasNombre1.TabIndex = 2;
-            lblHorasNombre1.Text = "Proyecto 1";
+            this.lblHorasNombre1.AutoSize = true;
+            this.lblHorasNombre1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblHorasNombre1.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblHorasNombre1.Location = new System.Drawing.Point(15, 75);
+            this.lblHorasNombre1.Name = "lblHorasNombre1";
+            this.lblHorasNombre1.Text = "Proyecto 1";
             // 
             // lblHorasValor1
             // 
-            lblHorasValor1.AutoSize = true;
-            lblHorasValor1.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            lblHorasValor1.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            lblHorasValor1.Location = new System.Drawing.Point(300, 75);
-            lblHorasValor1.Name = "lblHorasValor1";
-            lblHorasValor1.Size = new System.Drawing.Size(50, 15);
-            lblHorasValor1.TabIndex = 3;
-            lblHorasValor1.Text = "0 h / 0 h";
+            this.lblHorasValor1.AutoSize = true;
+            this.lblHorasValor1.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblHorasValor1.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblHorasValor1.Location = new System.Drawing.Point(300, 75);
+            this.lblHorasValor1.Name = "lblHorasValor1";
+            this.lblHorasValor1.Text = "0 h / 0 h";
             // 
             // pbHoras1
             // 
-            pbHoras1.Location = new System.Drawing.Point(15, 97);
-            pbHoras1.Name = "pbHoras1";
-            pbHoras1.Size = new System.Drawing.Size(450, 10);
-            pbHoras1.TabIndex = 4;
+            this.pbHoras1.Location = new System.Drawing.Point(15, 97);
+            this.pbHoras1.Name = "pbHoras1";
+            this.pbHoras1.Size = new System.Drawing.Size(450, 10);
             // 
             // lblHorasNombre2
             // 
-            lblHorasNombre2.AutoSize = true;
-            lblHorasNombre2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            lblHorasNombre2.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblHorasNombre2.Location = new System.Drawing.Point(15, 130);
-            lblHorasNombre2.Name = "lblHorasNombre2";
-            lblHorasNombre2.Size = new System.Drawing.Size(63, 15);
-            lblHorasNombre2.TabIndex = 5;
-            lblHorasNombre2.Text = "Proyecto 2";
+            this.lblHorasNombre2.AutoSize = true;
+            this.lblHorasNombre2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblHorasNombre2.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblHorasNombre2.Location = new System.Drawing.Point(15, 130);
+            this.lblHorasNombre2.Name = "lblHorasNombre2";
+            this.lblHorasNombre2.Text = "Proyecto 2";
             // 
             // lblHorasValor2
             // 
-            lblHorasValor2.AutoSize = true;
-            lblHorasValor2.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            lblHorasValor2.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            lblHorasValor2.Location = new System.Drawing.Point(300, 130);
-            lblHorasValor2.Name = "lblHorasValor2";
-            lblHorasValor2.Size = new System.Drawing.Size(50, 15);
-            lblHorasValor2.TabIndex = 6;
-            lblHorasValor2.Text = "0 h / 0 h";
+            this.lblHorasValor2.AutoSize = true;
+            this.lblHorasValor2.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblHorasValor2.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblHorasValor2.Location = new System.Drawing.Point(300, 130);
+            this.lblHorasValor2.Name = "lblHorasValor2";
+            this.lblHorasValor2.Text = "0 h / 0 h";
             // 
             // pbHoras2
             // 
-            pbHoras2.Location = new System.Drawing.Point(15, 152);
-            pbHoras2.Name = "pbHoras2";
-            pbHoras2.Size = new System.Drawing.Size(450, 10);
-            pbHoras2.TabIndex = 7;
+            this.pbHoras2.Location = new System.Drawing.Point(15, 152);
+            this.pbHoras2.Name = "pbHoras2";
+            this.pbHoras2.Size = new System.Drawing.Size(450, 10);
             // 
             // lblHorasNombre3
             // 
-            lblHorasNombre3.AutoSize = true;
-            lblHorasNombre3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            lblHorasNombre3.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblHorasNombre3.Location = new System.Drawing.Point(15, 185);
-            lblHorasNombre3.Name = "lblHorasNombre3";
-            lblHorasNombre3.Size = new System.Drawing.Size(63, 15);
-            lblHorasNombre3.TabIndex = 8;
-            lblHorasNombre3.Text = "Proyecto 3";
+            this.lblHorasNombre3.AutoSize = true;
+            this.lblHorasNombre3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblHorasNombre3.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblHorasNombre3.Location = new System.Drawing.Point(15, 185);
+            this.lblHorasNombre3.Name = "lblHorasNombre3";
+            this.lblHorasNombre3.Text = "Proyecto 3";
             // 
             // lblHorasValor3
             // 
-            lblHorasValor3.AutoSize = true;
-            lblHorasValor3.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            lblHorasValor3.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            lblHorasValor3.Location = new System.Drawing.Point(300, 185);
-            lblHorasValor3.Name = "lblHorasValor3";
-            lblHorasValor3.Size = new System.Drawing.Size(50, 15);
-            lblHorasValor3.TabIndex = 9;
-            lblHorasValor3.Text = "0 h / 0 h";
+            this.lblHorasValor3.AutoSize = true;
+            this.lblHorasValor3.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblHorasValor3.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblHorasValor3.Location = new System.Drawing.Point(300, 185);
+            this.lblHorasValor3.Name = "lblHorasValor3";
+            this.lblHorasValor3.Text = "0 h / 0 h";
             // 
             // pbHoras3
             // 
-            pbHoras3.Location = new System.Drawing.Point(15, 207);
-            pbHoras3.Name = "pbHoras3";
-            pbHoras3.Size = new System.Drawing.Size(450, 10);
-            pbHoras3.TabIndex = 10;
+            this.pbHoras3.Location = new System.Drawing.Point(15, 207);
+            this.pbHoras3.Name = "pbHoras3";
+            this.pbHoras3.Size = new System.Drawing.Size(450, 10);
             // 
             // lblHorasNombre4
             // 
-            lblHorasNombre4.AutoSize = true;
-            lblHorasNombre4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            lblHorasNombre4.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblHorasNombre4.Location = new System.Drawing.Point(15, 240);
-            lblHorasNombre4.Name = "lblHorasNombre4";
-            lblHorasNombre4.Size = new System.Drawing.Size(63, 15);
-            lblHorasNombre4.TabIndex = 11;
-            lblHorasNombre4.Text = "Proyecto 4";
+            this.lblHorasNombre4.AutoSize = true;
+            this.lblHorasNombre4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lblHorasNombre4.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblHorasNombre4.Location = new System.Drawing.Point(15, 240);
+            this.lblHorasNombre4.Name = "lblHorasNombre4";
+            this.lblHorasNombre4.Text = "Proyecto 4";
             // 
             // lblHorasValor4
             // 
-            lblHorasValor4.AutoSize = true;
-            lblHorasValor4.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            lblHorasValor4.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            lblHorasValor4.Location = new System.Drawing.Point(300, 240);
-            lblHorasValor4.Name = "lblHorasValor4";
-            lblHorasValor4.Size = new System.Drawing.Size(50, 15);
-            lblHorasValor4.TabIndex = 12;
-            lblHorasValor4.Text = "0 h / 0 h";
+            this.lblHorasValor4.AutoSize = true;
+            this.lblHorasValor4.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblHorasValor4.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblHorasValor4.Location = new System.Drawing.Point(300, 240);
+            this.lblHorasValor4.Name = "lblHorasValor4";
+            this.lblHorasValor4.Text = "0 h / 0 h";
             // 
             // pbHoras4
             // 
-            pbHoras4.Location = new System.Drawing.Point(15, 262);
-            pbHoras4.Name = "pbHoras4";
-            pbHoras4.Size = new System.Drawing.Size(450, 10);
-            pbHoras4.TabIndex = 13;
+            this.pbHoras4.Location = new System.Drawing.Point(15, 262);
+            this.pbHoras4.Name = "pbHoras4";
+            this.pbHoras4.Size = new System.Drawing.Size(450, 10);
             // 
             // panelResumenHoras
             // 
-            panelResumenHoras.BackColor = System.Drawing.Color.White;
-            panelResumenHoras.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            panelResumenHoras.Controls.Add(lblHorasEstTitulo);
-            panelResumenHoras.Controls.Add(lblHorasEstValor);
-            panelResumenHoras.Controls.Add(lblHorasRegTitulo);
-            panelResumenHoras.Controls.Add(lblHorasRegValor);
-            panelResumenHoras.Controls.Add(lblUsoTitulo);
-            panelResumenHoras.Controls.Add(lblUsoValor);
-            panelResumenHoras.Controls.Add(pbUso);
-            panelResumenHoras.Location = new System.Drawing.Point(30, 555);
-            panelResumenHoras.Name = "panelResumenHoras";
-            panelResumenHoras.Size = new System.Drawing.Size(930, 80);
-            panelResumenHoras.TabIndex = 9;
+            this.panelResumenHoras.BackColor = System.Drawing.Color.White;
+            this.panelResumenHoras.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelResumenHoras.Controls.Add(this.lblHorasEstTitulo);
+            this.panelResumenHoras.Controls.Add(this.lblHorasEstValor);
+            this.panelResumenHoras.Controls.Add(this.lblHorasRegTitulo);
+            this.panelResumenHoras.Controls.Add(this.lblHorasRegValor);
+            this.panelResumenHoras.Controls.Add(this.lblUsoTitulo);
+            this.panelResumenHoras.Controls.Add(this.lblUsoValor);
+            this.panelResumenHoras.Controls.Add(this.pbUso);
+            this.panelResumenHoras.Location = new System.Drawing.Point(30, 555);
+            this.panelResumenHoras.Name = "panelResumenHoras";
+            this.panelResumenHoras.Size = new System.Drawing.Size(930, 80);
             // 
             // lblHorasEstTitulo
             // 
-            lblHorasEstTitulo.AutoSize = true;
-            lblHorasEstTitulo.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            lblHorasEstTitulo.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            lblHorasEstTitulo.Location = new System.Drawing.Point(20, 14);
-            lblHorasEstTitulo.Name = "lblHorasEstTitulo";
-            lblHorasEstTitulo.Size = new System.Drawing.Size(94, 15);
-            lblHorasEstTitulo.TabIndex = 0;
-            lblHorasEstTitulo.Text = "Horas estimadas";
+            this.lblHorasEstTitulo.AutoSize = true;
+            this.lblHorasEstTitulo.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblHorasEstTitulo.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblHorasEstTitulo.Location = new System.Drawing.Point(20, 14);
+            this.lblHorasEstTitulo.Name = "lblHorasEstTitulo";
+            this.lblHorasEstTitulo.Text = "Horas estimadas";
             // 
             // lblHorasEstValor
             // 
-            lblHorasEstValor.AutoSize = true;
-            lblHorasEstValor.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            lblHorasEstValor.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblHorasEstValor.Location = new System.Drawing.Point(20, 32);
-            lblHorasEstValor.Name = "lblHorasEstValor";
-            lblHorasEstValor.Size = new System.Drawing.Size(58, 25);
-            lblHorasEstValor.TabIndex = 1;
-            lblHorasEstValor.Text = "624 h";
+            this.lblHorasEstValor.AutoSize = true;
+            this.lblHorasEstValor.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lblHorasEstValor.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblHorasEstValor.Location = new System.Drawing.Point(20, 32);
+            this.lblHorasEstValor.Name = "lblHorasEstValor";
+            this.lblHorasEstValor.Text = "624 h";
             // 
             // lblHorasRegTitulo
             // 
-            lblHorasRegTitulo.AutoSize = true;
-            lblHorasRegTitulo.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            lblHorasRegTitulo.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            lblHorasRegTitulo.Location = new System.Drawing.Point(260, 14);
-            lblHorasRegTitulo.Name = "lblHorasRegTitulo";
-            lblHorasRegTitulo.Size = new System.Drawing.Size(98, 15);
-            lblHorasRegTitulo.TabIndex = 2;
-            lblHorasRegTitulo.Text = "Horas registradas";
+            this.lblHorasRegTitulo.AutoSize = true;
+            this.lblHorasRegTitulo.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblHorasRegTitulo.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblHorasRegTitulo.Location = new System.Drawing.Point(260, 14);
+            this.lblHorasRegTitulo.Name = "lblHorasRegTitulo";
+            this.lblHorasRegTitulo.Text = "Horas registradas";
             // 
             // lblHorasRegValor
             // 
-            lblHorasRegValor.AutoSize = true;
-            lblHorasRegValor.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            lblHorasRegValor.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            lblHorasRegValor.Location = new System.Drawing.Point(260, 32);
-            lblHorasRegValor.Name = "lblHorasRegValor";
-            lblHorasRegValor.Size = new System.Drawing.Size(73, 25);
-            lblHorasRegValor.TabIndex = 3;
-            lblHorasRegValor.Text = "486,5 h";
+            this.lblHorasRegValor.AutoSize = true;
+            this.lblHorasRegValor.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lblHorasRegValor.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
+            this.lblHorasRegValor.Location = new System.Drawing.Point(260, 32);
+            this.lblHorasRegValor.Name = "lblHorasRegValor";
+            this.lblHorasRegValor.Text = "486,5 h";
             // 
             // lblUsoTitulo
             // 
-            lblUsoTitulo.AutoSize = true;
-            lblUsoTitulo.Font = new System.Drawing.Font("Segoe UI", 8.5F);
-            lblUsoTitulo.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            lblUsoTitulo.Location = new System.Drawing.Point(560, 14);
-            lblUsoTitulo.Name = "lblUsoTitulo";
-            lblUsoTitulo.Size = new System.Drawing.Size(75, 15);
-            lblUsoTitulo.TabIndex = 4;
-            lblUsoTitulo.Text = "Uso de horas";
+            this.lblUsoTitulo.AutoSize = true;
+            this.lblUsoTitulo.Font = new System.Drawing.Font("Segoe UI", 8.5F);
+            this.lblUsoTitulo.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
+            this.lblUsoTitulo.Location = new System.Drawing.Point(560, 14);
+            this.lblUsoTitulo.Name = "lblUsoTitulo";
+            this.lblUsoTitulo.Text = "Uso de horas";
             // 
             // lblUsoValor
             // 
-            lblUsoValor.AutoSize = true;
-            lblUsoValor.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
-            lblUsoValor.ForeColor = System.Drawing.Color.FromArgb(37, 99, 235);
-            lblUsoValor.Location = new System.Drawing.Point(840, 10);
-            lblUsoValor.Name = "lblUsoValor";
-            lblUsoValor.Size = new System.Drawing.Size(38, 25);
-            lblUsoValor.TabIndex = 5;
-            lblUsoValor.Text = "0%";
+            this.lblUsoValor.AutoSize = true;
+            this.lblUsoValor.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold);
+            this.lblUsoValor.ForeColor = System.Drawing.Color.FromArgb(37, 99, 235);
+            this.lblUsoValor.Location = new System.Drawing.Point(840, 10);
+            this.lblUsoValor.Name = "lblUsoValor";
+            this.lblUsoValor.Text = "0%";
             // 
             // pbUso
             // 
-            pbUso.Location = new System.Drawing.Point(560, 52);
-            pbUso.Name = "pbUso";
-            pbUso.Size = new System.Drawing.Size(260, 10);
-            pbUso.TabIndex = 6;
+            this.pbUso.Location = new System.Drawing.Point(560, 52);
+            this.pbUso.Name = "pbUso";
+            this.pbUso.Size = new System.Drawing.Size(260, 10);
             // 
             // Form5
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            AutoScroll = true;
-            BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
-            ClientSize = new System.Drawing.Size(984, 708);
-            Controls.Add(lblRendimiento);
-            Controls.Add(lblTituloResumen);
-            Controls.Add(lblSubResumen);
-            Controls.Add(panelStat1);
-            Controls.Add(panelStat2);
-            Controls.Add(panelStat3);
-            Controls.Add(panelStat4);
-            Controls.Add(panelEstadoResumen);
-            Controls.Add(panelHorasProy);
-            Controls.Add(panelResumenHoras);
-            Name = "Form5";
-            Text = "Resumen";
-            panelStat1.ResumeLayout(false);
-            panelStat1.PerformLayout();
-            panelStat2.ResumeLayout(false);
-            panelStat2.PerformLayout();
-            panelStat3.ResumeLayout(false);
-            panelStat3.PerformLayout();
-            panelStat4.ResumeLayout(false);
-            panelStat4.PerformLayout();
-            panelEstadoResumen.ResumeLayout(false);
-            panelEstadoResumen.PerformLayout();
-            panelHorasProy.ResumeLayout(false);
-            panelHorasProy.PerformLayout();
-            panelResumenHoras.ResumeLayout(false);
-            panelResumenHoras.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.FromArgb(245, 247, 250);
+            this.ClientSize = new System.Drawing.Size(960, 708);
+            this.Controls.Add(this.lblRendimiento);
+            this.Controls.Add(this.lblTituloResumen);
+            this.Controls.Add(this.lblSubResumen);
+            this.Controls.Add(this.panelStat1);
+            this.Controls.Add(this.panelStat2);
+            this.Controls.Add(this.panelStat3);
+            this.Controls.Add(this.panelStat4);
+            this.Controls.Add(this.panelEstadoResumen);
+            this.Controls.Add(this.panelHorasProy);
+            this.Controls.Add(this.panelResumenHoras);
+            this.Name = "Form5";
+            this.Text = "Resumen";
+            this.panelStat1.ResumeLayout(false);
+            this.panelStat1.PerformLayout();
+            this.panelStat2.ResumeLayout(false);
+            this.panelStat2.PerformLayout();
+            this.panelStat3.ResumeLayout(false);
+            this.panelStat3.PerformLayout();
+            this.panelStat4.ResumeLayout(false);
+            this.panelStat4.PerformLayout();
+            this.panelEstadoResumen.ResumeLayout(false);
+            this.panelEstadoResumen.PerformLayout();
+            this.panelHorasProy.ResumeLayout(false);
+            this.panelHorasProy.PerformLayout();
+            this.panelResumenHoras.ResumeLayout(false);
+            this.panelResumenHoras.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
         #endregion

@@ -1,0 +1,11 @@
+-- Datos iniciales de Planea (esquema actual de la BD del equipo).
+-- Los estados (Pendiente, En progreso, Completada) y roles (Administrador, Usuario) ya existen en la BD.
+
+-- PRIMER ADMINISTRADOR (una vez, tras registrarse desde la app).
+-- Ser "Administrador" = tener ese rol en PROJECT_USER_ROLE. Hace falta un proyecto;
+-- después los administradores crean los demás desde la app.
+-- INSERT INTO PROJECTS (name_project, description_project, date_start_project, date_submit)
+--     VALUES ('Planea', 'Proyecto inicial', GETDATE(), DATEADD(MONTH, 1, GETDATE()));
+-- INSERT INTO PROJECT_USER_ROLE (id_role, id_user, id_project)
+--     SELECT (SELECT id_role FROM ROLES WHERE name_role = 'Administrador'), u.id_user, SCOPE_IDENTITY()
+--     FROM USERS u WHERE u.mail_user = 'correo@ejemplo.com';
