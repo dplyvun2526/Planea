@@ -19,6 +19,7 @@ namespace ProyectoDeskstop
             InitializeComponent();
 
             botonesPestana = new[] { btnTodas, btnPendientes, btnEnProgreso, btnBloqueadas, btnFinalizadas };
+            CrearBotonEstado();
 
             Traducir();
             FiltrarTareas(this, EventArgs.Empty);
@@ -113,22 +114,79 @@ namespace ProyectoDeskstop
 
         private void btnCrearTarea_Click(object sender, EventArgs e)
         {
-            string titulo = Microsoft.VisualBasic.Interaction.InputBox(T("Título de la tarea:"), T("Crear tarea"), "").Trim();
-            if (titulo == "")
+            if (Datos.Proyectos.Count == 0)
             {
+                MessageBox.Show(T("Primero tiene que existir un proyecto."), T("Aviso"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            Datos.Tareas.Add(new Tarea
+            using (NuevaTareaDialog dialogo = new NuevaTareaDialog())
             {
-                Titulo = titulo,
-                Proyecto = "Sin proyecto",
-                Responsable = Datos.Nombre,
-                Estado = "Pendiente",
-                Prioridad = "Media",
-                Horas = "0 h",
-                Fecha = "—"
-            });
+                if (dialogo.ShowDialog(this) != DialogResult.OK) return;
+                if (dialogo.Titulo == "")
+                {
+                    MessageBox.Show(T("El título es obligatorio."), T("Aviso"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                try
+                {
+                    Servicio.CrearTarea(dialogo.Titulo, dialogo.IdProyecto, dialogo.Prioridad, dialogo.Limite, dialogo.IdResponsable);
+                    Servicio.Cargar();
+                }
+                catch (ApiException ex)
+                {
+                    MessageBox.Show(ex.Message, "Planea", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            FiltrarTareas(sender, e);
+        }
+
+        private void CrearBotonEstado()
+        {
+            Button b = new Button
+            {
+                Text = T("Cambiar estado"),
+                Location = new Point(630, 167),
+                Size = new Size(120, 28),
+                BackColor = Color.White,
+                ForeColor = Diseno.Texto,
+                FlatStyle = FlatStyle.Flat,
+                Cursor = Cursors.Hand
+            };
+            b.Click += CambiarEstado_Click;
+            Controls.Add(b);
+            b.BringToFront();
+        }
+
+        private void CambiarEstado_Click(object sender, EventArgs e)
+        {
+            if (dgvTareas.CurrentRow == null || dgvTareas.CurrentRow.Index < 0 || dgvTareas.CurrentRow.Index >= mostradas.Count)
+            {
+                MessageBox.Show(T("Selecciona una tarea de la lista."), T("Aviso"), MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            Tarea t = mostradas[dgvTareas.CurrentRow.Index];
+            string[] estados = { "Pendiente", "En progreso", "Finalizada" }; // la BD solo tiene Pendiente, En progreso y Completada
+            using (FormularioSimple f = new FormularioSimple(T("Cambiar estado")))
+            {
+                ComboBox combo = f.Lista(t.Titulo, System.Linq.Enumerable.Select(estados, s => T(s)));
+                combo.SelectedIndex = Math.Max(0, Array.IndexOf(estados, t.Estado));
+                f.Final(T("Guardar"));
+                if (f.ShowDialog(this) != DialogResult.OK) return;
+                try
+                {
+                    Servicio.CambiarEstado(t, estados[combo.SelectedIndex]);
+                    Servicio.Cargar();
+                }
+                catch (ApiException ex)
+                {
+                    MessageBox.Show(ex.Message, "Planea", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
             FiltrarTareas(sender, e);
         }
 
@@ -145,7 +203,16 @@ namespace ProyectoDeskstop
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (r == DialogResult.Yes)
             {
-                Datos.Tareas.Remove(t);
+                try
+                {
+                    Servicio.EliminarTarea(t);
+                    Servicio.Cargar();
+                }
+                catch (ApiException ex)
+                {
+                    MessageBox.Show(ex.Message, "Planea", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 FiltrarTareas(sender, e);
             }
         }

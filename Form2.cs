@@ -23,6 +23,7 @@ namespace ProyectoDeskstop
         {
             lblSubtitulo.Text = T("Aquí tienes una visión general del trabajo de tu equipo.");
             lblHorasTitulo.Text = T("Horas este mes");
+            lblHorasValor.Text = Datos.HorasMes.ToString("0.#", Cultura()) + " h";
             lblStat1Titulo.Text = T("Proyectos activos");
             lblStat2Titulo.Text = T("Tareas pendientes");
             lblStat3Titulo.Text = T("En progreso");
@@ -65,8 +66,11 @@ namespace ProyectoDeskstop
             Label[] estados = { lblProy1Estado, lblProy2Estado, lblProy3Estado };
             Label[] entregas = { lblProy1Entrega, lblProy2Entrega, lblProy3Entrega };
 
-            for (int i = 0; i < 3 && i < Datos.Proyectos.Count; i++)
+            for (int i = 0; i < 3; i++)
             {
+                bool hay = i < Datos.Proyectos.Count;
+                nombres[i].Visible = detalles[i].Visible = barras[i].Visible = porcentajes[i].Visible = estados[i].Visible = entregas[i].Visible = hay;
+                if (!hay) continue;
                 Proyecto p = Datos.Proyectos[i];
                 nombres[i].Text = p.Nombre;
                 detalles[i].Text = T("{0} de {1} tareas completadas", p.Completadas, p.Total);
@@ -90,9 +94,13 @@ namespace ProyectoDeskstop
             Label[] fechas = { lblProx1Fecha, lblProx2Fecha, lblProx3Fecha };
             Label[] iniciales = { lblProx1Iniciales, lblProx2Iniciales, lblProx3Iniciales };
 
-            for (int i = 0; i < 3 && i < Datos.Tareas.Count; i++)
+            var proximas = Datos.Tareas.Where(x => x.Estado != "Finalizada").ToList();
+            for (int i = 0; i < 3; i++)
             {
-                Tarea t = Datos.Tareas[i];
+                bool hay = i < proximas.Count;
+                titulos[i].Visible = proyectos[i].Visible = fechas[i].Visible = iniciales[i].Visible = hay;
+                if (!hay) continue;
+                Tarea t = proximas[i];
                 bool hoy = t.Fecha == "Hoy";
                 titulos[i].Text = t.Titulo;
                 proyectos[i].Text = t.Proyecto;

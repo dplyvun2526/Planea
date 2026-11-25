@@ -68,8 +68,11 @@ namespace ProyectoDeskstop
             Label[] valores = { lblHorasValor1, lblHorasValor2, lblHorasValor3, lblHorasValor4 };
             ProgressBar[] barras = { pbHoras1, pbHoras2, pbHoras3, pbHoras4 };
 
-            for (int i = 0; i < 4 && i < Datos.Proyectos.Count; i++)
+            for (int i = 0; i < 4; i++)
             {
+                bool hay = i < Datos.Proyectos.Count;
+                nombres[i].Visible = valores[i].Visible = barras[i].Visible = hay;
+                if (!hay) continue;
                 Proyecto p = Datos.Proyectos[i];
                 int estimadas = Math.Max(1, p.HorasEstimadas);
                 nombres[i].Text = p.Nombre;
@@ -79,7 +82,7 @@ namespace ProyectoDeskstop
             }
 
             // Resumen de horas
-            int uso = (int)Math.Round(100 * Datos.HorasRegistradasTotal / Datos.HorasEstimadasTotal);
+            int uso = Datos.HorasEstimadasTotal <= 0 ? 0 : (int)Math.Min(100, Math.Round(100 * Datos.HorasRegistradasTotal / Datos.HorasEstimadasTotal));
             lblHorasEstValor.Text = Datos.HorasEstimadasTotal.ToString("0", cultura) + " h";
             lblHorasRegValor.Text = Datos.HorasRegistradasTotal.ToString("N1", cultura) + " h";
             lblUsoValor.Text = uso + "%";
